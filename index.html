@@ -25,8 +25,6 @@
       --shadow-lg: 0 30px 90px rgba(2,6,23,.12);
       --green: #10b981;
       --blue: #3b82f6;
-      --amber: #f59e0b;
-      --red: #ef4444;
       --grad-1: linear-gradient(90deg, #3b82f6, #10b981);
       --grad-2: radial-gradient(1100px 680px at 10% -20%, rgba(59,130,246,.16), transparent 55%),
                 radial-gradient(1000px 620px at 110% 120%, rgba(16,185,129,.16), transparent 55%);
@@ -116,9 +114,7 @@
 
     .note { padding: .7rem .9rem; border-radius: 14px; border: 1px solid var(--line); background: rgba(2,6,23,.03); }
     .note .title { font-weight: 700; opacity: .95; margin-bottom: .25em }
-    .note.ok   { border-color: rgba(16,185,129,.35); background: rgba(16,185,129,.08) }
     .note.warn { border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.1) }
-    .note.bad  { border-color: rgba(239,68,68,.35); background: rgba(239,68,68,.1) }
 
     /* Reveal polish */
     .reveal .progress { height: 6px; background: var(--grad-1) }
@@ -127,7 +123,7 @@
       border-radius: 8px; padding: .2rem .45rem;
     }
 
-    /* ========================= HERO – TITLE SLIDE ========================= */
+    /* ========================= HERO / ROZDZIAŁ ========================= */
     section[data-state="cards-light"] .card,
     .hero .stat, .chapter-hero { background: #ffffff !important; color: #0f172a !important; border-color: #e5e7eb !important; box-shadow: var(--shadow) }
     section[data-state="cards-light"] .note { background: #ffffff !important; color: #0f172a !important; border-color: #e5e7eb !important }
@@ -168,8 +164,6 @@
       -webkit-background-clip: text; background-clip: text; color: transparent;
     }
 
-    .hero-sub { font-size: clamp(16px,1.5vw,20px); color: var(--muted); margin: .2em 0 1.2rem; }
-
     .chips { display:flex; flex-wrap:wrap; gap:.5rem; margin:.6rem 0 1.2rem; }
     .chip {
       display:inline-flex; align-items:center; gap:.45rem;
@@ -196,13 +190,6 @@
     }
     .stat-desc { color: var(--muted); margin-top: .25rem; font-weight: 600; letter-spacing: .2px }
 
-    /* Subtle entrances */
-    .fade-up { opacity: 0; transform: translateY(10px); animation: fadeUp .6s ease forwards; }
-    .fade-up.delay-1 { animation-delay: .08s } .fade-up.delay-2 { animation-delay: .16s }
-    .fade-up.delay-3 { animation-delay: .24s } .fade-up.delay-4 { animation-delay: .32s }
-    @keyframes fadeUp { to { opacity:1; transform: translateY(0) } }
-
-    /* ========================= CHAPTER HERO (ROZDZIAŁ 1) ========================= */
     .chapter-hero {
       padding: clamp(28px,4vw,48px);
       border-radius: 24px;
@@ -214,17 +201,14 @@
       position: relative;
       overflow: hidden;
     }
-    .chapter-hero .top {
-      display:flex; align-items:flex-end; justify-content:center; gap:1.2rem; flex-wrap:wrap; text-align:center;
-    }
+    .chapter-hero .top { display:flex; align-items:flex-end; justify-content:center; gap:1.2rem; flex-wrap:wrap; text-align:center; }
     .chapter-hero .num {
       font-size: clamp(44px,7vw,96px);
       line-height: .9;
       letter-spacing:.02em;
       background: var(--grad-1);
       -webkit-background-clip:text; background-clip:text; color:transparent;
-      font-weight: 900;
-      text-transform: uppercase;
+      font-weight: 900; text-transform: uppercase;
     }
     .chapter-hero .title { font-size: clamp(22px,2.6vw,32px); color: var(--ink); font-weight: 800; max-width: 1100px; }
     .chapter-hero .muted { color: var(--muted); font-weight: 600; }
@@ -233,50 +217,11 @@
     .chev { display:inline-block; margin-left:.25rem; animation: bounce 1.2s ease-in-out infinite; }
     @keyframes bounce { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(4px) } }
 
-    /* ===== SLIDE 1 – Import danych: przejrzyste kroki ===== */
-    .steps { display: grid; grid-template-columns: 1.35fr .9fr; gap: 1.2rem; }
-    @media (max-width: 1100px){ .steps{ grid-template-columns: 1fr; } }
-    .step-list { display: grid; gap: .9rem; }
-    .step-card {
-      position: relative; padding: 1.15rem 1.2rem 1.1rem 1.2rem;
-      border: 1px solid var(--line); background: var(--panel);
-      border-radius: 18px; box-shadow: var(--shadow);
-    }
-    .step-head { display: flex; align-items: center; gap: .6rem; margin-bottom: .35rem; }
-    .step-num {
-      width: 34px; height: 34px; border-radius: 999px;
-      display: inline-flex; align-items: center; justify-content: center;
-      font-weight: 800; letter-spacing: .2px;
-      background: #eef6ff; border: 1px solid #cfe3ff; color: #1e40af; flex: 0 0 34px;
-    }
-    .step-title { font-weight: 800; font-size: 1.05em; }
-    .step-body { font-size: 1.02em; }
-    .step-body b { font-weight: 800; }
+    /* Small helpers used in content */
     .badge-soft {
-      display: inline-block; padding: .18em .5em; border-radius: 999px;
-      border: 1px solid rgba(2,6,23,.08); background: rgba(2,6,23,.04);
-      font-weight: 700; font-size: .92em; letter-spacing: .2px;
-    }
-    .kbd-row { margin-top: .35rem; color: var(--muted); font-size: .95em; }
-    .kbd-row .kbd { margin: 0 .12rem; }
-
-    .side-panel { display: grid; gap: .9rem; }
-    .callout {
-      border: 1px solid var(--line); border-radius: 16px; background: #fff;
-      box-shadow: var(--shadow); padding: .9rem 1.05rem;
-    }
-    .callout h4 { margin: 0 0 .5rem; font-size: 1.05em; font-weight: 900; letter-spacing: .2px; }
-    .callout.bad   { border-color: rgba(239,68,68,.35); background: rgba(239,68,68,.06); }
-    .callout.bad h4 { color: #b91c1c; }
-    .callout.ok    { border-color: rgba(16,185,129,.35); background: rgba(16,185,129,.07); }
-    .callout.ok h4  { color: #065f46; }
-    .list-tight { margin: 0; padding-left: 1.15em; }
-    .list-tight li { margin: .28rem 0; }
-    .code-chip {
-      display: inline-block; padding: .22em .5em; border-radius: 8px;
-      border: 1px solid #e5e7eb; background: #f8fafc;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-      font-weight: 700; letter-spacing: .2px;
+      display:inline-block; padding:.18em .5em; border-radius:999px;
+      border:1px solid rgba(2,6,23,.08); background:rgba(2,6,23,.04);
+      font-weight:700; font-size:.92em; letter-spacing:.2px;
     }
 
     /* Back link */
@@ -293,7 +238,7 @@
         <div class="hero">
           <div class="hero-inner">
             <div class="hero-left">
-              <div class="hero-eyebrow fade-up">🎓 Matura z informatyki </div>
+              <div class="hero-eyebrow fade-up">🎓 Matura z informatyki</div>
               <h1 class="hero-title fade-up delay-1">
                 Rozwiązanie zadania maturalnego<br>
                 z informatyki w <span class="excel">Excelu</span>
@@ -348,7 +293,6 @@
               <div class="card">
                 <h4><span class="badge">3</span> Daty w Excelu – obliczenia i okresy 7-dniowe</h4>
                 <p class="tiny">Daty w Excelu – obliczenia i okresy 7-dniowe</p>
-                
               </div>
             </a>
             <a class="card-link" href="#/s4-agregaty">
@@ -368,14 +312,12 @@
               <div class="card">
                 <h4><span class="badge">5</span> Warunki i kryteria – JEŻELI, SUMA.WARUNKÓW, LICZ.WARUNKI</h4>
                 <p class="tiny">Warunki i kryteria – JEŻELI, SUMA.WARUNKÓW, LICZ.WARUNKI</p>
-                
               </div>
             </a>
             <a class="card-link" href="#/s6-magazyn">
               <div class="card">
                 <h4><span class="badge">6</span> Logika magazynu – praca stanem narastającym</h4>
                 <p class="tiny">Logika magazynu – praca stanem narastającym</p>
-                
               </div>
             </a>
             <a class="card-link" href="#/s7-pivot">
@@ -395,36 +337,37 @@
 
         <!-- ====== ROZWINIĘCIA 1–8 ====== -->
 
-       <section id="s1-import" data-state="cards-light">
-  <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
-  <h3>1) Import danych – krok po kroku</h3>
+        <!-- SLIDE 1: Import danych -->
+        <section id="s1-import" data-state="cards-light">
+          <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+          <h3>1) Import danych – krok po kroku</h3>
 
-  <div class="grid grid-2">
-    <div class="card">
-      <h4><span class="badge">1</span> Otwórz kreator importu</h4>
-      <p>Excel → <b>Dane</b> → <b>Z tekstu/CSV</b> → wybierz plik.</p>
-      <p class="tiny">Kliknij <span class="kbd">Dalej</span>, aby zobaczyć podgląd.</p>
-    </div>
+          <div class="grid grid-2">
+            <div class="card">
+              <h4><span class="badge">1</span> Otwórz kreator importu</h4>
+              <p>Excel → <b>Dane</b> → <b>Z tekstu/CSV</b> → wybierz plik.</p>
+              <p class="tiny">Kliknij <span class="kbd">Dalej</span>, aby zobaczyć podgląd.</p>
+            </div>
 
-    <div class="card">
-      <h4><span class="badge">2</span> Ustaw podział i liczby</h4>
-      <p><b>Separator = Tabulator</b> <span class="badge-soft">TSV</span> • <b>Dziesiętny = ,</b> (przecinek).</p>
-      <p class="tiny">Jeśli widzisz „3.14” zamiast „3,14” – popraw.</p>
-    </div>
+            <div class="card">
+              <h4><span class="badge">2</span> Ustaw podział i liczby</h4>
+              <p><b>Separator = Tabulator</b> <span class="badge-soft">TSV</span> • <b>Dziesiętny = ,</b> (przecinek).</p>
+              <p class="tiny">Jeśli widzisz „3.14” zamiast „3,14” – popraw.</p>
+            </div>
 
-    <div class="card">
-      <h4><span class="badge">3</span> Kolumna <em>data</em> ma być datą</h4>
-      <p>Kliknij kolumnę <b>data</b> → wybierz typ <b>Data</b> (nie „Tekst”).</p>
-      <p class="tiny">Formuła <code>=ROK(A2)</code> ma zwrócić liczbę (np. 2023).</p>
-    </div>
+            <div class="card">
+              <h4><span class="badge">3</span> Kolumna <em>data</em> ma być datą</h4>
+              <p>Kliknij kolumnę <b>data</b> → wybierz typ <b>Data</b> (nie „Tekst”).</p>
+              <p class="tiny">Formuła <code>=ROK(A2)</code> ma zwrócić liczbę (np. 2023).</p>
+            </div>
 
-    <div class="card">
-      <h4><span class="badge">4</span> Posprzątaj tabelę</h4>
-      <p>Włącz <b>Filtr</b>, a kolumnę <b>data</b> posortuj <b>rosnąco</b>.</p>
-      <p class="tiny">Sort: <span class="kbd">Dane</span> → <span class="kbd">Sortuj od najstarszych</span></p>
-    </div>
-  </div>
-</section>
+            <div class="card">
+              <h4><span class="badge">4</span> Posprzątaj tabelę</h4>
+              <p>Włącz <b>Filtr</b>, a kolumnę <b>data</b> posortuj <b>rosnąco</b>.</p>
+              <p class="tiny">Sort: <span class="kbd">Dane</span> → <span class="kbd">Sortuj od najstarszych</span></p>
+            </div>
+          </div>
+        </section>
 
         <!-- SLIDE 2: Operacje -->
         <section id="s2-operacje" data-state="cards-light">
@@ -494,7 +437,7 @@
           <h3>7) Tabele przestawne – mini-przewodnik</h3>
           <ol>
             <li>Zaznacz dane → <em>Wstaw → Tabela przestawna</em> (nowy arkusz).</li>
-            <li>Ustaw pola: <b>Wiersze</b> (np. obszar), <b>Kolumny</b> (np. rok), <b>Wartości</b> (np. masa). </li>
+            <li>Ustaw pola: <b>Wiersze</b> (np. obszar), <b>Kolumny</b> (np. rok), <b>Wartości</b> (np. masa).</li>
             <li>Zmień funkcję wartości: „<b>Suma</b>” → „<b>Średnia</b>” lub „<b>Liczba</b>”.</li>
             <li>Po zmianach w danych użyj <em>Odśwież</em>.</li>
           </ol>
@@ -524,8 +467,6 @@
             <li>Myślenie „stanem narastającym” + ograniczenie 1 wysyłki/dzień.</li>
           </ul>
         </section>
-
-    
 
       </section><!-- koniec rozdziału 1 -->
 
