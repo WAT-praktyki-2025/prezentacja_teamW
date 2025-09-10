@@ -1,40 +1,543 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Martianeum – Rozdział 1: Przygotowanie do zadań 6.1–6.5</title>
 
-		<title>reveal.js</title>
+	<!-- Reveal core -->
+	<link rel="stylesheet" href="dist/reset.css" />
+	<link rel="stylesheet" href="dist/reveal.css" />
+	<link rel="stylesheet" href="dist/theme/black.css" id="theme" />
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" />
+	<!-- OPTIONAL: Poppins -->
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+	<style>
+		/* ========================= MARTIANEUM – PRO STYLES ========================= */
+		:root {
+			--ink: #0f172a;
+			--muted: #64748b;
+			--bg: #ffffff;
+			--panel: #ffffff;
+			--line: #e5e7eb;
+			--shadow: 0 20px 60px rgba(2,6,23,.08);
+			--shadow-lg: 0 30px 90px rgba(2,6,23,.12);
+			--green: #10b981;
+			--blue: #3b82f6;
+			--amber: #f59e0b;
+			--red: #ef4444;
+		}
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--ink: #e5e7eb;
+				--muted: #94a3b8;
+				--bg: #0b1120;
+				--panel: #0f172a;
+				--line: #1f2937;
+				--shadow: 0 24px 70px rgba(0,0,0,.35);
+				--shadow-lg: 0 36px 110px rgba(0,0,0,.5);
+			}
+		}
+
+		/* typografia */
+		.reveal {
+			color: var(--ink);
+			background: var(--bg);
+			font-family: "Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+			font-size: clamp(18px,2vw,24px);
+			line-height: 1.42;
+			letter-spacing: .2px;
+		}
+
+			.reveal h1, .reveal h2, .reveal h3 {
+				color: var(--ink);
+				margin: 0 0 .5em;
+				line-height: 1.15;
+				font-weight: 700;
+			}
+
+			.reveal h1 {
+				font-size: clamp(28px,3.2vw,42px)
+			}
+
+			.reveal h2 {
+				font-size: clamp(24px,2.6vw,34px)
+			}
+
+			.reveal h3 {
+				font-size: clamp(20px,2.2vw,28px)
+			}
+
+			.reveal p {
+				margin: .35em 0
+			}
+
+			.reveal ul, .reveal ol {
+				margin: .55em 0 .3em 1.15em
+			}
+
+			.reveal li {
+				margin: .18em 0
+			}
+
+		/* kod */
+		pre, code {
+			font-size: .9em !important;
+			white-space: pre-wrap;
+			word-break: break-word;
+		}
+
+		.reveal code {
+			background: rgba(2,6,23,.05);
+			border: 1px solid var(--line);
+			border-radius: 8px;
+			padding: .08em .35em;
+		}
+
+		.reveal pre {
+			background: var(--panel);
+			border: 1px solid var(--line);
+			border-radius: 14px;
+			padding: .75rem .9rem;
+			box-shadow: var(--shadow);
+		}
+
+			.reveal pre code {
+				background: transparent;
+				border: none;
+				padding: 0
+			}
+
+		/* komponenty */
+		.grid {
+			display: grid;
+			gap: 1rem
+		}
+
+		.grid-2 {
+			grid-template-columns: repeat(2,minmax(0,1fr))
+		}
+
+		.grid-3 {
+			grid-template-columns: repeat(3,minmax(0,1fr))
+		}
+
+		@media (max-width:980px) {
+			.grid-2, .grid-3 {
+				grid-template-columns: 1fr
+			}
+		}
+
+		.card {
+			padding: 1.05rem 1.2rem;
+			border-radius: 18px;
+			background: var(--panel);
+			border: 1px solid var(--line);
+			box-shadow: var(--shadow);
+			transition: transform .18s ease, box-shadow .18s ease;
+		}
+
+			.card h4 {
+				margin: .1rem 0 .45rem;
+				font-size: 1.02em;
+				font-weight: 700
+			}
+
+		/* żeby cała karta była linkiem */
+		.card-link {
+			display: block;
+			color: inherit;
+			text-decoration: none;
+			border-radius: 20px;
+		}
+
+			.card-link:hover .card {
+				transform: translateY(-3px);
+				box-shadow: var(--shadow-lg)
+			}
+
+			.card-link:focus-visible {
+				outline: 3px solid var(--blue);
+				outline-offset: 4px;
+				border-radius: 20px
+			}
+
+		.badge {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			min-width: 1.6em;
+			height: 1.6em;
+			padding: .2em .55em;
+			border-radius: 999px;
+			font-size: .8em;
+			letter-spacing: .3px;
+			background: rgba(59,130,246,.1);
+			border: 1px solid rgba(59,130,246,.25);
+			color: #2563eb;
+			margin-right: .45em;
+			font-weight: 700;
+		}
+
+		.kbd {
+			display: inline-block;
+			padding: .12em .38em;
+			border: 1px solid var(--line);
+			border-radius: 8px;
+			background: rgba(2,6,23,.05)
+		}
+
+		/* statusy / notki */
+		.ok {
+			color: #16a34a
+		}
+
+		.warn {
+			color: #f59e0b
+		}
+
+		.bad {
+			color: #ef4444
+		}
+
+		.note {
+			padding: .7rem .9rem;
+			border-radius: 14px;
+			border: 1px solid var(--line);
+			background: rgba(2,6,23,.03);
+		}
+
+			.note .title {
+				font-weight: 700;
+				opacity: .95;
+				margin-bottom: .25em
+			}
+
+			.note.ok {
+				border-color: rgba(16,185,129,.35);
+				background: rgba(16,185,129,.08)
+			}
+
+			.note.warn {
+				border-color: rgba(245,158,11,.35);
+				background: rgba(245,158,11,.1)
+			}
+
+			.note.bad {
+				border-color: rgba(239,68,68,.35);
+				background: rgba(239,68,68,.1)
+			}
+
+		/* reveal drobiazgi */
+		.reveal .progress {
+			height: 6px;
+			background: linear-gradient(90deg,var(--blue),var(--green))
+		}
+
+		.reveal .slide-number {
+			background: rgba(2,6,23,.06);
+			border: 1px solid var(--line);
+			color: var(--muted);
+			border-radius: 8px;
+			padding: .2rem .45rem;
+		}
+
+		/* tytuł rozdziału */
+		.chapter-title h1 {
+			font-size: clamp(36px,4.2vw,64px);
+			letter-spacing: .03em;
+			font-weight: 800;
+			margin-bottom: .25em;
+			text-transform: uppercase;
+		}
+
+		.chapter-title p {
+			font-size: 1.05em;
+			color: var(--muted)
+		}
+
+		/* jasne karty (czytelność na black theme) */
+		section[data-state="cards-light"] .card {
+			background: #ffffff !important;
+			color: #0f172a !important;
+			border-color: #e5e7eb !important;
+			box-shadow: var(--shadow);
+		}
+
+			section[data-state="cards-light"] .card h4 {
+				color: #0b1220 !important
+			}
+
+		section[data-state="cards-light"] .badge {
+			background: #ecfeff !important;
+			border-color: #bae6fd !important;
+			color: #0369a1 !important
+		}
+
+		section[data-state="cards-light"] .note {
+			background: #ffffff !important;
+			color: #0f172a !important;
+			border-color: #e5e7eb !important
+		}
+
+		section[data-state="cards-light"] pre {
+			background: #f8fafc !important;
+			color: #0f172a !important;
+			border-color: #e5e7eb !important
+		}
+
+			section[data-state="cards-light"] pre code {
+				color: inherit !important
+			}
+
+		/* link wstecz */
+		.back {
+			font-size: .9em;
+			text-decoration: none;
+			color: #2563eb
+		}
+
+			.back:hover {
+				text-decoration: underline
+			}
+	</style>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- ====== STRONA TYTUŁOWA ====== -->
+			<section data-state="cards-light">
+				<div class="card" style="padding:2.2rem 2.4rem">
+					<h1 style="font-size:clamp(40px,5vw,72px);line-height:1.05;margin:0 0 .35em">
+						Rozwiązanie zadania maturalnego<br>z informatyki (rozszerzenie) w Excelu
+					</h1>
+				</div>
+			</section>
+
+			<!-- ====== ROZDZIAŁ 1 (pionowo ↓) ====== -->
+			<section>
+
+				<!-- nagłówek rozdziału -->
+				<section class="chapter-title">
+					<h1>Rozdział 1</h1>
+					<p><strong>Jaką wiedzę musisz mieć przed zadaniami z Excela?</strong> Użyj strzałki ↓, aby przejść dalej.</p>
+				</section>
+
+				<!-- OVERVIEW 1/2 -->
+				<section id="overview1" data-state="cards-light">
+					<h2>Podstawy pracy w Excelu (1/2)</h2>
+					<div class="grid grid-2">
+						<a class="card-link" href="#/s1-import">
+							<div class="card">
+								<h4><span class="badge">1</span> Import danych</h4>
+								<p class="tiny">Dane → Z tekstu/CSV • Separator: <b>Tabulator</b> • Przecinek jako <i>separator dziesiętny</i>.</p>
+								<p class="tiny">Kolumna <b>data</b> musi być rozpoznana jako prawdziwa data.</p>
+							</div>
+						</a>
+						<a class="card-link" href="#/s2-operacje">
+							<div class="card">
+								<h4><span class="badge">2</span> Podstawowe operacje</h4>
+								<p class="tiny">Formuły, przeciąganie, format liczby/procentu, sortowanie po dacie, filtrowanie.</p>
+							</div>
+						</a>
+						<a class="card-link" href="#/s3-daty">
+							<div class="card">
+								<h4><span class="badge">3</span> Daty</h4>
+								<p class="tiny">Funkcje: <code>ROK(data)</code>, <code>DATA(r;m;d)</code>, różnice i porównania dat.</p>
+								<p class="tiny">Zrozumienie przedziałów czasowych (np. okresy 7-dniowe).</p>
+							</div>
+						</a>
+						<a class="card-link" href="#/s4-agregaty">
+							<div class="card">
+								<h4><span class="badge">4</span> Proste obliczenia</h4>
+								<p class="tiny"><code>SUMA</code>, <code>ŚREDNIA</code>, <code>MIN</code>, <code>MAX</code> — umiesz agregować kolumny.</p>
+							</div>
+						</a>
+					</div>
+				</section>
+
+				<!-- OVERVIEW 2/2 -->
+				<section id="overview2" data-state="cards-light">
+					<h2>Podstawy pracy w Excelu (2/2)</h2>
+					<div class="grid grid-2">
+						<a class="card-link" href="#/s5-warunki">
+							<div class="card">
+								<h4><span class="badge">5</span> Warunki i kryteria</h4>
+								<p class="tiny">Użycie <code>JEŻELI()</code>, <code>SUMA.WARUNKÓW()</code>, <code>LICZ.WARUNKI()</code>.</p>
+								<p class="tiny">Zliczasz/sumujesz tylko wiersze spełniające warunek.</p>
+							</div>
+						</a>
+						<a class="card-link" href="#/s6-magazyn">
+							<div class="card">
+								<h4><span class="badge">6</span> Logika magazynu</h4>
+								<p class="tiny">Stan narastający: <em>poprzedni stan + nowa wartość</em>.</p>
+								<p class="tiny">Zasada: gdy stan ≥ 100 → „wysyłka 100” (maks. 1/dzień), reszta zostaje.</p>
+							</div>
+						</a>
+						<a class="card-link" href="#/s7-pivot">
+							<div class="card">
+								<h4><span class="badge">7</span> Tabele przestawne</h4>
+								<p class="tiny">Wiersze/Kolumny/Wartości + zmiana „Suma” na „Średnia”/„Liczba”.</p>
+							</div>
+						</a>
+						<a class="card-link" href="#/s8-wykres">
+							<div class="card">
+								<h4><span class="badge">8</span> Wykresy</h4>
+								<p class="tiny">Wykres <b>kolumnowy skumulowany</b> z poprawnymi etykietami osi i legendą.</p>
+							</div>
+						</a>
+					</div>
+				</section>
+
+				<!-- ====== ROZWINIĘCIA 1–8 (każdy z id) ====== -->
+
+				<section id="s1-import" data-state="cards-light">
+					<p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+					<h3>1) Import danych – krok po kroku</h3>
+					<ol>
+						<li>Excel → <em>Dane → Z tekstu/CSV</em> → wybierz plik.</li>
+						<li>W kreatorze ustaw: <b>Separator = Tabulator</b>, <b>Dziesiętny = ,</b>, kodowanie zwykle <em>UTF-8</em>.</li>
+						<li>Dla kolumny <b>data</b> wybierz typ <b>Data</b> (nie „Tekst”).</li>
+						<li>Po imporcie: włącz <em>Filtr</em>, posortuj po dacie <b>rosnąco</b>.</li>
+					</ol>
+					<div class="note warn">
+						<div class="title">Typowe pułapki</div>
+						<ul>
+							<li>Daty jako tekst (wyrównane do lewej) → funkcje dat nie działają.</li>
+							<li>Zamienione dziesiętne (kropka vs przecinek) → złe sumy.</li>
+							<li>Brak sortu po dacie → błędne okresy/stan narastający.</li>
+						</ul>
+					</div>
+					<div class="note ok" style="margin-top:.6rem">
+						<div class="title">Szybkie testy</div>
+						<ul>
+							<li><code>=ROK(A2)</code> dla daty → zwraca rok.</li>
+							<li>Na pasku stanu sprawdź „Suma/Średnia” dla wybranej kolumny.</li>
+						</ul>
+					</div>
+				</section>
+
+				<section id="s2-operacje" data-state="cards-light">
+					<p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+					<h3>2) Podstawowe operacje – co musisz umieć</h3>
+					<ul>
+						<li><b>Formuły:</b> zaczynają się od <code>=</code> (np. <code>=A2*B2</code>).</li>
+						<li><b>Przeciąganie:</b> złap mały kwadrat w prawym-dolnym rogu komórki i przeciągnij w dół/prawo.</li>
+						<li><b>Format liczby:</b> Liczba/Procent (1–2 miejsca po przecinku); daty w jednakowym formacie.</li>
+						<li><b>Sortowanie:</b> Dane → Sortuj po dacie (rosnąco).</li>
+						<li><b>Filtrowanie:</b> Dane → Filtr; pokazuj tylko interesujące wiersze.</li>
+					</ul>
+				</section>
+
+				<section id="s3-daty" data-state="cards-light">
+					<p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+					<h3>3) Daty – funkcje i praktyka</h3>
+					<ul>
+						<li><code>=ROK(A2)</code> — zwraca rok z daty.</li>
+						<li><code>=DATA(2033;3;3)</code> — buduje konkretną datę.</li>
+						<li><b>Różnica dni:</b> <code>=B2-A2</code> (obie komórki muszą być datą).</li>
+						<li><b>Okres 7-dniowy od 03.03.2033:</b> <code>=1+CAŁKOWITE((A2-DATA(2033;3;3))/7)</code></li>
+					</ul>
+					<p class="tiny">Jeśli formuły zwracają błąd, sprawdź czy komórki są typu „Data”, a nie „Tekst”.</p>
+				</section>
+
+				<section id="s4-agregaty" data-state="cards-light">
+					<p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+					<h3>4) Proste obliczenia – agregaty</h3>
+					<div class="grid grid-3">
+						<div class="card"><h4>Suma</h4><code>=SUMA(C2:C999)</code></div>
+						<div class="card"><h4>Średnia</h4><code>=ŚREDNIA(C2:C999)</code></div>
+						<div class="card"><h4>Min/Max</h4><code>=MIN(C:C)</code> • <code>=MAX(C:C)</code></div>
+					</div>
+					<p class="tiny" style="margin-top:.6rem">Zawsze sprawdzaj zakresy — stosuj całe kolumny tylko gdy wiesz, że nie wpadną tam nagłówki/teksty.</p>
+				</section>
+
+				<section id="s5-warunki" data-state="cards-light">
+					<p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+					<h3>5) Warunki i kryteria</h3>
+					<ul>
+						<li><code>=JEŻELI(test; wtedy; inaczej)</code> — logika decyzji.</li>
+						<li><b>Sumy z warunkiem:</b> <code>=SUMA.WARUNKÓW(E:E; A:A; "&gt;="&amp;DATA(2033;3;3); A:A; "&lt;"&amp;DATA(2033;3;10))</code></li>
+						<li><b>Zliczanie z warunkiem:</b> <code>=LICZ.WARUNKI(Obszar;"Alfa"; Rok;2033)</code></li>
+					</ul>
+					<p class="tiny">Łącz tekstowe warunki z wartościami przez <code>&amp;</code> (np. <code>"&gt;"&amp;100</code>).</p>
+				</section>
+
+				<section id="s6-magazyn" data-state="cards-light">
+					<p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+					<h3>6) Logika magazynu – myślenie stanem narastającym</h3>
+					<ol>
+						<li><b>Stan dzienny</b> = poprzedni stan + nowa wartość (np. wydobycie tylko gdy zawartość ≥ 1%).</li>
+						<li>Jeśli <b>stan ≥ 100</b> → realizujesz jedną wysyłkę 100 (maks. 1/dzień), reszta zostaje na jutro.</li>
+						<li>Ważne: dane muszą być posortowane po dacie rosnąco.</li>
+					</ol>
+					<div class="note warn"><div class="title">Uwaga</div>Nie próbuj „czytać koloru” z formatowania — obliczenia rób na liczbach.</div>
+				</section>
+
+				<section id="s7-pivot" data-state="cards-light">
+					<p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+					<h3>7) Tabele przestawne – mini-przewodnik</h3>
+					<ol>
+						<li>Zaznacz dane → <em>Wstaw → Tabela przestawna</em> (nowy arkusz).</li>
+						<li>Ustaw pola: <b>Wiersze</b> (np. obszar), <b>Kolumny</b> (np. rok), <b>Wartości</b> (np. masa). </li>
+						<li>Zmień funkcję wartości: „<b>Suma</b>” → „<b>Średnia</b>” lub „<b>Liczba</b>”.</li>
+						<li>Po zmianach w danych użyj <em>Odśwież</em>.</li>
+					</ol>
+				</section>
+
+				<section id="s8-wykres" data-state="cards-light">
+					<p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+					<h3>8) Wykresy – kolumnowy skumulowany</h3>
+					<ol>
+						<li>Na bazie tabeli (najlepiej przestawnej) zaznacz dane.</li>
+						<li><em>Wstaw → Kolumnowy skumulowany</em>.</li>
+						<li>Dodaj tytuł, opisy osi, czytelną legendę; sprawdź skale.</li>
+					</ol>
+					<p class="tiny">Skumulowany pokazuje wkład kategorii w całość w danym roku/okresie.</p>
+				</section>
+
+				<!-- Checklist -->
+				<section>
+					<h3>Checklist umiejętności przed 6.1–6.5</h3>
+					<ul>
+						<li>Import, formaty liczb i dat, sortowanie, filtrowanie.</li>
+						<li>Agregaty: SUMA/ŚREDNIA/MIN/MAKS oraz liczenie po kryteriach.</li>
+						<li>Okresy 7-dniowe: numeracja i data startu okresu.</li>
+						<li>Tabele przestawne: ustawianie pól i funkcji agregujących.</li>
+						<li>Wykres kolumnowy skumulowany: etykiety osi i legenda.</li>
+						<li>Myślenie „stanem narastającym” + ograniczenie 1 wysyłki/dzień.</li>
+					</ul>
+				</section>
+
+				<!-- Pułapki -->
+				<section>
+					<h3>Kontrola jakości + pułapki</h3>
+					<ul>
+						<li class="bad">Nie licz wydobycia, gdy <code>zawartość &lt; 1%</code>.</li>
+						<li class="bad">Nie wysyłaj &gt;100 kg jednego dnia (limit: 1 wysyłka/dzień).</li>
+						<li class="warn">Daty muszą być prawdziwe i rosnące; po zmianach odśwież pivoty.</li>
+						<li class="ok">Odpowiedzi zadań wpiszesz później do <code>wyniki6.txt</code> — tu sprawdzasz kompetencje.</li>
+					</ul>
+				</section>
+
+			</section><!-- koniec rozdziału 1 (pion) -->
+
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		Reveal.initialize({
+			hash: true,              // ważne: linki #/id działają
+			slideNumber: true,
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
 </html>
