@@ -5,22 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Martianeum – Rozdział 1: Przygotowanie do zadań 6.1–6.5</title>
 
-  <!-- Reveal core -->
+  
   <link rel="stylesheet" href="dist/reset.css" />
   <link rel="stylesheet" href="dist/reveal.css" />
   <link rel="stylesheet" href="dist/theme/black.css" id="theme" />
   <link rel="stylesheet" href="plugin/highlight/monokai.css" />
-  <!-- Poppins -->
+ 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-
+ 
+ <!-- zmiana wygładu prezentacji-->
   <style>
-    /* ========================= DESIGN TOKENS ========================= */
+    
     :root {
       --ink: #0f172a;
       --muted: #64748b;
-      --bg: #ffffff;
-      --panel: #ffffff;
-      --line: #e5e7eb;
+      --bg: #cc9898;
+      --panel: #cc7d7d;
+      --line: #1c3566;
       --shadow: 0 20px 60px rgba(2,6,23,.08);
       --shadow-lg: 0 30px 90px rgba(2,6,23,.12);
       --green: #10b981;
@@ -31,7 +32,7 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --ink: #e5e7eb;
+        --ink: #bac978;
         --muted: #94a3b8;
         --bg: #0b1120;
         --panel: #0f172a;
@@ -41,7 +42,7 @@
       }
     }
 
-    /* ========================= TYPOGRAPHY & BASE ========================= */
+    
     .reveal {
       color: var(--ink);
       background: var(--bg);
@@ -64,7 +65,7 @@
     .reveal ul, .reveal ol { margin: .55em 0 .3em 1.15em }
     .reveal li { margin: .18em 0 }
 
-    /* ========================= CODE ========================= */
+    
     pre, code { font-size: .9em !important; white-space: pre-wrap; word-break: break-word; }
     .reveal code {
       background: rgba(2,6,23,.05);
@@ -81,7 +82,7 @@
     }
     .reveal pre code { background: transparent; border: none; padding: 0 }
 
-    /* ========================= UI COMPONENTS ========================= */
+    
     .grid { display: grid; gap: 1rem }
     .grid-2 { grid-template-columns: repeat(2,minmax(0,1fr)) }
     .grid-3 { grid-template-columns: repeat(3,minmax(0,1fr)) }
@@ -116,14 +117,14 @@
     .note .title { font-weight: 700; opacity: .95; margin-bottom: .25em }
     .note.warn { border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.1) }
 
-    /* Reveal polish */
+    /* Reveal  */
     .reveal .progress { height: 6px; background: var(--grad-1) }
     .reveal .slide-number {
       background: rgba(2,6,23,.06); border: 1px solid var(--line); color: var(--muted);
       border-radius: 8px; padding: .2rem .45rem;
     }
 
-    /* ========================= HERO / ROZDZIAŁ ========================= */
+   
     section[data-state="cards-light"] .card,
     .hero .stat, .chapter-hero { background: #ffffff !important; color: #0f172a !important; border-color: #e5e7eb !important; box-shadow: var(--shadow) }
     section[data-state="cards-light"] .note { background: #ffffff !important; color: #0f172a !important; border-color: #e5e7eb !important }
@@ -217,14 +218,14 @@
     .chev { display:inline-block; margin-left:.25rem; animation: bounce 1.2s ease-in-out infinite; }
     @keyframes bounce { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(4px) } }
 
-    /* Small helpers used in content */
+    
     .badge-soft {
       display:inline-block; padding:.18em .5em; border-radius:999px;
       border:1px solid rgba(2,6,23,.08); background:rgba(2,6,23,.04);
       font-weight:700; font-size:.92em; letter-spacing:.2px;
     }
 
-    /* Back link */
+   
     .back { font-size: .9em; text-decoration: none; color: #2563eb }
     .back:hover { text-decoration: underline }
   </style>
@@ -233,7 +234,7 @@
   <div class="reveal">
     <div class="slides">
 
-      <!-- ====== STRONA TYTUŁOWA ====== -->
+      <!--  Tytół -->
       <section data-state="cards-light">
         <div class="hero">
           <div class="hero-inner">
@@ -260,10 +261,10 @@
         </div>
       </section>
 
-      <!-- ====== ROZDZIAŁ 1 (pionowo ↓) ====== -->
+      <!-- ROZDZIAŁ 1 ( -->
       <section>
 
-        <!-- ====== TYTUŁ ROZDZIAŁU ====== -->
+       
         <section class="chapter-title" data-state="cards-light">
           <div class="chapter-hero">
             <div class="top"><div class="num">ROZDZIAŁ 1</div></div>
@@ -273,7 +274,7 @@
           </div>
         </section>
 
-        <!-- ====== OVERVIEW 1/2 ====== -->
+        <!--  OVERVIEW 1/2  -->
         <section id="overview1" data-state="cards-light">
           <h2>Excel – podstawy przed maturą (1/2)</h2>
           <div class="grid grid-2">
@@ -304,7 +305,7 @@
           </div>
         </section>
 
-        <!-- ====== OVERVIEW 2/2 ====== -->
+        <!--  OVERVIEW 2/2 -->
         <section id="overview2" data-state="cards-light">
           <h2>Excel – podstawy przed maturą (2/2)</h2>
           <div class="grid grid-2">
@@ -335,7 +336,7 @@
           </div>
         </section>
 
-        <!-- ====== ROZWINIĘCIA 1–8 ====== -->
+        <!--  ROZWINIĘCIA 1–8 -->
 
         <!-- SLIDE 1: Import danych -->
         <section id="s1-import" data-state="cards-light">
@@ -369,7 +370,7 @@
           </div>
         </section>
 
-        <!-- SLIDE 2: Operacje -->
+        <!-- SLIDE 2: e -->
         <section id="s2-operacje" data-state="cards-light">
           <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
           <h3>2) Podstawowe operacje – co musisz umieć</h3>
@@ -468,7 +469,8 @@
           </ul>
         </section>
 
-      </section><!-- koniec rozdziału 1 -->
+      </section>
+     
 
     </div>
   </div>
