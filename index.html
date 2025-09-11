@@ -1,40 +1,490 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Martianeum – Rozdział 1: Przygotowanie do zadań 6.1–6.5</title>
 
-		<title>reveal.js</title>
+  
+  <link rel="stylesheet" href="dist/reset.css" />
+  <link rel="stylesheet" href="dist/reveal.css" />
+  <link rel="stylesheet" href="dist/theme/black.css" id="theme" />
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+ 
+ <!-- zmiana wygładu prezentacji-->
+  <style>
+    
+    :root {
+      --ink: #0f172a;
+      --muted: #64748b;
+      --bg: #cc9898;
+      --panel: #cc7d7d;
+      --line: #1c3566;
+      --shadow: 0 20px 60px rgba(2,6,23,.08);
+      --shadow-lg: 0 30px 90px rgba(2,6,23,.12);
+      --green: #10b981;
+      --blue: #3b82f6;
+      --grad-1: linear-gradient(90deg, #3b82f6, #10b981);
+      --grad-2: radial-gradient(1100px 680px at 10% -20%, rgba(59,130,246,.16), transparent 55%),
+                radial-gradient(1000px 620px at 110% 120%, rgba(16,185,129,.16), transparent 55%);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #bac978;
+        --muted: #94a3b8;
+        --bg: #0b1120;
+        --panel: #0f172a;
+        --line: #1f2937;
+        --shadow: 0 24px 70px rgba(0,0,0,.35);
+        --shadow-lg: 0 36px 110px rgba(0,0,0,.5);
+      }
+    }
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    
+    .reveal {
+      color: var(--ink);
+      background: var(--bg);
+      font-family: "Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-size: clamp(18px,2vw,24px);
+      line-height: 1.42;
+      letter-spacing: .2px;
+    }
+    .reveal h1, .reveal h2, .reveal h3 {
+      color: var(--ink);
+      margin: 0 0 .5em;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+    .reveal h1 { font-size: clamp(34px,4.2vw,64px) }
+    .reveal h2 { font-size: clamp(26px,3.2vw,40px) }
+    .reveal h3 { font-size: clamp(22px,2.6vw,32px) }
+    .reveal p { margin: .35em 0 }
+    .reveal ul, .reveal ol { margin: .55em 0 .3em 1.15em }
+    .reveal li { margin: .18em 0 }
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    
+    pre, code { font-size: .9em !important; white-space: pre-wrap; word-break: break-word; }
+    .reveal code {
+      background: rgba(2,6,23,.05);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: .08em .35em;
+    }
+    .reveal pre {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: .8rem 1rem;
+      box-shadow: var(--shadow);
+    }
+    .reveal pre code { background: transparent; border: none; padding: 0 }
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+    
+    .grid { display: grid; gap: 1rem }
+    .grid-2 { grid-template-columns: repeat(2,minmax(0,1fr)) }
+    .grid-3 { grid-template-columns: repeat(3,minmax(0,1fr)) }
+    @media (max-width:980px) { .grid-2, .grid-3 { grid-template-columns: 1fr } }
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+    .card {
+      padding: 1.05rem 1.2rem;
+      border-radius: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .card h4 { margin: .1rem 0 .45rem; font-size: 1.02em; font-weight: 700 }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: rgba(59,130,246,.35) }
+
+    .card-link { display: block; color: inherit; text-decoration: none; border-radius: 20px; }
+    .card-link:focus-visible { outline: 3px solid #2563eb; outline-offset: 4px; border-radius: 20px }
+
+    .badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 1.6em; height: 1.6em; padding: .2em .55em; border-radius: 999px;
+      font-size: .8em; letter-spacing: .3px; background: rgba(59,130,246,.1);
+      border: 1px solid rgba(59,130,246,.25); color: #2563eb; margin-right: .45em; font-weight: 700;
+    }
+    .kbd {
+      display: inline-block; padding: .12em .38em; border: 1px solid var(--line);
+      border-radius: 8px; background: rgba(2,6,23,.05)
+    }
+
+    .note { padding: .7rem .9rem; border-radius: 14px; border: 1px solid var(--line); background: rgba(2,6,23,.03); }
+    .note .title { font-weight: 700; opacity: .95; margin-bottom: .25em }
+    .note.warn { border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.1) }
+
+    /* Reveal  */
+    .reveal .progress { height: 6px; background: var(--grad-1) }
+    .reveal .slide-number {
+      background: rgba(2,6,23,.06); border: 1px solid var(--line); color: var(--muted);
+      border-radius: 8px; padding: .2rem .45rem;
+    }
+
+   
+    section[data-state="cards-light"] .card,
+    .hero .stat, .chapter-hero { background: #ffffff !important; color: #0f172a !important; border-color: #e5e7eb !important; box-shadow: var(--shadow) }
+    section[data-state="cards-light"] .note { background: #ffffff !important; color: #0f172a !important; border-color: #e5e7eb !important }
+    section[data-state="cards-light"] pre { background: #f8fafc !important; color: #0f172a !important; border-color: #e5e7eb !important }
+
+    .hero {
+      padding: clamp(26px,4.2vw,50px);
+      border-radius: 26px;
+      background: var(--grad-2), var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+    .hero::after {
+      content:""; position:absolute; inset: -40% -20% auto auto; width: 60vmax; height: 60vmax;
+      background: radial-gradient(closest-side, rgba(59,130,246,.10), transparent 70%);
+      filter: blur(20px); z-index: -1; transform: translate3d(0,0,0);
+    }
+    .hero-inner { display:grid; grid-template-columns: 1.6fr 1fr; gap: clamp(18px,3vw,36px); align-items:center; }
+    @media (max-width:980px){ .hero-inner{ grid-template-columns:1fr } }
+
+    .hero-eyebrow {
+      display:inline-flex; gap:.5rem; align-items:center;
+      font-weight:700; font-size:.9em; letter-spacing:.2px; color:#0369a1;
+      background: #ecfeff; border:1px solid #bae6fd; border-radius:999px; padding:.28em .65em; margin-bottom:.6rem;
+    }
+
+    .hero-title {
+      font-size: clamp(36px,5vw,74px);
+      line-height: 1.03;
+      margin: 0 0 .25em;
+      letter-spacing: .01em;
+    }
+    .hero-title .excel {
+      background: var(--grad-1);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+
+    .chips { display:flex; flex-wrap:wrap; gap:.5rem; margin:.6rem 0 1.2rem; }
+    .chip {
+      display:inline-flex; align-items:center; gap:.45rem;
+      padding:.42em .7em; border-radius:999px; border:1px solid rgba(2,6,23,.08);
+      background: rgba(2,6,23,.04); font-size:.86em; font-weight:600; letter-spacing:.2px;
+    }
+
+    .cta { display:flex; align-items:center; gap:.9rem; flex-wrap:wrap }
+    .btn-start {
+      display:inline-block; padding:.8em 1.15em; border-radius:14px;
+      background: var(--grad-1); color:#fff; text-decoration:none; font-weight:800;
+      box-shadow: 0 10px 26px rgba(2,6,23,.18);
+      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+    }
+    .btn-start:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(2,6,23,.24); }
+    .hint { color: var(--muted); font-size: .95em }
+
+    .hero-right { display:grid; gap:.9rem; }
+    .stat { padding: 1rem 1.1rem; border-radius: 16px; border: 1px solid var(--line); }
+    .stat-num {
+      font-size: clamp(28px,3.6vw,44px); font-weight: 800; line-height: 1;
+      background: linear-gradient(90deg, var(--green), var(--blue));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .stat-desc { color: var(--muted); margin-top: .25rem; font-weight: 600; letter-spacing: .2px }
+
+    .chapter-hero {
+      padding: clamp(28px,4vw,48px);
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(900px 520px at 0% 0%, rgba(59,130,246,.12), transparent 55%),
+        radial-gradient(900px 520px at 100% 100%, rgba(16,185,129,.12), transparent 55%),
+        var(--panel);
+      position: relative;
+      overflow: hidden;
+    }
+    .chapter-hero .top { display:flex; align-items:flex-end; justify-content:center; gap:1.2rem; flex-wrap:wrap; text-align:center; }
+    .chapter-hero .num {
+      font-size: clamp(44px,7vw,96px);
+      line-height: .9;
+      letter-spacing:.02em;
+      background: var(--grad-1);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      font-weight: 900; text-transform: uppercase;
+    }
+    .chapter-hero .title { font-size: clamp(22px,2.6vw,32px); color: var(--ink); font-weight: 800; max-width: 1100px; }
+    .chapter-hero .muted { color: var(--muted); font-weight: 600; }
+    .chapter-hero .bar { height: 4px; width: 140px; border-radius: 999px; margin: 18px auto; background: var(--grad-1); }
+    .chapter-hero .hint { text-align:center; color: var(--muted); margin-top:.4rem; font-size: 1.02em; }
+    .chev { display:inline-block; margin-left:.25rem; animation: bounce 1.2s ease-in-out infinite; }
+    @keyframes bounce { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(4px) } }
+
+    
+    .badge-soft {
+      display:inline-block; padding:.18em .5em; border-radius:999px;
+      border:1px solid rgba(2,6,23,.08); background:rgba(2,6,23,.04);
+      font-weight:700; font-size:.92em; letter-spacing:.2px;
+    }
+
+   
+    .back { font-size: .9em; text-decoration: none; color: #2563eb }
+    .back:hover { text-decoration: underline }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!--  Tytół -->
+      <section data-state="cards-light">
+        <div class="hero">
+          <div class="hero-inner">
+            <div class="hero-left">
+              <div class="hero-eyebrow fade-up">🎓 Matura z informatyki</div>
+              <h1 class="hero-title fade-up delay-1">
+                Rozwiązanie zadania maturalnego<br>
+                z informatyki w <span class="excel">Excelu</span>
+              </h1>
+              <div class="chips fade-up delay-3">
+                <span class="chip">Poziom: rozszerzony</span>
+              </div>
+              <div class="cta fade-up delay-4">
+                <a class="btn-start" href="#/1">Zaczynamy →</a>
+                <span class="hint">albo użyj klawiszy <span class="kbd">←</span> <span class="kbd">→</span> <span class="kbd">↓</span></span>
+              </div>
+            </div>
+            <div class="hero-right fade-up delay-2">
+              <div class="stat"><div class="stat-num">8</div><div class="stat-desc">konkretnych kroków</div></div>
+              <div class="stat"><div class="stat-num">0</div><div class="stat-desc">zbędnej teorii</div></div>
+              <div class="stat"><div class="stat-num">100%</div><div class="stat-desc">pod maturę</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROZDZIAŁ 1 ( -->
+      <section>
+
+       
+        <section class="chapter-title" data-state="cards-light">
+          <div class="chapter-hero">
+            <div class="top"><div class="num">ROZDZIAŁ 1</div></div>
+            <div class="bar"></div>
+            <p class="title">Jaką wiedzę musisz mieć przed zadaniami z <span class="muted">Excela</span>?</p>
+            <p class="hint">Użyj strzałki <strong>↓</strong>, aby przejść dalej <span class="chev">↓</span></p>
+          </div>
+        </section>
+
+        <!--  OVERVIEW 1/2  -->
+        <section id="overview1" data-state="cards-light">
+          <h2>Excel – podstawy przed maturą (1/2)</h2>
+          <div class="grid grid-2">
+            <a class="card-link" href="#/s1-import">
+              <div class="card">
+                <h4><span class="badge">1</span> Import danych – jak poprawnie wczytać plik</h4>
+                <p class="tiny">Import danych – jak poprawnie wczytać plik</p>
+              </div>
+            </a>
+            <a class="card-link" href="#/s2-operacje">
+              <div class="card">
+                <h4><span class="badge">2</span> Podstawowe operacje – formuły, formaty, sortowanie</h4>
+                <p class="tiny">Podstawowe operacje – formuły, formaty, sortowanie</p>
+              </div>
+            </a>
+            <a class="card-link" href="#/s3-daty">
+              <div class="card">
+                <h4><span class="badge">3</span> Daty w Excelu – obliczenia i okresy 7-dniowe</h4>
+                <p class="tiny">Daty w Excelu – obliczenia i okresy 7-dniowe</p>
+              </div>
+            </a>
+            <a class="card-link" href="#/s4-agregaty">
+              <div class="card">
+                <h4><span class="badge">4</span> Agregaty – SUMA, ŚREDNIA, MIN, MAX w praktyce</h4>
+                <p class="tiny">Agregaty – SUMA, ŚREDNIA, MIN, MAX w praktyce</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!--  OVERVIEW 2/2 -->
+        <section id="overview2" data-state="cards-light">
+          <h2>Excel – podstawy przed maturą (2/2)</h2>
+          <div class="grid grid-2">
+            <a class="card-link" href="#/s5-warunki">
+              <div class="card">
+                <h4><span class="badge">5</span> Warunki i kryteria – JEŻELI, SUMA.WARUNKÓW, LICZ.WARUNKI</h4>
+                <p class="tiny">Warunki i kryteria – JEŻELI, SUMA.WARUNKÓW, LICZ.WARUNKI</p>
+              </div>
+            </a>
+            <a class="card-link" href="#/s6-magazyn">
+              <div class="card">
+                <h4><span class="badge">6</span> Logika magazynu – praca stanem narastającym</h4>
+                <p class="tiny">Logika magazynu – praca stanem narastającym</p>
+              </div>
+            </a>
+            <a class="card-link" href="#/s7-pivot">
+              <div class="card">
+                <h4><span class="badge">7</span> Tabele przestawne – szybkie zestawienia danych</h4>
+                <p class="tiny">Tabele przestawne – szybkie zestawienia danych</p>
+              </div>
+            </a>
+            <a class="card-link" href="#/s8-wykres">
+              <div class="card">
+                <h4><span class="badge">8</span> Wykresy – kolumnowy skumulowany krok po kroku</h4>
+                <p class="tiny">Wykresy – kolumnowy skumulowany krok po kroku</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!--  ROZWINIĘCIA 1–8 -->
+
+        <!-- SLIDE 1: Import danych -->
+        <section id="s1-import" data-state="cards-light">
+          <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+          <h3>1) Import danych – krok po kroku</h3>
+
+          <div class="grid grid-2">
+            <div class="card">
+              <h4><span class="badge">1</span> Otwórz kreator importu</h4>
+              <p>Excel → <b>Dane</b> → <b>Z tekstu/CSV</b> → wybierz plik.</p>
+              <p class="tiny">Kliknij <span class="kbd">Dalej</span>, aby zobaczyć podgląd.</p>
+            </div>
+
+            <div class="card">
+              <h4><span class="badge">2</span> Ustaw podział i liczby</h4>
+              <p><b>Separator = Tabulator</b> <span class="badge-soft">TSV</span> • <b>Dziesiętny = ,</b> (przecinek).</p>
+              <p class="tiny">Jeśli widzisz „3.14” zamiast „3,14” – popraw.</p>
+            </div>
+
+            <div class="card">
+              <h4><span class="badge">3</span> Kolumna <em>data</em> ma być datą</h4>
+              <p>Kliknij kolumnę <b>data</b> → wybierz typ <b>Data</b> (nie „Tekst”).</p>
+              <p class="tiny">Formuła <code>=ROK(A2)</code> ma zwrócić liczbę (np. 2023).</p>
+            </div>
+
+            <div class="card">
+              <h4><span class="badge">4</span> Posprzątaj tabelę</h4>
+              <p>Włącz <b>Filtr</b>, a kolumnę <b>data</b> posortuj <b>rosnąco</b>.</p>
+              <p class="tiny">Sort: <span class="kbd">Dane</span> → <span class="kbd">Sortuj od najstarszych</span></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 2: e -->
+        <section id="s2-operacje" data-state="cards-light">
+          <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+          <h3>2) Podstawowe operacje – co musisz umieć</h3>
+          <ul>
+            <li><b>Formuły:</b> zaczynają się od <code>=</code> (np. <code>=A2*B2</code>).</li>
+            <li><b>Przeciąganie:</b> złap mały kwadrat w prawym-dolnym rogu komórki i przeciągnij w dół/prawo.</li>
+            <li><b>Format liczby:</b> Liczba/Procent (1–2 miejsca po przecinku); daty w jednakowym formacie.</li>
+            <li><b>Sortowanie:</b> Dane → Sortuj po dacie (rosnąco).</li>
+            <li><b>Filtrowanie:</b> Dane → Filtr; pokazuj tylko interesujące wiersze.</li>
+          </ul>
+        </section>
+
+        <!-- SLIDE 3: Daty -->
+        <section id="s3-daty" data-state="cards-light">
+          <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+          <h3>3) Daty w Excelu – funkcje i praktyka</h3>
+          <ul>
+            <li><code>=ROK(A2)</code> — zwraca rok z daty.</li>
+            <li><code>=DATA(2033;3;3)</code> — buduje konkretną datę.</li>
+            <li><b>Różnica dni:</b> <code>=B2-A2</code> (obie komórki muszą być datą).</li>
+            <li><b>Okres 7-dniowy od 03.03.2033:</b> <code>=1+CAŁKOWITE((A2-DATA(2033;3;3))/7)</code></li>
+          </ul>
+          <p class="tiny">Jeśli formuły zwracają błąd, sprawdź czy komórki są typu „Data”, a nie „Tekst”.</p>
+        </section>
+
+        <!-- SLIDE 4: Agregaty -->
+        <section id="s4-agregaty" data-state="cards-light">
+          <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+          <h3>4) Proste obliczenia – agregaty</h3>
+          <div class="grid grid-3">
+            <div class="card"><h4>Suma</h4><code>=SUMA(C2:C999)</code></div>
+            <div class="card"><h4>Średnia</h4><code>=ŚREDNIA(C2:C999)</code></div>
+            <div class="card"><h4>Min/Max</h4><code>=MIN(C:C)</code> • <code>=MAX(C:C)</code></div>
+          </div>
+          <p class="tiny" style="margin-top:.6rem">Zawsze sprawdzaj zakresy — stosuj całe kolumny tylko gdy wiesz, że nie wpadną tam nagłówki/teksty.</p>
+        </section>
+
+        <!-- SLIDE 5: Warunki -->
+        <section id="s5-warunki" data-state="cards-light">
+          <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+          <h3>5) Warunki i kryteria</h3>
+          <ul>
+            <li><code>=JEŻELI(test; wtedy; inaczej)</code> — logika decyzji.</li>
+            <li><b>Sumy z warunkiem:</b> <code>=SUMA.WARUNKÓW(E:E; A:A; "&gt;="&amp;DATA(2033;3;3); A:A; "&lt;"&amp;DATA(2033;3;10))</code></li>
+            <li><b>Zliczanie z warunkiem:</b> <code>=LICZ.WARUNKI(Obszar;"Alfa"; Rok;2033)</code></li>
+          </ul>
+          <p class="tiny">Łącz tekstowe warunki z wartościami przez <code>&amp;</code> (np. <code>"&gt;"&amp;100</code>).</p>
+        </section>
+
+        <!-- SLIDE 6: Logika magazynu -->
+        <section id="s6-magazyn" data-state="cards-light">
+          <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+          <h3>6) Logika magazynu – myślenie stanem narastającym</h3>
+          <ol>
+            <li><b>Stan dzienny</b> = poprzedni stan + nowa wartość (np. wydobycie tylko gdy zawartość ≥ 1%).</li>
+            <li>Jeśli <b>stan ≥ 100</b> → realizujesz jedną wysyłkę 100 (maks. 1/dzień), reszta zostaje na jutro.</li>
+            <li>Ważne: dane muszą być posortowane po dacie rosnąco.</li>
+          </ol>
+          <div class="note warn"><div class="title">Uwaga</div>Nie próbuj „czytać koloru” z formatowania — obliczenia rób na liczbach.</div>
+        </section>
+
+        <!-- SLIDE 7: Pivot -->
+        <section id="s7-pivot" data-state="cards-light">
+          <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+          <h3>7) Tabele przestawne – mini-przewodnik</h3>
+          <ol>
+            <li>Zaznacz dane → <em>Wstaw → Tabela przestawna</em> (nowy arkusz).</li>
+            <li>Ustaw pola: <b>Wiersze</b> (np. obszar), <b>Kolumny</b> (np. rok), <b>Wartości</b> (np. masa).</li>
+            <li>Zmień funkcję wartości: „<b>Suma</b>” → „<b>Średnia</b>” lub „<b>Liczba</b>”.</li>
+            <li>Po zmianach w danych użyj <em>Odśwież</em>.</li>
+          </ol>
+        </section>
+
+        <!-- SLIDE 8: Wykres -->
+        <section id="s8-wykres" data-state="cards-light">
+          <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+          <h3>8) Wykresy – kolumnowy skumulowany</h3>
+          <ol>
+            <li>Na bazie tabeli (najlepiej przestawnej) zaznacz dane.</li>
+            <li><em>Wstaw → Kolumnowy skumulowany</em>.</li>
+            <li>Dodaj tytuł, opisy osi, czytelną legendę; sprawdź skale.</li>
+          </ol>
+          <p class="tiny">Skumulowany pokazuje wkład kategorii w całość w danym roku/okresie.</p>
+        </section>
+
+        <!-- Checklist -->
+        <section>
+          <h3>Checklist umiejętności przed 6.1–6.5</h3>
+          <ul>
+            <li>Import, formaty liczb i dat, sortowanie, filtrowanie.</li>
+            <li>Agregaty: SUMA/ŚREDNIA/MIN/MAKS oraz liczenie po kryteriach.</li>
+            <li>Okresy 7-dniowe: numeracja i data startu okresu.</li>
+            <li>Tabele przestawne: ustawianie pól i funkcji agregujących.</li>
+            <li>Wykres kolumnowy skumulowany: etykiety osi i legenda.</li>
+            <li>Myślenie „stanem narastającym” + ograniczenie 1 wysyłki/dzień.</li>
+          </ul>
+        </section>
+
+      </section>
+     
+
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
 </html>
