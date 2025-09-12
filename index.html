@@ -2,14 +2,13 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8" />
-  <title>Zadanie 6 Matura maj 2025</title>
+  <title>Zadanie 6 Matura maj 2025 — Rozdziały 1, 2 i 3</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Reveal.js CDN -->
+
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css">
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/white.css" id="theme">
 
-  <!-- Font i ikony -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
@@ -26,69 +25,168 @@
     .pill{display:inline-flex;align-items:center;gap:.45rem;padding:.35rem .7rem;border-radius:999px;border:1px solid #c7d2fe;background:#eef2ff;color:#3730a3}
     .mini-pill{display:inline-block;padding:.15rem .5rem;border-radius:999px;background:#f1f5f9;border:1px solid #e2e8f0;font-size:.85rem}
 
-    /* Karty i layout */
+    /* Karty i layout (wspólne) */
     .card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:1.1rem 1.25rem;box-shadow:var(--shadow)}
     .two-col{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:1.2rem;align-items:start}
-/* responsywność: układ 1 kolumna na węższych ekranach */
-@media (max-width: 1200px){
-  .two-col{grid-template-columns:1fr}
-}
-@media (max-width: 800px){
-  .fullimg{max-height:48vh}
-}
+    @media (max-width:1200px){ .two-col{grid-template-columns:1fr} }
+    .grid{display:grid;gap:1rem}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:980px){ .grid-2,.grid-3{grid-template-columns:1fr} }
+
     .codebox{background:#0b132b;color:#e5e7eb;border-radius:12px;padding:.7rem 1rem;font-family:ui-monospace,Consolas,Menlo,monospace}
 
-    /* Obrazy pełnoekranowe na slajdzie */
+    /* Obrazy – kontrola wysokości, żeby nic się nie ucinało */
     .fullimg{width:100%;max-height:66vh;height:auto;object-fit:contain;border-radius:14px;border:1px solid #e5e7eb;background:#fff;box-shadow:var(--shadow);cursor:zoom-in}
+    .fullimg--md{max-height:58vh}
+    .fullimg--sm{max-height:42vh}
+    .halfimg{width:100%;max-height:34vh;height:auto;object-fit:contain;border-radius:14px;border:1px solid #e5e7eb;background:#fff;box-shadow:var(--shadow);cursor:zoom-in}
     figure{margin:0}
     figcaption{text-align:center;color:var(--muted);margin-top:.5rem}
+    .figure-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+    @media (max-width:1200px){ .figure-row{grid-template-columns:1fr} }
 
-    .backbtn{
-      position:absolute; top:14px; right:14px;
-      display:inline-flex; align-items:center; gap:.45rem;
-      padding:.5rem .8rem; border-radius:10px;
-      background:#ffffffd9; backdrop-filter: blur(6px);
-      border:1px solid #e5e7eb; box-shadow:0 10px 30px rgba(2,6,23,.08);
-      color:#0f172a; text-decoration:none; font-weight:700; font-size:.95rem;
-    }
-    .backbtn:hover{ transform:translateY(-1px); box-shadow:0 16px 40px rgba(2,6,23,.12); }
-    .backbtn i{ font-size:1.05rem; }
+    /* Slajdy tytułowe centrowane pionowo */
+    .centerme{display:flex;flex-direction:column;gap:1rem;justify-content:center;min-height:74vh}
 
-    /* Lightbox (custom) */
-    .lb{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,.6);z-index:9999}
-    .lb.open{display:grid}
-    .lb__frame{width:min(94vw,1300px);background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 50px 120px rgba(0,0,0,.5);display:grid;grid-template-rows:auto 1fr}
-    .lb__bar{display:flex;align-items:center;justify-content:space-between;padding:.65rem .95rem;background:#0b132b;color:#e5e7eb}
-    .lb__btn{border:1px solid #334155;background:#0b132b;color:#e5e7eb;padding:.45rem .9rem;border-radius:10px;cursor:pointer}
-    .lb__img{width:100%;height:80vh;object-fit:contain;background:#0b132b}
-    /* Skale i typografia bardziej kompaktowe na pełnym ekranie */
-  .reveal h2{font-size:clamp(28px,4.5vw,54px)}
-  .reveal h3{font-size:clamp(20px,3.1vw,40px)}
-  .reveal ol,.reveal ul{font-size:clamp(16px,1.8vw,24px)}
-  .codebox{font-size:.95rem}
-  .card{padding:.9rem 1rem}
-  .two-col{gap:.9rem}
-  /* tryb "tight" dla slajdów z dużą ilością elementów */
-  .tight .fit{font-size:clamp(16px,1.6vw,24px)}
-  .tight .fullimg{max-height:48vh}
-  .tight .card{padding:.75rem .9rem}
-  /* DODATKOWE NARZĘDZIA LAYOUTU I SKALOWANIA */
-  #sec-2-home{display:flex;flex-direction:column;justify-content:center;min-height:78vh}
-  .centerme{display:flex;flex-direction:column;gap:1rem;justify-content:center;min-height:74vh}
-  .fullimg--md{max-height:58vh}
-  .fullimg--sm{max-height:42vh}
-  .halfimg{width:100%;max-height:34vh;height:auto;object-fit:contain;border-radius:14px;border:1px solid #e5e7eb;background:#fff;box-shadow:var(--shadow);cursor:zoom-in}
-  .figure-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
-  @media (max-width:1200px){ .figure-row{grid-template-columns:1fr} }
-</style>
+    /* Tryb „tight” dla przeładowanych slajdów */
+    .tight .fit{font-size:clamp(16px,1.6vw,24px)}
+    .tight .fullimg{max-height:48vh}
+    .tight .card{padding:.9rem 1rem}
+
+    /* Dodatki do Rozdziału 1 (linki, badge, kbd) */
+    .card-link{display:block;text-decoration:none;color:inherit;border-radius:18px}
+    .card-link:focus-visible{outline:3px solid #93c5fd;outline-offset:4px}
+    .badge{display:inline-flex;align-items:center;justify-content:center;min-width:1.6em;height:1.6em;padding:.2em .55em;border-radius:999px;font-size:.8em;letter-spacing:.3px;background:#ecfeff;border:1px solid #bae6fd;color:#0369a1;margin-right:.45em;font-weight:700}
+    .kbd{display:inline-block;padding:.12em .38em;border:1px solid #e5e7eb;border-radius:8px;background:#f8fafc}
+    .tiny{font-size:.92rem;color:var(--muted)}
+    .back{font-size:.95rem;text-decoration:none;color:#2563eb}
+    .back:hover{text-decoration:underline}
+  </style>
 </head>
 <body>
 
 <div class="reveal">
   <div class="slides">
 
-    <!-- ===================== SLIDE 1 (placeholder) ===================== -->
-    <section>Slide 1</section>
+    <section id="chap-1">
+
+      <section class="centerme" data-background-gradient="linear-gradient(180deg,#e0f2fe 0%,#eef2ff 60%,#f5f3ff 100%)">
+        <h2 style="margin-bottom:.15em;font-weight:800;letter-spacing:.8px;">ROZDZIAŁ 1</h2>
+        <h3 style="margin:.4em 0 0;font-weight:800;">PRZYGOTOWANIE DO ZADAŃ 6.1–6.5</h3>
+        <p class="fit">Co musisz umieć, zanim przejdziesz do rozwiązywania podpunktów w Excelu.<br>Użyj strzałki <strong>↓</strong>, aby wejść w szczegóły rozdziału.</p>
+      </section>
+
+      <section id="overview1" data-state="cards-light">
+        <h2>Excel – podstawy przed maturą (1/2)</h2>
+        <div class="grid grid-2">
+          <a class="card-link" href="#/s1-import"><div class="card"><h4><span class="badge">1</span> Import danych – jak poprawnie wczytać plik</h4><p class="tiny">Separator, formaty liczb i dat</p></div></a>
+          <a class="card-link" href="#/s2-operacje"><div class="card"><h4><span class="badge">2</span> Podstawowe operacje – formuły, formaty, sortowanie</h4><p class="tiny">Przeciąganie, filtrowanie</p></div></a>
+          <a class="card-link" href="#/s3-daty"><div class="card"><h4><span class="badge">3</span> Daty w Excelu – obliczenia i okresy 7-dniowe</h4><p class="tiny">ROK(), numer okresu</p></div></a>
+          <a class="card-link" href="#/s4-agregaty"><div class="card"><h4><span class="badge">4</span> Agregaty – SUMA, ŚREDNIA, MIN, MAX</h4><p class="tiny">Uważaj na zakresy</p></div></a>
+        </div>
+      </section>
+
+      <section id="overview2" data-state="cards-light">
+        <h2>Excel – podstawy przed maturą (2/2)</h2>
+        <div class="grid grid-2">
+          <a class="card-link" href="#/s5-warunki"><div class="card"><h4><span class="badge">5</span> Warunki i kryteria – JEŻELI, SUMA.WARUNKÓW</h4></div></a>
+          <a class="card-link" href="#/s6-magazyn"><div class="card"><h4><span class="badge">6</span> Logika magazynu – stan narastający</h4></div></a>
+          <a class="card-link" href="#/s7-pivot"><div class="card"><h4><span class="badge">7</span> Tabele przestawne – szybkie zestawienia</h4></div></a>
+          <a class="card-link" href="#/s8-wykres"><div class="card"><h4><span class="badge">8</span> Wykresy – kolumnowy skumulowany</h4></div></a>
+        </div>
+      </section>
+
+      <section id="s1-import" data-state="cards-light">
+        <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+        <h3>1) Import danych – krok po kroku</h3>
+        <div class="grid grid-2">
+          <div class="card"><h4><span class="badge">1</span> Otwórz kreator</h4><p>Excel → <b>Dane</b> → <b>Z tekstu/CSV</b> → wybierz plik.</p></div>
+          <div class="card"><h4><span class="badge">2</span> Separator i liczby</h4><p><b>Tabulator</b>, <b>przecinek</b> jako dziesiętny.</p></div>
+          <div class="card"><h4><span class="badge">3</span> Kolumna data</h4><p>Ustaw typ <b>Data</b>; <code>=ROK(A2)</code> ma zwracać rok.</p></div>
+          <div class="card"><h4><span class="badge">4</span> Porządek</h4><p>Włącz <b>Filtr</b>, posortuj datę <b>rosnąco</b>.</p></div>
+        </div>
+      </section>
+
+      <section id="s2-operacje" data-state="cards-light">
+        <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+        <h3>2) Podstawowe operacje</h3>
+        <ul>
+          <li>Formuły zaczynamy od <code>=</code> (np. <code>=A2*B2</code>).</li>
+          <li>Przeciąganie: uchwyt w prawym-dolnym rogu komórki.</li>
+          <li>Format liczby: Liczba/Procent, daty spójne.</li>
+          <li>Sort/Filtrowanie: <em>Dane</em> → narzędzia.</li>
+        </ul>
+      </section>
+
+      <section id="s3-daty" data-state="cards-light">
+        <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+        <h3>3) Daty – funkcje</h3>
+        <ul>
+          <li><code>=ROK(A2)</code>, <code>=DATA(2033;3;3)</code>, różnica dni <code>=B2-A2</code>.</li>
+          <li>Okres 7-dniowy od 03.03.2033: <code>=1+CAŁKOWITE((A2-DATA(2033;3;3))/7)</code></li>
+        </ul>
+      </section>
+
+      <section id="s4-agregaty" data-state="cards-light">
+        <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+        <h3>4) Agregaty</h3>
+        <div class="grid grid-3">
+          <div class="card"><h4>Suma</h4><code>=SUMA(C2:C999)</code></div>
+          <div class="card"><h4>Średnia</h4><code>=ŚREDNIA(C2:C999)</code></div>
+          <div class="card"><h4>Min/Max</h4><code>=MIN(C:C)</code> • <code>=MAX(C:C)</code></div>
+        </div>
+      </section>
+
+      <section id="s5-warunki" data-state="cards-light">
+        <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+        <h3>5) Warunki i kryteria</h3>
+        <ul>
+          <li><code>=JEŻELI(test; a; b)</code>, <code>=ORAZ(...)</code></li>
+          <li>Sumy z warunkiem: <code>=SUMA.WARUNKÓW(...)</code></li>
+        </ul>
+      </section>
+
+      <section id="s6-magazyn" data-state="cards-light">
+        <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+        <h3>6) Logika magazynu</h3>
+        <ol>
+          <li>Stan dzienny = poprzedni stan + nowa wartość.</li>
+          <li>Jeśli stan ≥ 100 → jedna wysyłka 100, reszta zostaje.</li>
+          <li>Dane posortowane po dacie rosnąco.</li>
+        </ol>
+      </section>
+
+      <section id="s7-pivot" data-state="cards-light">
+        <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+        <h3>7) Tabele przestawne</h3>
+        <ol>
+          <li>Zaznacz dane → <em>Wstaw → Tabela przestawna</em> (nowy arkusz).</li>
+          <li>Wiersze/ Kolumny/ Wartości; zmień funkcję (Suma/Średnia/Liczba).</li>
+        </ol>
+      </section>
+
+      <section id="s8-wykres" data-state="cards-light">
+        <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+        <h3>8) Wykresy – kolumnowy skumulowany</h3>
+        <ol>
+          <li>Zaznacz dane (np. przestawna).</li>
+          <li><em>Wstaw → Kolumnowy skumulowany</em>.</li>
+          <li>Dodaj tytuł, opisy osi, legendę.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Checklist umiejętności przed 6.1–6.5</h3>
+        <ul>
+          <li>Import, formaty liczb i dat, sort/filtrowanie.</li>
+          <li>SUMA/ŚREDNIA/MIN/MAX + warunki.</li>
+          <li>Okresy 7-dniowe.</li>
+          <li>Tabele przestawne i wykres skumulowany.</li>
+          <li>Myślenie stanem narastającym.</li>
+        </ul>
+      </section>
+    </section>
 
     <section>
 
@@ -151,7 +249,6 @@
         </div>
       </section>
 
-      <!-- 2.2 — Plik .txt w Excelu (pełna tabela) -->
       <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
         <h3><i class="ti ti-table"></i> Dane — plik .txt otwarty w Excelu</h3>
         <p class="fit">Kolumny: <em>data</em>, <em>nazwa_obszaru</em>, <em>masa [kg]</em>, <em>zawartość [%]</em>, <em>ile wydobyto</em>.</p>
@@ -161,7 +258,6 @@
         </figure>
       </section>
 
-      <!-- 2.3 — Kryteria oceny -->
       <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
         <h3><i class="ti ti-clipboard-list"></i> Kryteria oceny (CKE)</h3>
         <div class="two-col fit">
@@ -180,7 +276,6 @@
         </div>
       </section>
 
-      <!-- ------- 6.1 -------- -->
       <section id="sec-6-1" data-backto="sec-2-home" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
         <h3><i class="ti ti-sum"></i> 6.1 — Treść podpunktu</h3>
         <figure>
@@ -365,52 +460,50 @@
         </div>
       </section>
 
+      <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+        <h3><i class="ti ti-chart-histogram"></i> 6.4 — WYKRES SKUMULOWANY KOLUMNOWY — <u>UTWORZENIE</u></h3>
+        <div class="two-col fit">
+          <div class="card">
+            <ol>
+              <li>Zaznacz zestawienie z tabeli przestawnej (bez <em>Sum końcowych</em>).</li>
+              <li><strong>Wstaw</strong> → <strong>Kolumnowy skumulowany</strong>.</li>
+              <li>Jeśli serie są zamienione, użyj <em>Przełącz wiersz/kolumnę</em>.</li>
+            </ol>
+            <span class="mini-pill">Użyte: przestawna + kolumnowy skumulowany</span>
+          </div>
+          <div>
+            <figure>
+              <img class="halfimg js-pop" src="images/6.4_dane_i_wykres.png" data-full="images/6.4_dane_i_wykres.png" alt="Zaznaczone zestawienie i wstawianie wykresu skumulowanego">
+              <figcaption>Wybór danych i wstawienie wykresu</figcaption>
+            </figure>
+            <figure>
+              <img class="halfimg js-pop" src="images/6.4_gotowy_wykres.png" data-full="images/6.4_gotowy_wykres.png" alt="Gotowy wykres skumulowany">
+              <figcaption>Wykres po wstawieniu</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
 
+      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+        <h3><i class="ti ti-chart-histogram"></i> 6.4 PERSONALIZACJA WYKRESU SKUMULOWANEGO</h3>
+        <div class="two-col fit">
+          <div>
+            <div class="card" style="margin-bottom:1rem;">
+              <ol>
+                <li>Dodaj tytuły osi i legendę z latami.</li>
+              </ol>
+              <span class="mini-pill">Użyte: wykres kolumnowy skumulowany</span>
+            </div>
+          </div>
+          <div>
+            <figure>
+              <img class="fullimg js-pop" src="images/6.4_dodanie_elementu_wykresu.png" data-full="images/6.4_dodanie_elementu_wykresu.png" alt="Dodawanie tytułów osi i legendy">
+              <figcaption>Dodawanie tytułów osi i legendy</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
 
-<section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-  <h3><i class="ti ti-chart-histogram"></i> 6.4 — WYKRES SKUMULOWANY KOLUMNOWY — <u>UTWORZENIE</u></h3>
-  <div class="two-col fit">
-    <div class="card">
-      <ol>
-        <li>Zaznacz zestawienie z tabeli przestawnej (bez <em>Sum końcowych</em>).</li>
-        <li><strong>Wstaw</strong> → <strong>Kolumnowy skumulowany</strong>.</li>
-        <li>Jeśli serie są zamienione, użyj <em>Przełącz wiersz/kolumnę</em>.</li>
-      </ol>
-      <span class="mini-pill">Użyte: przestawna + kolumnowy skumulowany</span>
-    </div>
-
-    <div>
-      <figure>
-        <img class="halfimg js-pop" src="images/6.4_dane_i_wykres.png" data-full="images/6.4_dane_i_wykres.png" alt="Zaznaczone zestawienie i polecenie wstawienia wykresu kolumnowego skumulowanego">
-        <figcaption>Wybór danych i wstawienie wykresu</figcaption>
-      </figure>
-      <figure>
-        <img class="halfimg js-pop" src="images/6.4_gotowy_wykres.png" data-full="images/6.4_gotowy_wykres.png" alt="Gotowy wykres kolumnowy skumulowany">
-        <figcaption>Wykres po wstawieniu</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-  <h3><i class="ti ti-chart-histogram"></i> 6.4 PERSONALIZACJA WYKRESU SKUMULOWANEGO</h3>
-  <div class="two-col fit">
-    <div>
-      <div class="card" style="margin-bottom:1rem;">
-        <ol>
-          <li>Dodaj tytuły osi i legendę z latami.</li>
-        </ol>
-        <span class="mini-pill">Użyte: wykres kolumnowy skumulowany</span>
-      </div>
-    </div>
-    <div>
-      <figure>
-        <img class="fullimg js-pop" src="images/6.4_dodanie_elementu_wykresu.png" data-full="images/6.4_dodanie_elementu_wykresu.png" alt="Dodawanie tytułów osi i legendy">
-        <figcaption>Dodawanie tytułów osi i legendy</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
       <section id="sec-6-5" data-backto="sec-2-home" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
         <h3><i class="ti ti-rocket"></i> 6.5 — Treść podpunktu</h3>
         <figure>
@@ -527,7 +620,7 @@
               <li><strong>Formatowanie warunkowe</strong> → <em>Równe…</em> → wpisz <code>1</code> → nadaj czerwone wypełnienie.</li>
               <li>Odczytaj z kolumny <strong>A</strong> datę z pierwszego wyróżnionego wiersza (pierwszy lot) i z ostatniego (ostatni lot).</li>
             </ol>
-            <p class="hint">Można też formułami (opcjonalnie): <span class="mini-pill">MIN.WARUNKÓW(A:A;J:J;1)</span> i <span class="mini-pill">MAX.WARUNKÓW(A:A;J:J;1)</span> — jeśli masz nowszego Excela.</p>
+            <p class="hint">Można też formułami (opcjonalnie): <span class="mini-pill">MIN.WARUNKÓW(A:A;J:J;1)</span> i <span class="mini-pill">MAX.WARUNKÓW(A:A;J:J;1)</span>.</p>
             <div class="mini-pill">Użyte: formatowanie warunkowe „Równe… 1”</div>
           </div>
           <figure>
@@ -544,11 +637,12 @@
           <li>6.2: Przestawna (Średnia z masy wg obszaru) → minimum: <strong>Thaumasia ≈ 17,8357 kg</strong>.</li>
           <li>6.3: Ruchoma suma 7 dni → <code>=MAX(F:F)</code> → data początku z kolumny A.</li>
           <li>6.4: Przestawna (rok×obszar, Suma z pomoc) → wykres <strong>skumulowany kolumnowy</strong>.</li>
-          <li>6.5: Trzy kolumny i warunek 100 kg: <code>=K2+E3</code>, <code>=JEŻELI(I&gt;=100;1;0)</code>, <code>=JEŻELI(J=1;I-100;I)</code> → loty = <code>SUMA(J:J)</code>, daty z wyróżnionych wierszy.</li>
+          <li>6.5: Trzy kolumny i warunek 100 kg → loty = <code>SUMA(J:J)</code>, daty z wyróżnionych wierszy.</li>
         </ul>
       </section>
 
     </section>
+
     <section>
 
       <section id="sec-3-home" data-background-gradient="linear-gradient(180deg,#fef3c7 0%,#f0f9ff 60%,#f5f3ff 100%)">
@@ -577,19 +671,15 @@
           <div class="card">
             <h4>Jak działa?</h4>
             <ul>
-              <li>Standardowe oznaczenia kolumn i wierszy (np. <code>A1</code>, <code>B2</code>).</li>
-              <li>Przy kopiowaniu/przeciąganiu formuły adresy dostosowują się do nowej pozycji.</li>
+              <li>Standardowe oznaczenia kolumn/wierszy (np. <code>A1</code>, <code>B2</code>).</li>
+              <li>Po skopiowaniu formuły adresy dostosowują się do nowej pozycji.</li>
             </ul>
             <h4>Kiedy używać?</h4>
-            <p>Gdy formuła ma „iść” razem z danymi w dół lub w bok.</p>
+            <p>Gdy formuła ma „iść” razem z danymi.</p>
           </div>
           <div class="card">
             <h4>Przykład</h4>
-            <div class="codebox">
-              D1: =A1+B1<br>
-              (przeciągnij w dół do D2) ⟶ D2: =A2+B2
-            </div>
-            <p class="hint">Adresy zmieniły się o tyle samo wierszy, o ile przesunięto formułę.</p>
+            <div class="codebox">D1: =A1+B1 → w dół → D2: =A2+B2</div>
           </div>
         </div>
       </section>
@@ -600,19 +690,14 @@
           <div class="card">
             <h4>Jak działa?</h4>
             <ul>
-              <li>Używamy znaku <strong>$</strong> przed kolumną i/lub wierszem: <code>$A</code>.</li>
-              <li>Odwołanie nie zmienia się po skopiowaniu formuły.</li>
+              <li>Używamy <strong>$</strong> przed kolumną/wierszem: <code>$A</code>, <code>$1</code>.</li>
+              <li>Odwołanie nie zmienia się po skopiowaniu.</li>
             </ul>
-            <h4>Kiedy używać?</h4>
-            <p>Gdy zawsze chcesz odwołać się do tej samej komórki (np. stała stawka VAT).</p>
+            <h4>Kiedy?</h4><p>Gdy odwołujesz się zawsze do tej samej komórki (np. stała).</p>
           </div>
           <div class="card">
             <h4>Przykład</h4>
-            <div class="codebox">
-              D1: =$A + B1<br>
-              (przeciągnij do D2) ⟶ D2: =$A + B2
-            </div>
-            <p class="hint">Stała pozostaje <code>$A</code>, zmienia się jedynie adres względny <code>B1→B2</code>.</p>
+            <div class="codebox">D1: =$A + B1 → w dół → D2: =$A + B2</div>
           </div>
         </div>
       </section>
@@ -623,23 +708,16 @@
           <div class="card">
             <h4>Jak działa?</h4>
             <ul>
-              <li><code>$A1</code> — kolumna A jest stała, wiersz zmienny.</li>
-              <li><code>A</code> — wiersz 1 jest stały, kolumna zmienna.</li>
+              <li><code>$A1</code> — kolumna stała, wiersz zmienny.</li>
+              <li><code>A</code> — wiersz stały, kolumna zmienna.</li>
             </ul>
-            <h4>Kiedy używać?</h4>
-            <p>Gdy blokujesz tylko kolumnę <em>albo</em> tylko wiersz (np. budowa tabeli mnożenia, macierze stawek).</p>
           </div>
           <div class="card">
             <h4>Przykład</h4>
-            <div class="codebox">
-              Wpisz w C2: =$A1 * B<br>
-              ⟶ kopiowanie w dół: <strong>$A</strong>1 → <strong>$A</strong>2 (kolumna stała, wiersz rośnie)<br>
-              ⟶ kopiowanie w prawo: B<strong></strong> → C<strong></strong> (wiersz stały, kolumna rośnie)
-            </div>
+            <div class="codebox">C2: =$A1 * B → kopiowanie w dół/prawo i obserwacja zmian</div>
           </div>
         </div>
       </section>
-
 
       <section id="sec-3-addr-f4" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff1f2 100%)">
         <h3><i class="ti ti-keyboard"></i> 3.4 — Błyskawiczne przełączanie: <code>F4</code></h3>
@@ -647,133 +725,83 @@
           <div class="card">
             <p>W edycji adresu naciśnij <strong>F4</strong>, aby przełączać style odwołań:</p>
             <div class="codebox">A1 → $A → A → $A1 → A1</div>
-            <p class="hint">Ułatwia budowę formuł mieszanych bez ręcznego dopisywania <code>$</code>.</p>
           </div>
-          <div class="card">
-            <p>Tip:</p>
-            <ul>
-              <li>Najpierw wpisz formułę względną, potem „zablokuj” potrzebne części klawiszem F4.</li>
-            </ul>
-          </div>
+          <div class="card"><p>Tip: najpierw wpisz formułę względną, potem „zablokuj” potrzebne części F4.</p></div>
         </div>
       </section>
 
       <section id="sec-3-math" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
-        <h3><i class="ti ti-math"></i> 3.5 — Podstawowe <strong>formuły matematyczne</strong></h3>
+        <h3><i class="ti ti-math"></i> 3.5 — Formuły matematyczne</h3>
         <div class="two-col fit">
           <div class="card">
             <ul>
-              <li><code>=SUMA(zakres)</code> — sumuje wartości.</li>
-              <li><code>=ŚREDNIA(zakres)</code> — średnia arytmetyczna.</li>
-              <li><code>=MIN(zakres)</code> / <code>=MAX(zakres)</code> — min / max.</li>
-              <li><code>=ZAOKR(liczba; liczba_cyfr)</code> — zaokrąglenie.</li>
-              <li><code>=POTĘGA(liczba; potęga)</code> — potęgowanie.</li>
+              <li><code>=SUMA(zakres)</code>, <code>=ŚREDNIA(zakres)</code>, <code>=MIN/ MAX(zakres)</code></li>
+              <li><code>=ZAOKR(liczba; n)</code>, <code>=POTĘGA(x; p)</code></li>
             </ul>
           </div>
           <div class="card">
             <h4>Przykłady</h4>
-            <div class="codebox">
-              =SUMA(A1:A10)<br>
-              =ŚREDNIA(B1:B20)<br>
-              =MIN(C1:C50) &nbsp;&nbsp; =MAX(C1:C50)<br>
-              =ZAOKR(A1; 2)<br>
-              =POTĘGA(2; 3)  ⟶ 8
-            </div>
+            <div class="codebox">=SUMA(A1:A10) • =ŚREDNIA(B1:B20) • =ZAOKR(A1;2) • =POTĘGA(2;3)</div>
           </div>
         </div>
       </section>
 
       <section id="sec-3-logic" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-cpu"></i> 3.6 — <strong>Formuły logiczne</strong></h3>
+        <h3><i class="ti ti-cpu"></i> 3.6 — Formuły logiczne</h3>
         <div class="two-col fit">
           <div class="card">
             <ul>
-              <li><code>=JEŻELI(warunek; wartość_jeżeli_prawda; wartość_jeżeli_fałsz)</code></li>
-              <li><code>=ORAZ(warunek1; warunek2; …)</code> — PRAWDA, gdy wszystkie spełnione.</li>
+              <li><code>=JEŻELI(warunek; a; b)</code></li>
+              <li><code>=ORAZ(w1; w2; …)</code> — PRAWDA, gdy wszystkie spełnione.</li>
             </ul>
           </div>
           <div class="card">
-            <h4>Przykłady</h4>
-            <div class="codebox">
-              =JEŻELI(A1&gt;10; "Wysoka"; "Niska")<br>
-              =ORAZ(A1&gt;0; A1&lt;=100)
-            </div>
-            <p class="hint">W przykładzie poprawiono literówkę: używamy <code>A1&lt;=100</code>.</p>
+            <h4>Przykład</h4>
+            <div class="codebox">=JEŻELI(A1&gt;10;"Wysoka";"Niska") • =ORAZ(A1&gt;0;A1&lt;=100)</div>
           </div>
         </div>
       </section>
 
       <section id="sec-3-text" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
-        <h3><i class="ti ti-letters-case"></i> 3.7 — <strong>Formuły tekstowe</strong></h3>
+        <h3><i class="ti ti-letters-case"></i> 3.7 — Formuły tekstowe</h3>
         <div class="two-col fit">
           <div class="card">
             <ul>
-              <li><code>=ZŁĄCZ.TEKSTY(tekst1; tekst2; …)</code> — łączy teksty.</li>
-              <li><code>=LEWY(tekst; n)</code> — n znaków z lewej.</li>
-              <li><code>=PRAWY(tekst; n)</code> — n znaków z prawej.</li>
+              <li><code>=ZŁĄCZ.TEKSTY(…)</code>, <code>=LEWY(tekst; n)</code>, <code>=PRAWY(tekst; n)</code></li>
             </ul>
           </div>
-          <div class="card">
-            <h4>Przykłady</h4>
-            <div class="codebox">
-              =ZŁĄCZ.TEKSTY(A1; " "; B1)<br>
-              =LEWY(A1; 3) &nbsp;&nbsp; =PRAWY(A1; 3)
-            </div>
-          </div>
+          <div class="card"><div class="codebox">=ZŁĄCZ.TEKSTY(A1;" ";B1) • =LEWY(A1;3) • =PRAWY(A1;3)</div></div>
         </div>
       </section>
 
       <section id="sec-3-lookup" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-search"></i> 3.8 — <strong>Formuły wyszukiwania</strong></h3>
+        <h3><i class="ti ti-search"></i> 3.8 — Wyszukiwanie</h3>
         <div class="two-col fit">
           <div class="card">
             <ul>
-              <li><code>=WYSZUKAJ.PIONOWO(szukana; tabela; kol; [dokładnie?])</code></li>
-              <li><code>=INDEKS(tablica; wiersz; [kolumna])</code></li>
-              <li><code>=PODAJ.POZYCJĘ(szukana; tablica; [typ])</code></li>
+              <li><code>=WYSZUKAJ.PIONOWO(…)</code>, <code>=INDEKS(…)</code>, <code>=PODAJ.POZYCJĘ(…)</code></li>
             </ul>
-            <p class="hint">Często używamy tandemu <strong>INDEKS+PODAJ.POZYCJĘ</strong> jako elastycznej alternatywy dla WYSZUKAJ.PIONOWO.</p>
           </div>
-          <div class="card">
-            <h4>Przykłady</h4>
-            <div class="codebox">
-              =WYSZUKAJ.PIONOWO(A1; B1:D10; 2; FAŁSZ)<br>
-              =INDEKS(A1:C10; 2; 3)<br>
-              =PODAJ.POZYCJĘ(A1; B1:B10; 0)
-            </div>
-          </div>
+          <div class="card"><div class="codebox">=WYSZUKAJ.PIONOWO(A1;B1:D10;2;FAŁSZ) • =INDEKS(A1:C10;2;3)</div></div>
         </div>
       </section>
 
       <section id="sec-3-date" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
-        <h3><i class="ti ti-calendar"></i> 3.9 — <strong>Daty i czas</strong></h3>
+        <h3><i class="ti ti-calendar"></i> 3.9 — Daty i czas</h3>
         <div class="two-col fit">
-          <div class="card">
-            <ul>
-              <li><code>=DZIŚ()</code> — bieżąca data.</li>
-              <li><code>=TERAZ()</code> — bieżąca data i godzina.</li>
-              <li><code>=ROK(data)</code> — sam rok z daty.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h4>Przykłady</h4>
-            <div class="codebox">
-              =DZIŚ()<br>
-              =TERAZ()<br>
-              =ROK(A1)
-            </div>
-          </div>
+          <div class="card"><ul><li><code>=DZIŚ()</code>, <code>=TERAZ()</code>, <code>=ROK(data)</code></li></ul></div>
+          <div class="card"><div class="codebox">=DZIŚ() • =TERAZ() • =ROK(A1)</div></div>
         </div>
       </section>
 
       <section id="sec-3-cheats" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#eef2ff 100%)">
-        <h3><i class="ti ti-stars"></i> 3.10 — <strong>Niezbędnik formuł</strong> (ściąga)</h3>
+        <h3><i class="ti ti-stars"></i> 3.10 — Niezbędnik formuł</h3>
         <ul class="fit">
-          <li><strong>SUMA</strong>(zakres) • <strong>ŚREDNIA</strong>(zakres) • <strong>MIN</strong>/<strong>MAX</strong>(zakres) • <strong>ZAOKR</strong>(x; n) • <strong>POTĘGA</strong>(x; p)</li>
-          <li><strong>JEŻELI</strong>(warunek; a; b) • <strong>ORAZ</strong>(…)</li>
-          <li><strong>ZŁĄCZ.TEKSTY</strong>(…) • <strong>LEWY</strong>(t; n) • <strong>PRAWY</strong>(t; n)</li>
-          <li><strong>WYSZUKAJ.PIONOWO</strong>(…) • <strong>INDEKS</strong>(…) • <strong>PODAJ.POZYCJĘ</strong>(…)</li>
-          <li><strong>DZIŚ</strong>() • <strong>TERAZ</strong>() • <strong>ROK</strong>(data)</li>
+          <li><strong>SUMA</strong>, <strong>ŚREDNIA</strong>, <strong>MIN/MAX</strong>, <strong>ZAOKR</strong>, <strong>POTĘGA</strong></li>
+          <li><strong>JEŻELI</strong>, <strong>ORAZ</strong></li>
+          <li><strong>ZŁĄCZ.TEKSTY</strong>, <strong>LEWY</strong>, <strong>PRAWY</strong></li>
+          <li><strong>WYSZUKAJ.PIONOWO</strong>, <strong>INDEKS</strong>, <strong>PODAJ.POZYCJĘ</strong></li>
+          <li><strong>DZIŚ</strong>, <strong>TERAZ</strong>, <strong>ROK</strong></li>
         </ul>
         <p class="hint">Adresowanie: A1 (względne) • $A (bezwzględne) • $A1 / A (mieszane) • skrót: <strong>F4</strong>.</p>
       </section>
