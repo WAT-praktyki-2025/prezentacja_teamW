@@ -274,204 +274,256 @@
           </div>
         </section>
 
-        <!--  OVERVIEW 1/2  -->
+        <!-- SPIS 1/2 -->
         <section id="overview1" data-state="cards-light">
           <h2>Excel – podstawy przed maturą (1/2)</h2>
           <div class="grid grid-2">
             <a class="card-link" href="#/s1-import">
               <div class="card">
-                <h4><span class="badge">1</span> Import danych – jak poprawnie wczytać plik</h4>
-                <p class="tiny">Import danych – jak poprawnie wczytać plik</p>
+                <h4><span class="badge">1</span> Komórki i import danych</h4>
+                <p class="tiny">Jak działać na komórkach i jak poprawnie wczytać plik</p>
               </div>
             </a>
             <a class="card-link" href="#/s2-operacje">
               <div class="card">
-                <h4><span class="badge">2</span> Podstawowe operacje – formuły, formaty, sortowanie</h4>
-                <p class="tiny">Podstawowe operacje – formuły, formaty, sortowanie</p>
+                <h4><span class="badge">2</span> Podstawowe operacje</h4>
+                <p class="tiny">Formuły, przeciąganie, formaty, sortowanie</p>
               </div>
             </a>
-            <a class="card-link" href="#/s3-daty">
+            <a class="card-link" href="#/s3-suma">
               <div class="card">
-                <h4><span class="badge">3</span> Daty w Excelu – obliczenia i okresy 7-dniowe</h4>
-                <p class="tiny">Daty w Excelu – obliczenia i okresy 7-dniowe</p>
-              </div>
-            </a>
-            <a class="card-link" href="#/s4-agregaty">
-              <div class="card">
-                <h4><span class="badge">4</span> Agregaty – SUMA, ŚREDNIA, MIN, MAX w praktyce</h4>
-                <p class="tiny">Agregaty – SUMA, ŚREDNIA, MIN, MAX w praktyce</p>
+                <h4><span class="badge">3</span> Agregaty</h4>
+                <p class="tiny">SUMA, ŚREDNIA, MIN, MAX</p>
               </div>
             </a>
           </div>
         </section>
 
-        <!--  OVERVIEW 2/2 -->
-        <section id="overview2" data-state="cards-light">
-          <h2>Excel – podstawy przed maturą (2/2)</h2>
-          <div class="grid grid-2">
-            <a class="card-link" href="#/s5-warunki">
-              <div class="card">
-                <h4><span class="badge">5</span> Warunki i kryteria – JEŻELI, SUMA.WARUNKÓW, LICZ.WARUNKI</h4>
-                <p class="tiny">Warunki i kryteria – JEŻELI, SUMA.WARUNKÓW, LICZ.WARUNKI</p>
-              </div>
-            </a>
-            <a class="card-link" href="#/s6-magazyn">
-              <div class="card">
-                <h4><span class="badge">6</span> Logika magazynu – praca stanem narastającym</h4>
-                <p class="tiny">Logika magazynu – praca stanem narastającym</p>
-              </div>
-            </a>
-            <a class="card-link" href="#/s7-pivot">
-              <div class="card">
-                <h4><span class="badge">7</span> Tabele przestawne – szybkie zestawienia danych</h4>
-                <p class="tiny">Tabele przestawne – szybkie zestawienia danych</p>
-              </div>
-            </a>
-            <a class="card-link" href="#/s8-wykres">
-              <div class="card">
-                <h4><span class="badge">8</span> Wykresy – kolumnowy skumulowany krok po kroku</h4>
-                <p class="tiny">Wykresy – kolumnowy skumulowany krok po kroku</p>
-              </div>
-            </a>
-          </div>
-        </section>
+        <!-- SPIS 2/2 -->
+       <section id="overview2" data-state="cards-light">
+  <h2>Excel – podstawy przed maturą (2/2)</h2>
+  <div class="grid grid-2">
+    <a class="card-link" href="#/s4-jezeli">
+      <div class="card">
+        <h4><span class="badge">4</span> Warunki i kryteria</h4>
+        <p class="tiny">JEŻELI, SUMA.WARUNKÓW, LICZ.WARUNKI</p>
+      </div>
+    </a>
+    <a class="card-link" href="#/s5-pivot">
+      <div class="card">
+        <h4><span class="badge">5</span> Tabele przestawne</h4>
+        <p class="tiny">Tabele</p>
+      </div>
+    </a>
+    <a class="card-link" href="#/s6-wykres">
+      <div class="card">
+        <h4><span class="badge">6</span> Wykresy</h4>
+        <p class="tiny">Kolumnowy skumulowany</p>
+      </div>
+    </a>
+  </div>
+</section>
 
-        <!--  ROZWINIĘCIA 1–8 -->
 
-        <!-- SLIDE 1: Import danych -->
+        <!-- 1) KOMÓRKI I IMPORT -->
         <section id="s1-import" data-state="cards-light">
           <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
-          <h3>1) Import danych – krok po kroku</h3>
+          <h3>1.1) Komórki i import (pliku do Excela)</h3>
+
+          <div class="grid grid-1">
+            <div class="card">
+              <h4><span class="badge">1</span> Czym są komórki i arkusze?</h4>
+              <p>Excel to siatka <b>komórek</b> (kolumny A,B,C… i wiersze 1,2,3…). Adres komórki to np. <code>A1</code>. Komórki mogą zawierać liczby, tekst, daty lub formuły. Arkusz to jedna karta w pliku.</p>
+              <img src="exel.png" alt="Widok pustego arkusza w Excelu" style="max-width:100%; border:1px solid #ccc; margin-top:1em">
+              <div class="card" style="margin-top:1rem">
+                <h4><span class="badge">2</span> Jak działają formuły?</h4>
+                <p>Formuła zaczyna się od <code>=</code>, np. <code>=A2+B2</code>. Formuły kopiujesz przeciągając prawy-dolny kwadracik komórki.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="s1-import-2" data-state="cards-light">
+          <h3>1.2) Import danych – krok po kroku</h3>
+          <div class="grid grid-2">
+            <div class="card">
+              <h4><span class="badge">3</span> Jak zaimportować plik tekstowy?</h4>
+              <p>W Excelu: <b>Dane</b> → <b>Z pliku tekstowego/CSV</b> → wybierz <code>martianeum.txt</code>.</p>
+              <p class="tiny">Pojawi się okno importu z podglądem danych.</p>
+              <img src="dane.png" alt="Zakładka Dane w Excelu" style="max-width:100%; border:1px solid #ccc; margin:1em 0">
+            </div>
+            <div class="card">
+              <h4><span class="badge">4</span> Ustaw podział i liczby</h4>
+              <p>Wybierz <b>Separator: Tabulator</b> (TSV). Upewnij się, że liczby mają przecinek, np. <code>7,25</code> (a nie <code>7.25</code>).</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2) PODSTAWOWE OPERACJE -->
+        <section id="s2-operacje" data-state="cards-light">
+          <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+          <h3>2.1) Podstawowe operacje – krok po kroku</h3>
 
           <div class="grid grid-2">
             <div class="card">
-              <h4><span class="badge">1</span> Otwórz kreator importu</h4>
-              <p>Excel → <b>Dane</b> → <b>Z tekstu/CSV</b> → wybierz plik.</p>
-              <p class="tiny">Kliknij <span class="kbd">Dalej</span>, aby zobaczyć podgląd.</p>
+              <h4><span class="badge">1</span> Formuły</h4>
+              <p>Formuła zawsze zaczyna się od <code>=</code>. Przykład: <code>=A2*B2</code>. Możesz używać funkcji, np. <code>=SUMA(A1:A10)</code>.</p>
             </div>
-
             <div class="card">
-              <h4><span class="badge">2</span> Ustaw podział i liczby</h4>
-              <p><b>Separator = Tabulator</b> <span class="badge-soft">TSV</span> • <b>Dziesiętny = ,</b> (przecinek).</p>
-              <p class="tiny">Jeśli widzisz „3.14” zamiast „3,14” – popraw.</p>
-            </div>
-
-            <div class="card">
-              <h4><span class="badge">3</span> Kolumna <em>data</em> ma być datą</h4>
-              <p>Kliknij kolumnę <b>data</b> → wybierz typ <b>Data</b> (nie „Tekst”).</p>
-              <p class="tiny">Formuła <code>=ROK(A2)</code> ma zwrócić liczbę (np. 2023).</p>
-            </div>
-
-            <div class="card">
-              <h4><span class="badge">4</span> Posprzątaj tabelę</h4>
-              <p>Włącz <b>Filtr</b>, a kolumnę <b>data</b> posortuj <b>rosnąco</b>.</p>
-              <p class="tiny">Sort: <span class="kbd">Dane</span> → <span class="kbd">Sortuj od najstarszych</span></p>
+              <h4><span class="badge">2</span> Przeciąganie formuł</h4>
+              <p>Kliknij komórkę z formułą → złap mały kwadrat w prawym-dolnym rogu → przeciągnij w dół/prawo (A2→A3→A4…).</p>
+              <img src="dol.png" alt="Przeciąganie formuł" style="width:45%; border:1px solid #ccc; margin-top:.6rem">
             </div>
           </div>
         </section>
 
-        <!-- SLIDE 2: e -->
-        <section id="s2-operacje" data-state="cards-light">
-          <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
-          <h3>2) Podstawowe operacje – co musisz umieć</h3>
-          <ul>
-            <li><b>Formuły:</b> zaczynają się od <code>=</code> (np. <code>=A2*B2</code>).</li>
-            <li><b>Przeciąganie:</b> złap mały kwadrat w prawym-dolnym rogu komórki i przeciągnij w dół/prawo.</li>
-            <li><b>Format liczby:</b> Liczba/Procent (1–2 miejsca po przecinku); daty w jednakowym formacie.</li>
-            <li><b>Sortowanie:</b> Dane → Sortuj po dacie (rosnąco).</li>
-            <li><b>Filtrowanie:</b> Dane → Filtr; pokazuj tylko interesujące wiersze.</li>
-          </ul>
-        </section>
-
-        <!-- SLIDE 3: Daty -->
-        <section id="s3-daty" data-state="cards-light">
-          <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
-          <h3>3) Daty w Excelu – funkcje i praktyka</h3>
-          <ul>
-            <li><code>=ROK(A2)</code> — zwraca rok z daty.</li>
-            <li><code>=DATA(2033;3;3)</code> — buduje konkretną datę.</li>
-            <li><b>Różnica dni:</b> <code>=B2-A2</code> (obie komórki muszą być datą).</li>
-            <li><b>Okres 7-dniowy od 03.03.2033:</b> <code>=1+CAŁKOWITE((A2-DATA(2033;3;3))/7)</code></li>
-          </ul>
-          <p class="tiny">Jeśli formuły zwracają błąd, sprawdź czy komórki są typu „Data”, a nie „Tekst”.</p>
-        </section>
-
-        <!-- SLIDE 4: Agregaty -->
-        <section id="s4-agregaty" data-state="cards-light">
-          <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
-          <h3>4) Proste obliczenia – agregaty</h3>
-          <div class="grid grid-3">
-            <div class="card"><h4>Suma</h4><code>=SUMA(C2:C999)</code></div>
-            <div class="card"><h4>Średnia</h4><code>=ŚREDNIA(C2:C999)</code></div>
-            <div class="card"><h4>Min/Max</h4><code>=MIN(C:C)</code> • <code>=MAX(C:C)</code></div>
+        <section id="s2-format" data-state="cards-light">
+          <h3>2.2) Formatowanie danych</h3>
+          <div class="grid grid-1">
+            <div class="card">
+              <h4><span class="badge">3</span> Format liczby i daty</h4>
+              <p>Zaznacz kolumnę → prawy przycisk → <b>Formatuj komórki</b> → wybierz <b>Liczba</b> (np. 2 miejsca) lub <b>Data</b>.</p>
+              <p><b>Ważne:</b> wszystkie daty w jednym formacie (np. <code>dd.mm.rrrr</code>), liczby z przecinkiem.</p>
+              <div style="display:flex; gap:1rem; margin-top:1em; justify-content:center;">
+                <img src="formatuj.png" alt="Okno formatuj komórki" style="width:45%; border:1px solid #ccc;">
+                <img src="filtr.png" alt="Okno filtrowania" style="width:45%; border:1px solid #ccc;">
+              </div>
+            </div>
           </div>
-          <p class="tiny" style="margin-top:.6rem">Zawsze sprawdzaj zakresy — stosuj całe kolumny tylko gdy wiesz, że nie wpadną tam nagłówki/teksty.</p>
         </section>
 
-        <!-- SLIDE 5: Warunki -->
-        <section id="s5-warunki" data-state="cards-light">
-          <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
-          <h3>5) Warunki i kryteria</h3>
-          <ul>
-            <li><code>=JEŻELI(test; wtedy; inaczej)</code> — logika decyzji.</li>
-            <li><b>Sumy z warunkiem:</b> <code>=SUMA.WARUNKÓW(E:E; A:A; "&gt;="&amp;DATA(2033;3;3); A:A; "&lt;"&amp;DATA(2033;3;10))</code></li>
-            <li><b>Zliczanie z warunkiem:</b> <code>=LICZ.WARUNKI(Obszar;"Alfa"; Rok;2033)</code></li>
-          </ul>
-          <p class="tiny">Łącz tekstowe warunki z wartościami przez <code>&amp;</code> (np. <code>"&gt;"&amp;100</code>).</p>
+        <section id="s2-sort" data-state="cards-light">
+          <h3>2.3) Sortowanie i filtrowanie</h3>
+          <div class="grid grid-1">
+            <div class="card">
+              <h4><span class="badge">4</span> Sortowanie</h4>
+              <p><b>Dane</b> → <b>Sortuj po dacie</b> (rosnąco). Chronologia jest kluczowa w dalszych zadaniach.</p>
+              <div style="display:flex; gap:1rem; justify-content:center; margin-top:1em;">
+                <img src="sort1.png" alt="Sortowanie w Excelu – krok 1" style="width:45%; border:1px solid #ccc;">
+                <img src="sort2.png" alt="Sortowanie w Excelu – krok 2" style="width:45%; border:1px solid #ccc;">
+              </div>
+            </div>
+          </div>
         </section>
 
-        <!-- SLIDE 6: Logika magazynu -->
-        <section id="s6-magazyn" data-state="cards-light">
-          <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
-          <h3>6) Logika magazynu – myślenie stanem narastającym</h3>
-          <ol>
-            <li><b>Stan dzienny</b> = poprzedni stan + nowa wartość (np. wydobycie tylko gdy zawartość ≥ 1%).</li>
-            <li>Jeśli <b>stan ≥ 100</b> → realizujesz jedną wysyłkę 100 (maks. 1/dzień), reszta zostaje na jutro.</li>
-            <li>Ważne: dane muszą być posortowane po dacie rosnąco.</li>
-          </ol>
-          <div class="note warn"><div class="title">Uwaga</div>Nie próbuj „czytać koloru” z formatowania — obliczenia rób na liczbach.</div>
+        <!-- 3) AGREGATY (3.1–3.3) -->
+        <section id="s3-suma" data-state="cards-light">
+          <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+          <h3>3.1) Proste obliczenia – SUMA</h3>
+          <div class="card">
+            <p>Dodaje wszystkie liczby w zakresie.</p>
+            <code>=SUMA(C2:C999)</code>
+            <p class="tiny">Zwróci łączną wartość z kolumny C (wiersze 2–999).</p>
+            <img src="suma.png" alt="Funkcja SUMA w Excelu" style="max-width:60%; border:1px solid #ccc; margin-top:1em;">
+          </div>
         </section>
 
-        <!-- SLIDE 7: Pivot -->
-        <section id="s7-pivot" data-state="cards-light">
+        <section id="s3-srednia" data-state="cards-light">
+          <h3>3.2) Proste obliczenia – ŚREDNIA</h3>
+          <div class="card">
+            <p>Średnia arytmetyczna z zakresu.</p>
+            <code>=ŚREDNIA(C2:C999)</code>
+            <p class="tiny">Przydatne np. dla średniej zawartości.</p>
+            <img src="sred.png" alt="Funkcja ŚREDNIA w Excelu" style="max-width:60%; border:1px solid #ccc; margin-top:1em;">
+          </div>
+        </section>
+
+        <section id="s3-minmax" data-state="cards-light">
+          <h3>3.3) Proste obliczenia – MIN i MAX</h3>
+          <div class="card">
+            <p>Najmniejsza i największa wartość w zakresie.</p>
+            <code>=MIN(C2:C999)</code><br>
+            <code>=MAX(C2:C999)</code>
+            <div style="display:flex; gap:1rem; justify-content:center; margin-top:1em;">
+              <img src="min.png" alt="Funkcja MIN" style="width:40%; border:1px solid #ccc;">
+              <img src="max.png" alt="Funkcja MAX" style="width:40%; border:1px solid #ccc;">
+            </div>
+            <p class="tiny" style="margin-top:.6rem"> Uważaj na zakresy – całe kolumny (<code>C:C</code>) tylko gdy nie ma nagłówków/tekstu.</p>
+          </div>
+        </section>
+
+        <!-- 4) WARUNKI -->
+        <!-- SLIDE 4.1: JEŻELI -->
+<section id="s4-jezeli" data-state="cards-light">
+  <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+  <h3>4.1) Warunki – funkcja JEŻELI</h3>
+
+  <div class="card">
+    <h4><span class="badge">1</span> Logika decyzji</h4>
+    <p>Sprawdza warunek i zwraca różne wyniki w zależności od tego, czy warunek jest spełniony.</p>
+    <code>=JEŻELI(test; wtedy; inaczej)</code>
+    <p class="tiny">Przykład: <code>=JEŻELI(A2&gt;=100;"OK";"Za mało")</code></p>
+    <img src="pr.png" alt="Sortowanie w Excelu – krok 1" style="width:45%; border:1px solid #ccc;">
+                <img src="fal.png" alt="Sortowanie w Excelu – krok 2" style="width:45%; border:1px solid #ccc;">
+  </div>
+</section>
+
+<!-- SLIDE 4.2: SUMA.WARUNKÓW -->
+<section id="s4-suma-warunkow" data-state="cards-light">
+  <h3>4.2) Warunki – SUMA.WARUNKÓW</h3>
+
+  <div class="card">
+    <h4><span class="badge">2</span> Sumy z warunkiem</h4>
+    <p>Dodaje wartości tylko wtedy, gdy spełnione są określone kryteria.</p>
+    <code>=SUMA.WARUNKÓW(E:E; A:A; "&gt;="&amp;DATA(2033;3;3); A:A; "&lt;"&amp;DATA(2033;3;10))</code>
+    <p class="tiny">Liczy sumę z kolumny E, ale tylko dla wierszy w zakresie dat 3–9 marca 2033.</p>
+                <img src="1.png" alt="Okno filtrowania" style="width:45%; border:1px solid #ccc;">
+  </div>
+</section>
+
+<!-- SLIDE 4.3: LICZ.WARUNKI -->
+<section id="s4-licz-warunki" data-state="cards-light">
+  <h3>4.3) Warunki – LICZ.WARUNKI</h3>
+
+  <div class="card">
+    <h4><span class="badge">3</span> Zliczanie z warunkiem</h4>
+    <p>Zlicza, ile wierszy spełnia podane kryteria.</p>
+    <code>=LICZ.WARUNKI(Obszar;"Cebrenia"; Rok;2033)</code>
+    <p class="tiny">Policzy wszystkie rekordy, w których Obszar = „Cebrenia” i Rok = 2033.</p>
+       <img src="wy.png" alt="Okno filtrowania" style="width:45%; border:1px solid #ccc;">
+  </div>
+
+  <p class="tiny" style="margin-top:.6rem">
+     Warunki tekstowe i porównania łącz przez <code>&amp;</code>, np. <code>"&gt;"&amp;100</code>.
+  </p>
+</section>
+
+        <!-- 5) PIVOT -->
+        <section id="s5-pivot" data-state="cards-light">
           <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
-          <h3>7) Tabele przestawne – mini-przewodnik</h3>
+           <div class="card">
+          <h3>5) Tabele przestawne – mini-przewodnik</h3>
           <ol>
             <li>Zaznacz dane → <em>Wstaw → Tabela przestawna</em> (nowy arkusz).</li>
             <li>Ustaw pola: <b>Wiersze</b> (np. obszar), <b>Kolumny</b> (np. rok), <b>Wartości</b> (np. masa).</li>
             <li>Zmień funkcję wartości: „<b>Suma</b>” → „<b>Średnia</b>” lub „<b>Liczba</b>”.</li>
-            <li>Po zmianach w danych użyj <em>Odśwież</em>.</li>
+          </div>
+            <img src="2.png" alt="Okno filtrowania" style="width:45%; border:1px solid #ccc;">
+            <img src="3.png" alt="Okno filtrowania" style="width:45%; border:1px solid #ccc;">
+            
           </ol>
         </section>
 
-        <!-- SLIDE 8: Wykres -->
-        <section id="s8-wykres" data-state="cards-light">
-          <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
-          <h3>8) Wykresy – kolumnowy skumulowany</h3>
-          <ol>
-            <li>Na bazie tabeli (najlepiej przestawnej) zaznacz dane.</li>
-            <li><em>Wstaw → Kolumnowy skumulowany</em>.</li>
-            <li>Dodaj tytuł, opisy osi, czytelną legendę; sprawdź skale.</li>
-          </ol>
-          <p class="tiny">Skumulowany pokazuje wkład kategorii w całość w danym roku/okresie.</p>
-        </section>
+        <!-- 6) WYKRES -->
+        <section id="s6-wykres" class="cards-light" data-state="cards-light">
+  <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
 
-        <!-- Checklist -->
-        <section>
-          <h3>Checklist umiejętności przed 6.1–6.5</h3>
-          <ul>
-            <li>Import, formaty liczb i dat, sortowanie, filtrowanie.</li>
-            <li>Agregaty: SUMA/ŚREDNIA/MIN/MAKS oraz liczenie po kryteriach.</li>
-            <li>Okresy 7-dniowe: numeracja i data startu okresu.</li>
-            <li>Tabele przestawne: ustawianie pól i funkcji agregujących.</li>
-            <li>Wykres kolumnowy skumulowany: etykiety osi i legenda.</li>
-            <li>Myślenie „stanem narastającym” + ograniczenie 1 wysyłki/dzień.</li>
-          </ul>
-        </section>
+  <div class="card">
+    <h3>6) Wykresy – kolumnowy skumulowany</h3>
+    <ol>
+      <li>Na bazie tabeli (najlepiej przestawnej) zaznacz dane.</li>
+      <li><em>Wstaw → Kolumnowy skumulowany</em>.</li>
+      <li>Dodaj tytuł, opisy osi, legendę; sprawdź skale.</li>
+    </ol>
+    <p class="tip">
+      Skumulowany pokazuje wkład kategorii w całość w danym roku/okresie.
+    </p>
+            <img src="6.png" alt="Okno filtrowania" style="width:45%; border:1px solid #ccc;">
+         <img src="7.png" alt="Okno filtrowania" style="width:45%; border:1px solid #ccc;">   
+  </div>
+</section>
 
-      </section>
-     
-
+       </section>
     </div>
   </div>
 
@@ -480,11 +532,7 @@
   <script src="plugin/markdown/markdown.js"></script>
   <script src="plugin/highlight/highlight.js"></script>
   <script>
-    Reveal.initialize({
-      hash: true,
-      slideNumber: true,
-      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
-    });
+    Reveal.initialize({ hash:true, slideNumber:true, plugins:[RevealMarkdown, RevealHighlight, RevealNotes] });
   </script>
 </body>
 </html>
