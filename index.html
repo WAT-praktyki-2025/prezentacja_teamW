@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pl">
+
 <head>
   <meta charset="utf-8" />
   <title>Zadanie 6 Matura maj 2025 — Rozdziały 1, 2 i 3</title>
@@ -11,827 +12,1257 @@
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/@tabler/icons-webfont@latest/tabler-icons.min.css" />
 
   <style>
-    :root{
-      --ink:#0f172a; --muted:#64748b; --green:#10b981; --blue:#3b82f6; --amber:#f59e0b; --shadow:0 20px 60px rgba(2,6,23,.10);
+    :root {
+      --ink: #0f172a;
+      --muted: #64748b;
+      --green: #10b981;
+      --blue: #3b82f6;
+      --amber: #f59e0b;
+      --shadow: 0 20px 60px rgba(2, 6, 23, .10);
     }
-    .reveal, .reveal h1,.reveal h2,.reveal h3,.reveal p,.reveal li,.reveal code{ font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--ink); }
-    .reveal .progress{height:6px;background:linear-gradient(90deg,var(--blue),var(--green))}
-    .fit{font-size:clamp(16px,2.05vw,28px);line-height:1.42}
-    .hint{color:var(--muted);font-size:.96rem;margin-top:.45rem}
-    .tag{display:inline-block;background:#ecfeff;color:#0369a1;padding:.2em .6em;border:1px solid #bae6fd;border-radius:.6em;font-weight:700}
-    .pill{display:inline-flex;align-items:center;gap:.45rem;padding:.35rem .7rem;border-radius:999px;border:1px solid #c7d2fe;background:#eef2ff;color:#3730a3}
-    .mini-pill{display:inline-block;padding:.15rem .5rem;border-radius:999px;background:#f1f5f9;border:1px solid #e2e8f0;font-size:.85rem}
+
+    .reveal,
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal p,
+    .reveal li,
+    .reveal code {
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+    }
+
+    .reveal .progress {
+      height: 6px;
+      background: linear-gradient(90deg, var(--blue), var(--green))
+    }
+
+    .fit {
+      font-size: clamp(16px, 2.05vw, 28px);
+      line-height: 1.42
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: .96rem;
+      margin-top: .45rem
+    }
+
+    .tag {
+      display: inline-block;
+      background: #ecfeff;
+      color: #0369a1;
+      padding: .2em .6em;
+      border: 1px solid #bae6fd;
+      border-radius: .6em;
+      font-weight: 700
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .35rem .7rem;
+      border-radius: 999px;
+      border: 1px solid #c7d2fe;
+      background: #eef2ff;
+      color: #3730a3
+    }
+
+    .mini-pill {
+      display: inline-block;
+      padding: .15rem .5rem;
+      border-radius: 999px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      font-size: .85rem
+    }
 
     /* Karty i layout (wspólne) */
-    .card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:1.1rem 1.25rem;box-shadow:var(--shadow)}
-    .two-col{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:1.2rem;align-items:start}
-    @media (max-width:1200px){ .two-col{grid-template-columns:1fr} }
-    .grid{display:grid;gap:1rem}
-    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    @media (max-width:980px){ .grid-2,.grid-3{grid-template-columns:1fr} }
+    .card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 1.1rem 1.25rem;
+      box-shadow: var(--shadow)
+    }
 
-    .codebox{background:#0b132b;color:#e5e7eb;border-radius:12px;padding:.7rem 1rem;font-family:ui-monospace,Consolas,Menlo,monospace}
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 1.2rem;
+      align-items: start
+    }
+
+    @media (max-width:1200px) {
+      .two-col {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+
+    @media (max-width:980px) {
+
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .codebox {
+      background: #0b132b;
+      color: #e5e7eb;
+      border-radius: 12px;
+      padding: .7rem 1rem;
+      font-family: ui-monospace, Consolas, Menlo, monospace
+    }
 
     /* Obrazy – kontrola wysokości, żeby nic się nie ucinało */
-    .fullimg{width:100%;max-height:66vh;height:auto;object-fit:contain;border-radius:14px;border:1px solid #e5e7eb;background:#fff;box-shadow:var(--shadow);cursor:zoom-in}
-    .fullimg--md{max-height:58vh}
-    .fullimg--sm{max-height:42vh}
-    .halfimg{width:100%;max-height:34vh;height:auto;object-fit:contain;border-radius:14px;border:1px solid #e5e7eb;background:#fff;box-shadow:var(--shadow);cursor:zoom-in}
-    figure{margin:0}
-    figcaption{text-align:center;color:var(--muted);margin-top:.5rem}
-    .figure-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
-    @media (max-width:1200px){ .figure-row{grid-template-columns:1fr} }
+    .fullimg {
+      width: 100%;
+      max-height: 66vh;
+      height: auto;
+      object-fit: contain;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      box-shadow: var(--shadow);
+      cursor: zoom-in
+    }
+
+    .fullimg--md {
+      max-height: 58vh
+    }
+
+    .fullimg--sm {
+      max-height: 42vh
+    }
+
+    .halfimg {
+      width: 100%;
+      max-height: 34vh;
+      height: auto;
+      object-fit: contain;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      box-shadow: var(--shadow);
+      cursor: zoom-in
+    }
+
+    figure {
+      margin: 0
+    }
+
+    figcaption {
+      text-align: center;
+      color: var(--muted);
+      margin-top: .5rem
+    }
+
+    .figure-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      align-items: start
+    }
+
+    @media (max-width:1200px) {
+      .figure-row {
+        grid-template-columns: 1fr
+      }
+    }
 
     /* Slajdy tytułowe centrowane pionowo */
-    .centerme{display:flex;flex-direction:column;gap:1rem;justify-content:center;min-height:74vh}
+    .centerme {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      min-height: 74vh
+    }
 
     /* Tryb „tight” dla przeładowanych slajdów */
-    .tight .fit{font-size:clamp(16px,1.6vw,24px)}
-    .tight .fullimg{max-height:48vh}
-    .tight .card{padding:.9rem 1rem}
+    .tight .fit {
+      font-size: clamp(16px, 1.6vw, 24px)
+    }
+
+    .tight .fullimg {
+      max-height: 48vh
+    }
+
+    .tight .card {
+      padding: .9rem 1rem
+    }
 
     /* Dodatki do Rozdziału 1 (linki, badge, kbd) */
-    .card-link{display:block;text-decoration:none;color:inherit;border-radius:18px}
-    .card-link:focus-visible{outline:3px solid #93c5fd;outline-offset:4px}
-    .badge{display:inline-flex;align-items:center;justify-content:center;min-width:1.6em;height:1.6em;padding:.2em .55em;border-radius:999px;font-size:.8em;letter-spacing:.3px;background:#ecfeff;border:1px solid #bae6fd;color:#0369a1;margin-right:.45em;font-weight:700}
-    .kbd{display:inline-block;padding:.12em .38em;border:1px solid #e5e7eb;border-radius:8px;background:#f8fafc}
-    .tiny{font-size:.92rem;color:var(--muted)}
-    .back{font-size:.95rem;text-decoration:none;color:#2563eb}
-    .back:hover{text-decoration:underline}
+    .card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 18px
+    }
+
+    .card-link:focus-visible {
+      outline: 3px solid #93c5fd;
+      outline-offset: 4px
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.6em;
+      height: 1.6em;
+      padding: .2em .55em;
+      border-radius: 999px;
+      font-size: .8em;
+      letter-spacing: .3px;
+      background: #ecfeff;
+      border: 1px solid #bae6fd;
+      color: #0369a1;
+      margin-right: .45em;
+      font-weight: 700
+    }
+
+    .kbd {
+      display: inline-block;
+      padding: .12em .38em;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      background: #f8fafc
+    }
+
+    .tiny {
+      font-size: .92rem;
+      color: var(--muted)
+    }
+
+    .back {
+      font-size: .95rem;
+      text-decoration: none;
+      color: #2563eb
+    }
+
+    .back:hover {
+      text-decoration: underline
+    }
   </style>
 </head>
+
 <body>
 
-<div class="reveal">
-  <div class="slides">
+  <div class="reveal">
+    <div class="slides">
+      <section>
 
-    <section id="chap-1">
 
-      <section class="centerme" data-background-gradient="linear-gradient(180deg,#e0f2fe 0%,#eef2ff 60%,#f5f3ff 100%)">
-        <h2 style="margin-bottom:.15em;font-weight:800;letter-spacing:.8px;">ROZDZIAŁ 1</h2>
-        <h3 style="margin:.4em 0 0;font-weight:800;">PRZYGOTOWANIE DO ZADAŃ 6.1–6.5</h3>
-        <p class="fit">Co musisz umieć, zanim przejdziesz do rozwiązywania podpunktów w Excelu.<br>Użyj strzałki <strong>↓</strong>, aby wejść w szczegóły rozdziału.</p>
-      </section>
 
-      <section id="overview1" data-state="cards-light">
-        <h2>Excel – podstawy przed maturą (1/2)</h2>
-        <div class="grid grid-2">
-          <a class="card-link" href="#/s1-import"><div class="card"><h4><span class="badge">1</span> Import danych – jak poprawnie wczytać plik</h4><p class="tiny">Separator, formaty liczb i dat</p></div></a>
-          <a class="card-link" href="#/s2-operacje"><div class="card"><h4><span class="badge">2</span> Podstawowe operacje – formuły, formaty, sortowanie</h4><p class="tiny">Przeciąganie, filtrowanie</p></div></a>
-          <a class="card-link" href="#/s3-daty"><div class="card"><h4><span class="badge">3</span> Daty w Excelu – obliczenia i okresy 7-dniowe</h4><p class="tiny">ROK(), numer okresu</p></div></a>
-          <a class="card-link" href="#/s4-agregaty"><div class="card"><h4><span class="badge">4</span> Agregaty – SUMA, ŚREDNIA, MIN, MAX</h4><p class="tiny">Uważaj na zakresy</p></div></a>
-        </div>
-      </section>
+        <!-- SPIS 1/2 -->
+        <section id="chap-1" data-state="cards-light">
+          <h2>Excel – podstawy przed maturą (1/2)</h2>
+          <div class="grid grid-2">
+            <a class="card-link" href="#/s1-import">
+              <div class="card">
+                <h4><span class="badge">1</span> Komórki i import danych</h4>
+                <p class="tiny">Jak działać na komórkach i jak poprawnie wczytać plik</p>
+              </div>
+            </a>
+            <a class="card-link" href="#/s2-operacje">
+              <div class="card">
+                <h4><span class="badge">2</span> Podstawowe operacje</h4>
+                <p class="tiny">Formuły, przeciąganie, formaty, sortowanie</p>
+              </div>
+            </a>
+            <a class="card-link" href="#/s3-suma">
+              <div class="card">
+                <h4><span class="badge">3</span> Agregaty</h4>
+                <p class="tiny">SUMA, ŚREDNIA, MIN, MAX</p>
+              </div>
+            </a>
+          </div>
+        </section>
 
-      <section id="overview2" data-state="cards-light">
-        <h2>Excel – podstawy przed maturą (2/2)</h2>
-        <div class="grid grid-2">
-          <a class="card-link" href="#/s5-warunki"><div class="card"><h4><span class="badge">5</span> Warunki i kryteria – JEŻELI, SUMA.WARUNKÓW</h4></div></a>
-          <a class="card-link" href="#/s6-magazyn"><div class="card"><h4><span class="badge">6</span> Logika magazynu – stan narastający</h4></div></a>
-          <a class="card-link" href="#/s7-pivot"><div class="card"><h4><span class="badge">7</span> Tabele przestawne – szybkie zestawienia</h4></div></a>
-          <a class="card-link" href="#/s8-wykres"><div class="card"><h4><span class="badge">8</span> Wykresy – kolumnowy skumulowany</h4></div></a>
-        </div>
-      </section>
+        <!-- SPIS 2/2 -->
+        <section id="overview2" data-state="cards-light">
+          <h2>Excel – podstawy przed maturą (2/2)</h2>
+          <div class="grid grid-2">
+            <a class="card-link" href="#/s4-jezeli">
+              <div class="card">
+                <h4><span class="badge">4</span> Warunki i kryteria</h4>
+                <p class="tiny">JEŻELI, SUMA.WARUNKÓW, LICZ.WARUNKI</p>
+              </div>
+            </a>
+            <a class="card-link" href="#/s5-pivot">
+              <div class="card">
+                <h4><span class="badge">5</span> Tabele przestawne</h4>
+                <p class="tiny">Tabele</p>
+              </div>
+            </a>
+            <a class="card-link" href="#/s6-wykres">
+              <div class="card">
+                <h4><span class="badge">6</span> Wykresy</h4>
+                <p class="tiny">Kolumnowy skumulowany</p>
+              </div>
+            </a>
+          </div>
+        </section>
 
-      <section id="s1-import" data-state="cards-light">
-        <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
-        <h3>1) Import danych – krok po kroku</h3>
-        <div class="grid grid-2">
-          <div class="card"><h4><span class="badge">1</span> Otwórz kreator</h4><p>Excel → <b>Dane</b> → <b>Z tekstu/CSV</b> → wybierz plik.</p></div>
-          <div class="card"><h4><span class="badge">2</span> Separator i liczby</h4><p><b>Tabulator</b>, <b>przecinek</b> jako dziesiętny.</p></div>
-          <div class="card"><h4><span class="badge">3</span> Kolumna data</h4><p>Ustaw typ <b>Data</b>; <code>=ROK(A2)</code> ma zwracać rok.</p></div>
-          <div class="card"><h4><span class="badge">4</span> Porządek</h4><p>Włącz <b>Filtr</b>, posortuj datę <b>rosnąco</b>.</p></div>
-        </div>
-      </section>
 
-      <section id="s2-operacje" data-state="cards-light">
-        <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
-        <h3>2) Podstawowe operacje</h3>
-        <ul>
-          <li>Formuły zaczynamy od <code>=</code> (np. <code>=A2*B2</code>).</li>
-          <li>Przeciąganie: uchwyt w prawym-dolnym rogu komórki.</li>
-          <li>Format liczby: Liczba/Procent, daty spójne.</li>
-          <li>Sort/Filtrowanie: <em>Dane</em> → narzędzia.</li>
-        </ul>
-      </section>
+        <!-- 1) KOMÓRKI I IMPORT -->
+        <section id="s1-import" data-state="cards-light">
+          <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+          <h3>1.1) Komórki i import (pliku do Excela)</h3>
 
-      <section id="s3-daty" data-state="cards-light">
-        <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
-        <h3>3) Daty – funkcje</h3>
-        <ul>
-          <li><code>=ROK(A2)</code>, <code>=DATA(2033;3;3)</code>, różnica dni <code>=B2-A2</code>.</li>
-          <li>Okres 7-dniowy od 03.03.2033: <code>=1+CAŁKOWITE((A2-DATA(2033;3;3))/7)</code></li>
-        </ul>
-      </section>
+          <div class="grid grid-1">
+            <div class="card">
+              <h4><span class="badge">1</span> Czym są komórki i arkusze?</h4>
+              <p>Excel to siatka <b>komórek</b> (kolumny A,B,C… i wiersze 1,2,3…). Adres komórki to np. <code>A1</code>.
+                Komórki mogą zawierać liczby, tekst, daty lub formuły. Arkusz to jedna karta w pliku.</p>
+              <img src="exel.png" alt="Widok pustego arkusza w Excelu"
+                style="max-width:100%; border:1px solid #ccc; margin-top:1em">
+              <div class="card" style="margin-top:1rem">
+                <h4><span class="badge">2</span> Jak działają formuły?</h4>
+                <p>Formuła zaczyna się od <code>=</code>, np. <code>=A2+B2</code>. Formuły kopiujesz przeciągając
+                  prawy-dolny kwadracik komórki.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <section id="s4-agregaty" data-state="cards-light">
-        <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
-        <h3>4) Agregaty</h3>
-        <div class="grid grid-3">
-          <div class="card"><h4>Suma</h4><code>=SUMA(C2:C999)</code></div>
-          <div class="card"><h4>Średnia</h4><code>=ŚREDNIA(C2:C999)</code></div>
-          <div class="card"><h4>Min/Max</h4><code>=MIN(C:C)</code> • <code>=MAX(C:C)</code></div>
-        </div>
-      </section>
+        <section id="s1-import-2" data-state="cards-light">
+          <h3>1.2) Import danych – krok po kroku</h3>
+          <div class="grid grid-2">
+            <div class="card">
+              <h4><span class="badge">3</span> Jak zaimportować plik tekstowy?</h4>
+              <p>W Excelu: <b>Dane</b> → <b>Z pliku tekstowego/CSV</b> → wybierz <code>martianeum.txt</code>.</p>
+              <p class="tiny">Pojawi się okno importu z podglądem danych.</p>
+              <img src="dane.png" alt="Zakładka Dane w Excelu"
+                style="max-width:100%; border:1px solid #ccc; margin:1em 0">
+            </div>
+            <div class="card">
+              <h4><span class="badge">4</span> Ustaw podział i liczby</h4>
+              <p>Wybierz <b>Separator: Tabulator</b> (TSV). Upewnij się, że liczby mają przecinek, np. <code>7,25</code>
+                (a nie <code>7.25</code>).</p>
+            </div>
+          </div>
+        </section>
 
-      <section id="s5-warunki" data-state="cards-light">
-        <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
-        <h3>5) Warunki i kryteria</h3>
-        <ul>
-          <li><code>=JEŻELI(test; a; b)</code>, <code>=ORAZ(...)</code></li>
-          <li>Sumy z warunkiem: <code>=SUMA.WARUNKÓW(...)</code></li>
-        </ul>
-      </section>
+        <!-- 2) PODSTAWOWE OPERACJE -->
+        <section id="s2-operacje" data-state="cards-light">
+          <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+          <h3>2.1) Podstawowe operacje – krok po kroku</h3>
 
-      <section id="s6-magazyn" data-state="cards-light">
-        <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
-        <h3>6) Logika magazynu</h3>
-        <ol>
-          <li>Stan dzienny = poprzedni stan + nowa wartość.</li>
-          <li>Jeśli stan ≥ 100 → jedna wysyłka 100, reszta zostaje.</li>
-          <li>Dane posortowane po dacie rosnąco.</li>
-        </ol>
-      </section>
+          <div class="grid grid-2">
+            <div class="card">
+              <h4><span class="badge">1</span> Formuły</h4>
+              <p>Formuła zawsze zaczyna się od <code>=</code>. Przykład: <code>=A2*B2</code>. Możesz używać funkcji, np.
+                <code>=SUMA(A1:A10)</code>.
+              </p>
+            </div>
+            <div class="card">
+              <h4><span class="badge">2</span> Przeciąganie formuł</h4>
+              <p>Kliknij komórkę z formułą → złap mały kwadrat w prawym-dolnym rogu → przeciągnij w dół/prawo
+                (A2→A3→A4…).</p>
+              <img src="dol.png" alt="Przeciąganie formuł" style="width:45%; border:1px solid #ccc; margin-top:.6rem">
+            </div>
+          </div>
+        </section>
 
-      <section id="s7-pivot" data-state="cards-light">
-        <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
-        <h3>7) Tabele przestawne</h3>
-        <ol>
-          <li>Zaznacz dane → <em>Wstaw → Tabela przestawna</em> (nowy arkusz).</li>
-          <li>Wiersze/ Kolumny/ Wartości; zmień funkcję (Suma/Średnia/Liczba).</li>
-        </ol>
-      </section>
+        <section id="s2-format" data-state="cards-light">
+          <h3>2.2) Formatowanie danych</h3>
+          <div class="grid grid-1">
+            <div class="card">
+              <h4><span class="badge">3</span> Format liczby i daty</h4>
+              <p>Zaznacz kolumnę → prawy przycisk → <b>Formatuj komórki</b> → wybierz <b>Liczba</b> (np. 2 miejsca) lub
+                <b>Data</b>.
+              </p>
+              <p><b>Ważne:</b> wszystkie daty w jednym formacie (np. <code>dd.mm.rrrr</code>), liczby z przecinkiem.</p>
+              <div style="display:flex; gap:1rem; margin-top:1em; justify-content:center;">
+                <img src="formatuj.png" alt="Okno formatuj komórki" style="width:45%; border:1px solid #ccc;">
+                <img src="filtr.png" alt="Okno filtrowania" style="width:45%; border:1px solid #ccc;">
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <section id="s8-wykres" data-state="cards-light">
-        <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
-        <h3>8) Wykresy – kolumnowy skumulowany</h3>
-        <ol>
-          <li>Zaznacz dane (np. przestawna).</li>
-          <li><em>Wstaw → Kolumnowy skumulowany</em>.</li>
-          <li>Dodaj tytuł, opisy osi, legendę.</li>
-        </ol>
+        <section id="s2-sort" data-state="cards-light">
+          <h3>2.3) Sortowanie i filtrowanie</h3>
+          <div class="grid grid-1">
+            <div class="card">
+              <h4><span class="badge">4</span> Sortowanie</h4>
+              <p><b>Dane</b> → <b>Sortuj po dacie</b> (rosnąco). Chronologia jest kluczowa w dalszych zadaniach.</p>
+              <div style="display:flex; gap:1rem; justify-content:center; margin-top:1em;">
+                <img src="sort1.png" alt="Sortowanie w Excelu – krok 1" style="width:45%; border:1px solid #ccc;">
+                <img src="sort2.png" alt="Sortowanie w Excelu – krok 2" style="width:45%; border:1px solid #ccc;">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3) AGREGATY (3.1–3.3) -->
+        <section id="s3-suma" data-state="cards-light">
+          <p><a class="back" href="#/overview1">← Wróć do spisu (1/2)</a></p>
+          <h3>3.1) Proste obliczenia – SUMA</h3>
+          <div class="card">
+            <p>Dodaje wszystkie liczby w zakresie.</p>
+            <code>=SUMA(C2:C999)</code>
+            <p class="tiny">Zwróci łączną wartość z kolumny C (wiersze 2–999).</p>
+            <img src="suma.png" alt="Funkcja SUMA w Excelu"
+              style="max-width:60%; border:1px solid #ccc; margin-top:1em;">
+          </div>
+        </section>
+
+        <section id="s3-srednia" data-state="cards-light">
+          <h3>3.2) Proste obliczenia – ŚREDNIA</h3>
+          <div class="card">
+            <p>Średnia arytmetyczna z zakresu.</p>
+            <code>=ŚREDNIA(C2:C999)</code>
+            <p class="tiny">Przydatne np. dla średniej zawartości.</p>
+            <img src="sred.png" alt="Funkcja ŚREDNIA w Excelu"
+              style="max-width:60%; border:1px solid #ccc; margin-top:1em;">
+          </div>
+        </section>
+
+        <section id="s3-minmax" data-state="cards-light">
+          <h3>3.3) Proste obliczenia – MIN i MAX</h3>
+          <div class="card">
+            <p>Najmniejsza i największa wartość w zakresie.</p>
+            <code>=MIN(C2:C999)</code><br>
+            <code>=MAX(C2:C999)</code>
+            <div style="display:flex; gap:1rem; justify-content:center; margin-top:1em;">
+              <img src="min.png" alt="Funkcja MIN" style="width:40%; border:1px solid #ccc;">
+              <img src="max.png" alt="Funkcja MAX" style="width:40%; border:1px solid #ccc;">
+            </div>
+            <p class="tiny" style="margin-top:.6rem"> Uważaj na zakresy – całe kolumny (<code>C:C</code>) tylko gdy nie
+              ma nagłówków/tekstu.</p>
+          </div>
+        </section>
+
+        <!-- 4) WARUNKI -->
+        <!-- SLIDE 4.1: JEŻELI -->
+        <section id="s4-jezeli" data-state="cards-light">
+          <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+          <h3>4.1) Warunki – funkcja JEŻELI</h3>
+
+          <div class="card">
+            <h4><span class="badge">1</span> Logika decyzji</h4>
+            <p>Sprawdza warunek i zwraca różne wyniki w zależności od tego, czy warunek jest spełniony.</p>
+            <code>=JEŻELI(test; wtedy; inaczej)</code>
+            <p class="tiny">Przykład: <code>=JEŻELI(A2&gt;=100;"OK";"Za mało")</code></p>
+            <img src="pr.png" alt="Sortowanie w Excelu – krok 1" style="width:45%; border:1px solid #ccc;">
+            <img src="fal.png" alt="Sortowanie w Excelu – krok 2" style="width:45%; border:1px solid #ccc;">
+          </div>
+        </section>
+
+        <!-- SLIDE 4.2: SUMA.WARUNKÓW -->
+        <section id="s4-suma-warunkow" data-state="cards-light">
+          <h3>4.2) Warunki – SUMA.WARUNKÓW</h3>
+
+          <div class="card">
+            <h4><span class="badge">2</span> Sumy z warunkiem</h4>
+            <p>Dodaje wartości tylko wtedy, gdy spełnione są określone kryteria.</p>
+            <code>=SUMA.WARUNKÓW(E:E; A:A; "&gt;="&amp;DATA(2033;3;3); A:A; "&lt;"&amp;DATA(2033;3;10))</code>
+            <p class="tiny">Liczy sumę z kolumny E, ale tylko dla wierszy w zakresie dat 3–9 marca 2033.</p>
+            <img src="1.png" alt="Okno filtrowania" style="width:45%; border:1px solid #ccc;">
+          </div>
+        </section>
+
+        <!-- SLIDE 4.3: LICZ.WARUNKI -->
+        <section id="s4-licz-warunki" data-state="cards-light">
+          <h3>4.3) Warunki – LICZ.WARUNKI</h3>
+
+          <div class="card">
+            <h4><span class="badge">3</span> Zliczanie z warunkiem</h4>
+            <p>Zlicza, ile wierszy spełnia podane kryteria.</p>
+            <code>=LICZ.WARUNKI(Obszar;"Cebrenia"; Rok;2033)</code>
+            <p class="tiny">Policzy wszystkie rekordy, w których Obszar = „Cebrenia” i Rok = 2033.</p>
+            <img src="wy.png" alt="Okno filtrowania" style="width:45%; border:1px solid #ccc;">
+          </div>
+
+          <p class="tiny" style="margin-top:.6rem">
+            Warunki tekstowe i porównania łącz przez <code>&amp;</code>, np. <code>"&gt;"&amp;100</code>.
+          </p>
+        </section>
+
+        <!-- 5) PIVOT -->
+        <section id="s5-pivot" data-state="cards-light">
+          <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+          <div class="card">
+            <h3>5) Tabele przestawne – mini-przewodnik</h3>
+            <ol>
+              <li>Zaznacz dane → <em>Wstaw → Tabela przestawna</em> (nowy arkusz).</li>
+              <li>Ustaw pola: <b>Wiersze</b> (np. obszar), <b>Kolumny</b> (np. rok), <b>Wartości</b> (np. masa).</li>
+              <li>Zmień funkcję wartości: „<b>Suma</b>” → „<b>Średnia</b>” lub „<b>Liczba</b>”.</li>
+          </div>
+          <img src="2.png" alt="Okno filtrowania" style="width:45%; border:1px solid #ccc;">
+          <img src="3.png" alt="Okno filtrowania" style="width:45%; border:1px solid #ccc;">
+
+          </ol>
+        </section>
+
+        <!-- 6) WYKRES -->
+        <section id="s6-wykres" class="cards-light" data-state="cards-light">
+          <p><a class="back" href="#/overview2">← Wróć do spisu (2/2)</a></p>
+
+          <div class="card">
+            <h3>6) Wykresy – kolumnowy skumulowany</h3>
+            <ol>
+              <li>Na bazie tabeli (najlepiej przestawnej) zaznacz dane.</li>
+              <li><em>Wstaw → Kolumnowy skumulowany</em>.</li>
+              <li>Dodaj tytuł, opisy osi, legendę; sprawdź skale.</li>
+            </ol>
+            <p class="tip">
+              Skumulowany pokazuje wkład kategorii w całość w danym roku/okresie.
+            </p>
+            <img src="6.png" alt="Okno filtrowania" style="width:45%; border:1px solid #ccc;">
+            <img src="7.png" alt="Okno filtrowania" style="width:45%; border:1px solid #ccc;">
+          </div>
+        </section>
+
       </section>
 
       <section>
-        <h3>Checklist umiejętności przed 6.1–6.5</h3>
-        <ul>
-          <li>Import, formaty liczb i dat, sort/filtrowanie.</li>
-          <li>SUMA/ŚREDNIA/MIN/MAX + warunki.</li>
-          <li>Okresy 7-dniowe.</li>
-          <li>Tabele przestawne i wykres skumulowany.</li>
-          <li>Myślenie stanem narastającym.</li>
-        </ul>
-      </section>
-    </section>
 
-    <section>
+        <section id="sec-2-home" data-background-gradient="linear-gradient(180deg,#e0f2fe 0%,#eef2ff 60%,#f5f3ff 100%)">
+          <h2 style="margin-bottom:.15em;font-weight:800;letter-spacing:.8px;">ROZDZIAŁ 2</h2>
+          <h3 style="margin:.8em 0 .8em;font-weight:800;"><span class="tag">ZADANIE 6 (EXCEL)</span></h3>
+          <p class="fit">
+            Pracujemy na danych z arkusza CKE z 14.05.2025.
+            <a class="pill" href="#/sec-6-1"><i class="ti ti-number-1"></i>6.1</a>,
+            <a class="pill" href="#/sec-6-2"><i class="ti ti-number-2"></i>6.2</a>,
+            <a class="pill" href="#/sec-6-3"><i class="ti ti-number-3"></i>6.3</a>,
+            <a class="pill" href="#/sec-6-4"><i class="ti ti-number-4"></i>6.4</a>,
+            <a class="pill" href="#/sec-6-5"><i class="ti ti-number-5"></i>6.5</a>.
+          </p>
 
-      <section id="sec-2-home" data-background-gradient="linear-gradient(180deg,#e0f2fe 0%,#eef2ff 60%,#f5f3ff 100%)">
-        <h2 style="margin-bottom:.15em;font-weight:800;letter-spacing:.8px;">ROZDZIAŁ 2</h2>
-        <h3 style="margin:.8em 0 .8em;font-weight:800;"><span class="tag">ZADANIE 6 (EXCEL)</span></h3>
-        <p class="fit">
-          Pracujemy na danych z arkusza CKE z 14.05.2025.
-          <a class="pill" href="#/sec-6-1"><i class="ti ti-number-1"></i>6.1</a>,
-          <a class="pill" href="#/sec-6-2"><i class="ti ti-number-2"></i>6.2</a>,
-          <a class="pill" href="#/sec-6-3"><i class="ti ti-number-3"></i>6.3</a>,
-          <a class="pill" href="#/sec-6-4"><i class="ti ti-number-4"></i>6.4</a>,
-          <a class="pill" href="#/sec-6-5"><i class="ti ti-number-5"></i>6.5</a>.
-        </p>
+          <a class="pill" style="margin-top:.6rem"
+            href="https://cke.gov.pl/images/_EGZAMIN_MATURALNY_OD_2023/Arkusze_egzaminacyjne/2025/Informatyka/MINP-R0-100-A-2505-arkusz.pdf"
+            target="_blank" rel="noopener">
+            <i class="ti ti-file-text"></i> Otwórz arkusz CKE (PDF)
+          </a>
+        </section>
 
-        <a class="pill" style="margin-top:.6rem" href="https://cke.gov.pl/images/_EGZAMIN_MATURALNY_OD_2023/Arkusze_egzaminacyjne/2025/Informatyka/MINP-R0-100-A-2505-arkusz.pdf" target="_blank" rel="noopener">
-          <i class="ti ti-file-text"></i> Otwórz arkusz CKE (PDF)
-        </a>
-      </section>
-
-      <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
-        <h3><i class="ti ti-file-text"></i> Treść zadania 6</h3>
-        <figure>
-          <img class="fullimg fullimg--md js-pop" src="images/zadanie6_tresc.png" data-full="images/zadanie6_tresc.png" alt="Treść zadania 6 z arkusza CKE">
-          <figcaption>Treść zadania 6 (pełny opis z arkusza)</figcaption>
-        </figure>
-      </section>
-
-      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-folder-open"></i> Dane — jak otworzyć plik .txt w Excelu (krok 1)</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ol>
-              <li>Odszukaj folder dołączony do arkusza maturalnego.</li>
-              <li>Zlokalizuj plik <strong>martianeum.txt</strong>.</li>
-            </ol>
-            <p class="hint"><strong>Dlaczego tak?</strong> Pracujemy na oficjalnych danych CKE — zero przepisywania, zero pomyłek.</p>
-          </div>
+        <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
+          <h3><i class="ti ti-file-text"></i> Treść zadania 6</h3>
           <figure>
-            <img class="fullimg js-pop" src="images/0_folder_z_plikami.png" data-full="images/0_folder_z_plikami.png" alt="Folder z plikami .txt: martianeum.txt zaznaczony">
-            <figcaption>Folder z plikami — wybieramy <em>martianeum.txt</em></figcaption>
+            <img class="fullimg fullimg--md js-pop" src="images/zadanie6_tresc.png"
+              data-full="images/zadanie6_tresc.png" alt="Treść zadania 6 z arkusza CKE">
+            <figcaption>Treść zadania 6 (pełny opis z arkusza)</figcaption>
           </figure>
-        </div>
-      </section>
+        </section>
 
-      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
-        <h3><i class="ti ti-brand-excel"></i> Dane — jak otworzyć plik .txt w Excelu (krok 2)</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ol>
-              <li>Prawy klik na pliku → <em>Otwórz w aplikacji</em> → <strong>Microsoft Excel</strong>.</li>
-              <li>Jeśli trzeba: <em>Dane → Z tekstu/CSV</em> i właściwy separator (np. tabulator).</li>
-            </ol>
-            <p class="hint"><strong>Dlaczego tak?</strong> Excel od razu zrobi poprawne kolumny i typy danych — gotowe do formuł i tabel przestawnych.</p>
-          </div>
-          <figure>
-            <img class="fullimg js-pop" src="images/0_wybor_excel.png" data-full="images/0_wybor_excel.png" alt="Kontekstowe menu: Otwórz w aplikacji → Microsoft Excel">
-            <figcaption>Otwieramy .txt bezpośrednio w Excelu</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-table"></i> Dane — plik .txt otwarty w Excelu</h3>
-        <p class="fit">Kolumny: <em>data</em>, <em>nazwa_obszaru</em>, <em>masa [kg]</em>, <em>zawartość [%]</em>, <em>ile wydobyto</em>.</p>
-        <figure>
-          <img class="fullimg js-pop" src="images/tabela.png" data-full="images/tabela.png" alt="Pełna tabela z danymi (plik .txt w Excelu)">
-          <figcaption>Plik danych — baza do wszystkich obliczeń</figcaption>
-        </figure>
-      </section>
-
-      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
-        <h3><i class="ti ti-clipboard-list"></i> Kryteria oceny (CKE)</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ul>
-              <li>Poprawne wartości i <strong>jednostki</strong>.</li>
-              <li>Właściwe narzędzia zgodne z treścią (SUMA, ŚREDNIA, tabela przestawna, wykres skumulowany).</li>
-              <li>Zwięzłe <strong>uzasadnienia</strong> decyzji.</li>
-            </ul>
-            <p class="hint">Pełna tabela kryteriów po prawej (kliknij, aby powiększyć).</p>
-          </div>
-          <figure>
-            <img class="fullimg js-pop" src="images/kryteria_oceny.png" data-full="images/kryteria_oceny.png" alt="Kryteria oceny do zadania 6 (CKE)">
-            <figcaption>Kryteria oceny — zadanie 6</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section id="sec-6-1" data-backto="sec-2-home" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
-        <h3><i class="ti ti-sum"></i> 6.1 — Treść podpunktu</h3>
-        <figure>
-          <img class="fullimg js-pop" src="images/zadanie6.1_tresc.png" data-full="images/zadanie6.1_tresc.png" alt="Treść zadania 6.1">
-          <figcaption>Co dokładnie liczymy w 6.1</figcaption>
-        </figure>
-      </section>
-
-      <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-checklist"></i> 6.1 — Kroki i uwagi</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ol>
-              <li>Kliknij dowolną komórkę w tabeli.</li>
-              <li>Wpisz:
-                <div class="codebox">
-                  =SUMA(C2:C2073) &nbsp; ⟶ łączna masa ładunków (kolumna C)<br/>
-                  =SUMA(E:E) &nbsp; ⟶ łączna masa martianeum (kolumna E)
-                </div>
-              </li>
-              <li>Zatwierdź <strong>Enter</strong> i odczytaj wartości.</li>
-            </ol>
-            <p class="hint"><strong>Dlaczego tak?</strong> Słowo „łączna” wymusza <code>SUMA()</code> (nie średnią ani maksimum).</p>
-          </div>
-          <div>
+        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+          <h3><i class="ti ti-folder-open"></i> Dane — jak otworzyć plik .txt w Excelu (krok 1)</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ol>
+                <li>Odszukaj folder dołączony do arkusza maturalnego.</li>
+                <li>Zlokalizuj plik <strong>martianeum.txt</strong>.</li>
+              </ol>
+              <p class="hint"><strong>Dlaczego tak?</strong> Pracujemy na oficjalnych danych CKE — zero przepisywania,
+                zero pomyłek.</p>
+            </div>
             <figure>
-              <img class="fullimg js-pop" src="images/formula_zad6.1.1.png" data-full="images/formula_zad6.1.1.png" alt="Formuła sumująca kolumnę masa [kg]">
-              <figcaption>Formuła dla masy ładunków</figcaption>
-            </figure>
-            <figure>
-              <img class="fullimg js-pop" src="images/formula_6.1.2.png" data-full="images/formula_6.1.2.png" alt="Formuła sumująca kolumnę ile wydobyto">
-              <figcaption>Formuła dla łącznej masy martianeum</figcaption>
+              <img class="fullimg js-pop" src="images/0_folder_z_plikami.png" data-full="images/0_folder_z_plikami.png"
+                alt="Folder z plikami .txt: martianeum.txt zaznaczony">
+              <figcaption>Folder z plikami — wybieramy <em>martianeum.txt</em></figcaption>
             </figure>
           </div>
-        </div>
-        <figure>
-          <img class="fullimg fullimg--sm js-pop" src="images/odpowiedz_zad6.1.png" data-full="images/odpowiedz_zad6.1.png" alt="Wynik 6.1 w Excelu">
-          <figcaption>Wynik 6.1: ładunki 41498,2 kg; martianeum 3092,2943 kg</figcaption>
-        </figure>
-      </section>
+        </section>
 
-      <section id="sec-6-2" data-backto="sec-2-home" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
-        <h3><i class="ti ti-chart-bar"></i> 6.2 — Treść podpunktu</h3>
-        <figure>
-          <img class="fullimg js-pop" src="images/zadanie6.2_tresc.png" data-full="images/zadanie6.2_tresc.png" alt="Treść zadania 6.2">
-          <figcaption>Co mamy wskazać w 6.2</figcaption>
-        </figure>
-      </section>
-
-      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-table"></i> 6.2 — Tabela przestawna: utworzenie</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ol>
-              <li><strong>Ctrl+A</strong> → <strong>Wstawianie</strong> → <strong>Tabela przestawna</strong> (Nowy arkusz).</li>
-              <li>Ustaw pola (<em>nazwa_obszaru</em> w Wierszach, <em>masa [kg]</em> w Wartościach→<strong>Średnia</strong>).</li>
-            </ol>
-            <p class="hint"><strong>Dlaczego tak?</strong> Treść wymaga minimum <em>średniej</em> dla obszaru.</p>
-          </div>
-          <div>
+        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
+          <h3><i class="ti ti-brand-excel"></i> Dane — jak otworzyć plik .txt w Excelu (krok 2)</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ol>
+                <li>Prawy klik na pliku → <em>Otwórz w aplikacji</em> → <strong>Microsoft Excel</strong>.</li>
+                <li>Jeśli trzeba: <em>Dane → Z tekstu/CSV</em> i właściwy separator (np. tabulator).</li>
+              </ol>
+              <p class="hint"><strong>Dlaczego tak?</strong> Excel od razu zrobi poprawne kolumny i typy danych —
+                gotowe do formuł i tabel przestawnych.</p>
+            </div>
             <figure>
-              <img class="fullimg js-pop" src="images/tworzenie_tab_przestawna.png" data-full="images/tworzenie_tab_przestawna.png" alt="Wstawianie tabeli przestawnej">
-              <figcaption>Menu: Wstawianie → Tabela przestawna</figcaption>
-            </figure>
-            <figure>
-              <img class="fullimg js-pop" src="images/zakres_tab_przestawna.png" data-full="images/zakres_tab_przestawna.png" alt="Okno zakresu danych">
-              <figcaption>Zakres danych — cała tabela</figcaption>
+              <img class="fullimg js-pop" src="images/0_wybor_excel.png" data-full="images/0_wybor_excel.png"
+                alt="Kontekstowe menu: Otwórz w aplikacji → Microsoft Excel">
+              <figcaption>Otwieramy .txt bezpośrednio w Excelu</figcaption>
             </figure>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
-        <h3><i class="ti ti-settings"></i> 6.2 — Wynik i weryfikacja</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <p><strong>Wynik:</strong> najmniejsza średnia dla <strong>Thaumasia</strong> ≈ <strong>17,8357 kg</strong>.</p>
-            <div class="codebox">=MIN(B:B) ⟶ szybka kontrola wartości minimalnej</div>
+        <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+          <h3><i class="ti ti-table"></i> Dane — plik .txt otwarty w Excelu</h3>
+          <p class="fit">Kolumny: <em>data</em>, <em>nazwa_obszaru</em>, <em>masa [kg]</em>, <em>zawartość [%]</em>,
+            <em>ile wydobyto</em>.
+          </p>
+          <figure>
+            <img class="fullimg js-pop" src="images/tabela.png" data-full="images/tabela.png"
+              alt="Pełna tabela z danymi (plik .txt w Excelu)">
+            <figcaption>Plik danych — baza do wszystkich obliczeń</figcaption>
+          </figure>
+        </section>
+
+        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
+          <h3><i class="ti ti-clipboard-list"></i> Kryteria oceny (CKE)</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ul>
+                <li>Poprawne wartości i <strong>jednostki</strong>.</li>
+                <li>Właściwe narzędzia zgodne z treścią (SUMA, ŚREDNIA, tabela przestawna, wykres skumulowany).</li>
+                <li>Zwięzłe <strong>uzasadnienia</strong> decyzji.</li>
+              </ul>
+              <p class="hint">Pełna tabela kryteriów po prawej (kliknij, aby powiększyć).</p>
+            </div>
+            <figure>
+              <img class="fullimg js-pop" src="images/kryteria_oceny.png" data-full="images/kryteria_oceny.png"
+                alt="Kryteria oceny do zadania 6 (CKE)">
+              <figcaption>Kryteria oceny — zadanie 6</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="sec-6-1" data-backto="sec-2-home"
+          data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
+          <h3><i class="ti ti-sum"></i> 6.1 — Treść podpunktu</h3>
+          <figure>
+            <img class="fullimg js-pop" src="images/zadanie6.1_tresc.png" data-full="images/zadanie6.1_tresc.png"
+              alt="Treść zadania 6.1">
+            <figcaption>Co dokładnie liczymy w 6.1</figcaption>
+          </figure>
+        </section>
+
+        <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+          <h3><i class="ti ti-checklist"></i> 6.1 — Kroki i uwagi</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ol>
+                <li>Kliknij dowolną komórkę w tabeli.</li>
+                <li>Wpisz:
+                  <div class="codebox">
+                    =SUMA(C2:C2073) &nbsp; ⟶ łączna masa ładunków (kolumna C)<br />
+                    =SUMA(E:E) &nbsp; ⟶ łączna masa martianeum (kolumna E)
+                  </div>
+                </li>
+                <li>Zatwierdź <strong>Enter</strong> i odczytaj wartości.</li>
+              </ol>
+              <p class="hint"><strong>Dlaczego tak?</strong> Słowo „łączna” wymusza <code>SUMA()</code> (nie średnią
+                ani maksimum).</p>
+            </div>
+            <div>
+              <figure>
+                <img class="fullimg js-pop" src="images/formula_zad6.1.1.png" data-full="images/formula_zad6.1.1.png"
+                  alt="Formuła sumująca kolumnę masa [kg]">
+                <figcaption>Formuła dla masy ładunków</figcaption>
+              </figure>
+              <figure>
+                <img class="fullimg js-pop" src="images/formula_6.1.2.png" data-full="images/formula_6.1.2.png"
+                  alt="Formuła sumująca kolumnę ile wydobyto">
+                <figcaption>Formuła dla łącznej masy martianeum</figcaption>
+              </figure>
+            </div>
           </div>
           <figure>
-            <img class="fullimg js-pop" src="images/formula_min.png" data-full="images/formula_min.png" alt="Formuła =MIN(B:B)">
-            <figcaption>Sprawdzenie najmniejszej średniej</figcaption>
+            <img class="fullimg fullimg--sm js-pop" src="images/odpowiedz_zad6.1.png"
+              data-full="images/odpowiedz_zad6.1.png" alt="Wynik 6.1 w Excelu">
+            <figcaption>Wynik 6.1: ładunki 41498,2 kg; martianeum 3092,2943 kg</figcaption>
           </figure>
-        </div>
-      </section>
+        </section>
 
-      <section id="sec-6-3" data-backto="sec-2-home" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
-        <h3><i class="ti ti-calendar-week"></i> 6.3 — Treść podpunktu</h3>
-        <figure>
-          <img class="fullimg js-pop" src="images/zadanie6.3_tresc.png" data-full="images/zadanie6.3_tresc.png" alt="Treść zadania 6.3">
-          <figcaption>Opis 6.3 (cykle 7-dniowe i maksimum)</figcaption>
-        </figure>
-      </section>
-
-      <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-plus-minus"></i> 6.3 — Kroki: suma w cyklach 7 dni</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ol>
-              <li>Kolumna <strong>F</strong> → nagłówek <em>suma_w_okresie</em>.</li>
-              <li>F2: <code>=C2</code> (pierwszy dzień); F3: <code>=F2+C3</code> i przeciągnij do 7. dnia.</li>
-              <li>Zaznacz blok 7 komórek i przeciągaj w dół — kolejne cykle 7-dniowe.</li>
-            </ol>
-            <div class="mini-pill">Użyte: <code>=C2</code>, <code>=F2+C3</code></div>
-          </div>
-          <div>
-            <figure>
-              <img class="fullimg js-pop" src="images/zadanie6.3_kolumna_suma_w_okresie.1.png" data-full="images/zadanie6.3_kolumna_suma_w_okresie.1.png" alt="Kolumna suma_w_okresie: start (F2= C2)">
-              <figcaption>Start kolumny: F2 = C2</figcaption>
-            </figure>
-            <figure>
-              <img class="fullimg js-pop" src="images/6.3_suma_w_okresie_7_dni.png" data-full="images/6.3_suma_w_okresie_7_dni.png" alt="Pierwszy pełny cykl 7 dni w kolumnie F">
-              <figcaption>Pierwszy pełny cykl 7 dni</figcaption>
-            </figure>
-          </div>
-        </div>
-        <div class="figure-row">
+        <section id="sec-6-2" data-backto="sec-2-home"
+          data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
+          <h3><i class="ti ti-chart-bar"></i> 6.2 — Treść podpunktu</h3>
           <figure>
-            <img class="halfimg js-pop" src="images/6.3_suma_w_okresie_wiele_razy_7_dni.png" data-full="images/6.3_suma_w_okresie_wiele_razy_7_dni.png" alt="Wielokrotność okresu 7 dni po przeciągnięciu bloku">
-            <figcaption>Przeciągnięte wielokrotności 7 dni</figcaption>
+            <img class="fullimg js-pop" src="images/zadanie6.2_tresc.png" data-full="images/zadanie6.2_tresc.png"
+              alt="Treść zadania 6.2">
+            <figcaption>Co mamy wskazać w 6.2</figcaption>
           </figure>
-          <figure>
-            <img class="halfimg js-pop" src="images/zadanie6.3_kolumna_suma_w_okresie.2.png" data-full="images/zadanie6.3_kolumna_suma_w_okresie.2.png" alt="Powiększenie kolumny F z wieloma 7-dniowymi cyklami">
-            <figcaption>Kolumna F — widok z wieloma cyklami</figcaption>
-          </figure>
-        </div>
-      </section>
+        </section>
 
-      <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
-        <h3><i class="ti ti-arrow-big-up-lines"></i> 6.3 — Maksimum i data początku</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ol>
-              <li>Zaznacz kolumnę F (F2 → <strong>Shift+Ctrl+↑</strong>).</li>
-              <li><code>=MAX(F:F)</code> — największa 7-dniowa suma.</li>
-              <li>Formatowanie warunkowe → „Równe…” → wpisz wynik (np. <code>174,5</code>) → odczytaj datę z kolumny A.</li>
-            </ol>
-            <div class="mini-pill">Użyte: <code>=MAX(F:F)</code>, formatowanie warunkowe</div>
+        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+          <h3><i class="ti ti-table"></i> 6.2 — Tabela przestawna: utworzenie</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ol>
+                <li><strong>Ctrl+A</strong> → <strong>Wstawianie</strong> → <strong>Tabela przestawna</strong> (Nowy
+                  arkusz).</li>
+                <li>Ustaw pola (<em>nazwa_obszaru</em> w Wierszach, <em>masa [kg]</em> w
+                  Wartościach→<strong>Średnia</strong>).</li>
+              </ol>
+              <p class="hint"><strong>Dlaczego tak?</strong> Treść wymaga minimum <em>średniej</em> dla obszaru.</p>
+            </div>
+            <div>
+              <figure>
+                <img class="fullimg js-pop" src="images/tworzenie_tab_przestawna.png"
+                  data-full="images/tworzenie_tab_przestawna.png" alt="Wstawianie tabeli przestawnej">
+                <figcaption>Menu: Wstawianie → Tabela przestawna</figcaption>
+              </figure>
+              <figure>
+                <img class="fullimg js-pop" src="images/zakres_tab_przestawna.png"
+                  data-full="images/zakres_tab_przestawna.png" alt="Okno zakresu danych">
+                <figcaption>Zakres danych — cała tabela</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
+          <h3><i class="ti ti-settings"></i> 6.2 — Wynik i weryfikacja</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <p><strong>Wynik:</strong> najmniejsza średnia dla <strong>Thaumasia</strong> ≈ <strong>17,8357
+                  kg</strong>.</p>
+              <div class="codebox">=MIN(B:B) ⟶ szybka kontrola wartości minimalnej</div>
+            </div>
+            <figure>
+              <img class="fullimg js-pop" src="images/formula_min.png" data-full="images/formula_min.png"
+                alt="Formuła =MIN(B:B)">
+              <figcaption>Sprawdzenie najmniejszej średniej</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="sec-6-3" data-backto="sec-2-home"
+          data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
+          <h3><i class="ti ti-calendar-week"></i> 6.3 — Treść podpunktu</h3>
+          <figure>
+            <img class="fullimg js-pop" src="images/zadanie6.3_tresc.png" data-full="images/zadanie6.3_tresc.png"
+              alt="Treść zadania 6.3">
+            <figcaption>Opis 6.3 (cykle 7-dniowe i maksimum)</figcaption>
+          </figure>
+        </section>
+
+        <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+          <h3><i class="ti ti-plus-minus"></i> 6.3 — Kroki: suma w cyklach 7 dni</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ol>
+                <li>Kolumna <strong>F</strong> → nagłówek <em>suma_w_okresie</em>.</li>
+                <li>F2: <code>=C2</code> (pierwszy dzień); F3: <code>=F2+C3</code> i przeciągnij do 7. dnia.</li>
+                <li>Zaznacz blok 7 komórek i przeciągaj w dół — kolejne cykle 7-dniowe.</li>
+              </ol>
+              <div class="mini-pill">Użyte: <code>=C2</code>, <code>=F2+C3</code></div>
+            </div>
+            <div>
+              <figure>
+                <img class="fullimg js-pop" src="images/zadanie6.3_kolumna_suma_w_okresie.1.png"
+                  data-full="images/zadanie6.3_kolumna_suma_w_okresie.1.png"
+                  alt="Kolumna suma_w_okresie: start (F2= C2)">
+                <figcaption>Start kolumny: F2 = C2</figcaption>
+              </figure>
+              <figure>
+                <img class="fullimg js-pop" src="images/6.3_suma_w_okresie_7_dni.png"
+                  data-full="images/6.3_suma_w_okresie_7_dni.png" alt="Pierwszy pełny cykl 7 dni w kolumnie F">
+                <figcaption>Pierwszy pełny cykl 7 dni</figcaption>
+              </figure>
+            </div>
           </div>
           <div class="figure-row">
             <figure>
-              <img class="halfimg js-pop" src="images/6.3_formula_max.png" data-full="images/6.3_formula_max.png" alt="Formuła =MAX(F:F) w pasku formuł">
-              <figcaption>Maksimum z kolumny F</figcaption>
+              <img class="halfimg js-pop" src="images/6.3_suma_w_okresie_wiele_razy_7_dni.png"
+                data-full="images/6.3_suma_w_okresie_wiele_razy_7_dni.png"
+                alt="Wielokrotność okresu 7 dni po przeciągnięciu bloku">
+              <figcaption>Przeciągnięte wielokrotności 7 dni</figcaption>
             </figure>
             <figure>
-              <img class="halfimg js-pop" src="images/6.3_wyroznianie_komorek.png" data-full="images/6.3_wyroznianie_komorek.png" alt="Formatowanie warunkowe: reguła Równe…">
-              <figcaption>Reguła „Równe…”</figcaption>
+              <img class="halfimg js-pop" src="images/zadanie6.3_kolumna_suma_w_okresie.2.png"
+                data-full="images/zadanie6.3_kolumna_suma_w_okresie.2.png"
+                alt="Powiększenie kolumny F z wieloma 7-dniowymi cyklami">
+              <figcaption>Kolumna F — widok z wieloma cyklami</figcaption>
             </figure>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="sec-6-4" data-backto="sec-2-home" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
-        <h3><i class="ti ti-columns-3"></i> 6.4 — Treść podpunktu</h3>
-        <figure>
-          <img class="fullimg js-pop" src="images/zadanie6.4_tresc.png" data-full="images/zadanie6.4_tresc.png" alt="Treść zadania 6.4 (zestawienie i wykres skumulowany kolumnowy)">
-          <figcaption>Najpierw zestawienie → potem <strong>wykres skumulowany kolumnowy</strong></figcaption>
-        </figure>
-      </section>
-
-      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-tools"></i> 6.4 — Przygotowanie: kolumny <em>pomoc</em> i <em>rok</em></h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ol>
-              <li>Dodaj <strong>pomoc</strong> = 1 w całej kolumnie.</li>
-              <li>Dodaj <strong>rok</strong> = <code>=ROK(A2)</code> i przeciągnij.</li>
-            </ol>
-            <p class="hint"><strong>Dlaczego tak?</strong> Suma jedynek daje liczbę przewozów, a „rok” porządkuje wiersze w przestawnej.</p>
-            <div class="mini-pill">Użyte: <code>=1</code>, <code>=ROK(A2)</code></div>
-          </div>
-          <div>
-            <figure>
-              <img class="fullimg js-pop" src="images/6.4_rok.png" data-full="images/6.4_rok.png" alt="Formuła =ROK(A2) w kolumnie rok">
-              <figcaption>Wyciągnięcie roku z daty</figcaption>
-            </figure>
-            <figure>
-              <img class="fullimg js-pop" src="images/6.4_wyniki.png" data-full="images/6.4_wyniki.png" alt="Początek zestawienia 6.4 po obróbce">
-              <figcaption>Po dodaniu kolumn pomoc i rok</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-chart-histogram"></i> 6.4 — WYKRES SKUMULOWANY KOLUMNOWY — <u>UTWORZENIE</u></h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ol>
-              <li>Zaznacz zestawienie z tabeli przestawnej (bez <em>Sum końcowych</em>).</li>
-              <li><strong>Wstaw</strong> → <strong>Kolumnowy skumulowany</strong>.</li>
-              <li>Jeśli serie są zamienione, użyj <em>Przełącz wiersz/kolumnę</em>.</li>
-            </ol>
-            <span class="mini-pill">Użyte: przestawna + kolumnowy skumulowany</span>
-          </div>
-          <div>
-            <figure>
-              <img class="halfimg js-pop" src="images/6.4_dane_i_wykres.png" data-full="images/6.4_dane_i_wykres.png" alt="Zaznaczone zestawienie i wstawianie wykresu skumulowanego">
-              <figcaption>Wybór danych i wstawienie wykresu</figcaption>
-            </figure>
-            <figure>
-              <img class="halfimg js-pop" src="images/6.4_gotowy_wykres.png" data-full="images/6.4_gotowy_wykres.png" alt="Gotowy wykres skumulowany">
-              <figcaption>Wykres po wstawieniu</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-chart-histogram"></i> 6.4 PERSONALIZACJA WYKRESU SKUMULOWANEGO</h3>
-        <div class="two-col fit">
-          <div>
-            <div class="card" style="margin-bottom:1rem;">
+        <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
+          <h3><i class="ti ti-arrow-big-up-lines"></i> 6.3 — Maksimum i data początku</h3>
+          <div class="two-col fit">
+            <div class="card">
               <ol>
-                <li>Dodaj tytuły osi i legendę z latami.</li>
+                <li>Zaznacz kolumnę F (F2 → <strong>Shift+Ctrl+↑</strong>).</li>
+                <li><code>=MAX(F:F)</code> — największa 7-dniowa suma.</li>
+                <li>Formatowanie warunkowe → „Równe…” → wpisz wynik (np. <code>174,5</code>) → odczytaj datę z kolumny
+                  A.</li>
               </ol>
-              <span class="mini-pill">Użyte: wykres kolumnowy skumulowany</span>
+              <div class="mini-pill">Użyte: <code>=MAX(F:F)</code>, formatowanie warunkowe</div>
+            </div>
+            <div class="figure-row">
+              <figure>
+                <img class="halfimg js-pop" src="images/6.3_formula_max.png" data-full="images/6.3_formula_max.png"
+                  alt="Formuła =MAX(F:F) w pasku formuł">
+                <figcaption>Maksimum z kolumny F</figcaption>
+              </figure>
+              <figure>
+                <img class="halfimg js-pop" src="images/6.3_wyroznianie_komorek.png"
+                  data-full="images/6.3_wyroznianie_komorek.png" alt="Formatowanie warunkowe: reguła Równe…">
+                <figcaption>Reguła „Równe…”</figcaption>
+              </figure>
             </div>
           </div>
-          <div>
+        </section>
+
+        <section id="sec-6-4" data-backto="sec-2-home"
+          data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
+          <h3><i class="ti ti-columns-3"></i> 6.4 — Treść podpunktu</h3>
+          <figure>
+            <img class="fullimg js-pop" src="images/zadanie6.4_tresc.png" data-full="images/zadanie6.4_tresc.png"
+              alt="Treść zadania 6.4 (zestawienie i wykres skumulowany kolumnowy)">
+            <figcaption>Najpierw zestawienie → potem <strong>wykres skumulowany kolumnowy</strong></figcaption>
+          </figure>
+        </section>
+
+        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+          <h3><i class="ti ti-tools"></i> 6.4 — Przygotowanie: kolumny <em>pomoc</em> i <em>rok</em></h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ol>
+                <li>Dodaj <strong>pomoc</strong> = 1 w całej kolumnie.</li>
+                <li>Dodaj <strong>rok</strong> = <code>=ROK(A2)</code> i przeciągnij.</li>
+              </ol>
+              <p class="hint"><strong>Dlaczego tak?</strong> Suma jedynek daje liczbę przewozów, a „rok” porządkuje
+                wiersze w przestawnej.</p>
+              <div class="mini-pill">Użyte: <code>=1</code>, <code>=ROK(A2)</code></div>
+            </div>
+            <div>
+              <figure>
+                <img class="fullimg js-pop" src="images/6.4_rok.png" data-full="images/6.4_rok.png"
+                  alt="Formuła =ROK(A2) w kolumnie rok">
+                <figcaption>Wyciągnięcie roku z daty</figcaption>
+              </figure>
+              <figure>
+                <img class="fullimg js-pop" src="images/6.4_wyniki.png" data-full="images/6.4_wyniki.png"
+                  alt="Początek zestawienia 6.4 po obróbce">
+                <figcaption>Po dodaniu kolumn pomoc i rok</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+          <h3><i class="ti ti-chart-histogram"></i> 6.4 — WYKRES SKUMULOWANY KOLUMNOWY — <u>UTWORZENIE</u></h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ol>
+                <li>Zaznacz zestawienie z tabeli przestawnej (bez <em>Sum końcowych</em>).</li>
+                <li><strong>Wstaw</strong> → <strong>Kolumnowy skumulowany</strong>.</li>
+                <li>Jeśli serie są zamienione, użyj <em>Przełącz wiersz/kolumnę</em>.</li>
+              </ol>
+              <span class="mini-pill">Użyte: przestawna + kolumnowy skumulowany</span>
+            </div>
+            <div>
+              <figure>
+                <img class="halfimg js-pop" src="images/6.4_dane_i_wykres.png" data-full="images/6.4_dane_i_wykres.png"
+                  alt="Zaznaczone zestawienie i wstawianie wykresu skumulowanego">
+                <figcaption>Wybór danych i wstawienie wykresu</figcaption>
+              </figure>
+              <figure>
+                <img class="halfimg js-pop" src="images/6.4_gotowy_wykres.png" data-full="images/6.4_gotowy_wykres.png"
+                  alt="Gotowy wykres skumulowany">
+                <figcaption>Wykres po wstawieniu</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+          <h3><i class="ti ti-chart-histogram"></i> 6.4 PERSONALIZACJA WYKRESU SKUMULOWANEGO</h3>
+          <div class="two-col fit">
+            <div>
+              <div class="card" style="margin-bottom:1rem;">
+                <ol>
+                  <li>Dodaj tytuły osi i legendę z latami.</li>
+                </ol>
+                <span class="mini-pill">Użyte: wykres kolumnowy skumulowany</span>
+              </div>
+            </div>
+            <div>
+              <figure>
+                <img class="fullimg js-pop" src="images/6.4_dodanie_elementu_wykresu.png"
+                  data-full="images/6.4_dodanie_elementu_wykresu.png" alt="Dodawanie tytułów osi i legendy">
+                <figcaption>Dodawanie tytułów osi i legendy</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section id="sec-6-5" data-backto="sec-2-home"
+          data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
+          <h3><i class="ti ti-rocket"></i> 6.5 — Treść podpunktu</h3>
+          <figure>
+            <img class="fullimg js-pop" src="images/zadanie6.5_tresc.png" data-full="images/zadanie6.5_tresc.png"
+              alt="Treść zadania 6.5: liczba wysyłek i daty pierwszej/ostatniej">
+            <figcaption>Uwzględniamy zasady działania stacji (próg 100 kg → lot na orbitę)</figcaption>
+          </figure>
+        </section>
+
+        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+          <h3><i class="ti ti-list-numbers"></i> 6.5 — Przygotowanie kolumn</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ol>
+                <li>Dodaj kolumny: <strong>magazyn_koniec_dnia</strong>, <strong>czy_na_orbite</strong>,
+                  <strong>magazyn_po_transporcie</strong>.
+                </li>
+                <li><em>Dzień 1</em>: przyjmij stan magazynu <strong>0</strong>.</li>
+                <li><em>Kolejne dni</em>: uzupełnimy formułami (poniżej).</li>
+              </ol>
+              <p class="hint"><strong>Dlaczego tak?</strong> Odwzorowujemy regułę: produkcja odkłada się w magazynie;
+                gdy osiągnie ≥100 kg — wysyłka i odejmujemy 100 kg.</p>
+            </div>
             <figure>
-              <img class="fullimg js-pop" src="images/6.4_dodanie_elementu_wykresu.png" data-full="images/6.4_dodanie_elementu_wykresu.png" alt="Dodawanie tytułów osi i legendy">
-              <figcaption>Dodawanie tytułów osi i legendy</figcaption>
+              <img class="fullimg js-pop" src="images/6.5_zestawienie.png" data-full="images/6.5_zestawienie.png"
+                alt="Nowe kolumny dodane do tabeli: magazyn_koniec_dnia, czy_na_orbite, magazyn_po_transporcie">
+              <figcaption>Nowe kolumny — widok w arkuszu</figcaption>
             </figure>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="sec-6-5" data-backto="sec-2-home" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
-        <h3><i class="ti ti-rocket"></i> 6.5 — Treść podpunktu</h3>
-        <figure>
-          <img class="fullimg js-pop" src="images/zadanie6.5_tresc.png" data-full="images/zadanie6.5_tresc.png" alt="Treść zadania 6.5: liczba wysyłek i daty pierwszej/ostatniej">
-          <figcaption>Uwzględniamy zasady działania stacji (próg 100 kg → lot na orbitę)</figcaption>
-        </figure>
-      </section>
-
-      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-list-numbers"></i> 6.5 — Przygotowanie kolumn</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ol>
-              <li>Dodaj kolumny: <strong>magazyn_koniec_dnia</strong>, <strong>czy_na_orbite</strong>, <strong>magazyn_po_transporcie</strong>.</li>
-              <li><em>Dzień 1</em>: przyjmij stan magazynu <strong>0</strong>.</li>
-              <li><em>Kolejne dni</em>: uzupełnimy formułami (poniżej).</li>
-            </ol>
-            <p class="hint"><strong>Dlaczego tak?</strong> Odwzorowujemy regułę: produkcja odkłada się w magazynie; gdy osiągnie ≥100 kg — wysyłka i odejmujemy 100 kg.</p>
+        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
+          <h3><i class="ti ti-calculator"></i> 6.5 — Krok 1: stan magazynu na koniec dnia</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <p>W wierszu 3 (drugi dzień) w kolumnie <em>magazyn_koniec_dnia</em> wpisz:</p>
+              <div class="codebox">=K2 + E3</div>
+              <p class="hint">K2 to stan magazynu po ewentualnym transporcie poprzedniego dnia, E3 to dzisiejsza
+                produkcja „ile wydobyto”.</p>
+              <div class="mini-pill">Użyte: proste dodawanie stanu + dzisiejszej produkcji</div>
+            </div>
+            <figure>
+              <img class="fullimg js-pop" src="images/6.5_formula_magazyn_na_koniec_dnia.png"
+                data-full="images/6.5_formula_magazyn_na_koniec_dnia.png"
+                alt="Formuła =K2+E3 tworząca magazyn_koniec_dnia">
+              <figcaption>Formuła: <code>=K2+E3</code></figcaption>
+            </figure>
           </div>
-          <figure>
-            <img class="fullimg js-pop" src="images/6.5_zestawienie.png" data-full="images/6.5_zestawienie.png" alt="Nowe kolumny dodane do tabeli: magazyn_koniec_dnia, czy_na_orbite, magazyn_po_transporcie">
-            <figcaption>Nowe kolumny — widok w arkuszu</figcaption>
-          </figure>
-        </div>
+        </section>
+
+        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+          <h3><i class="ti ti-checkbox"></i> 6.5 — Krok 2: czy leci na orbitę?</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <p>W kolumnie <em>czy_na_orbite</em> w tym samym wierszu:</p>
+              <div class="codebox">=JEŻELI(I3 >= 100; 1; 0)</div>
+              <p class="hint">Jeśli stan magazynu na koniec dnia ≥ 100 kg, mamy wysyłkę (1), w przeciwnym razie 0.</p>
+              <div class="mini-pill">Użyte: <code>JEŻELI(test; wartość_jeśli_prawda; wartość_jeśli_fałsz)</code></div>
+            </div>
+            <figure>
+              <img class="fullimg js-pop" src="images/6.5_formula_czy_na_orbite.png"
+                data-full="images/6.5_formula_czy_na_orbite.png" alt="Formuła =JEŻELI(I3>=100;1;0)">
+              <figcaption>Formuła: <code>=JEŻELI(I3>=100;1;0)</code></figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
+          <h3><i class="ti ti-minus"></i> 6.5 — Krok 3: magazyn po transporcie</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <p>W kolumnie <em>magazyn_po_transporcie</em> w tym samym wierszu:</p>
+              <div class="codebox">=JEŻELI(J3 = 1; I3 - 100; I3)</div>
+              <p class="hint">Jeśli był lot, odejmujemy 100 kg; jeśli nie, stan pozostaje bez zmian.</p>
+              <div class="mini-pill">Użyte: <code>JEŻELI()</code> z odejmowaniem 100</div>
+            </div>
+            <figure>
+              <img class="fullimg js-pop" src="images/6.5_fomula_magazyn_po_transporcie.png"
+                data-full="images/6.5_fomula_magazyn_po_transporcie.png" alt="Formuła =JEŻELI(J3=1;I3-100;I3)">
+              <figcaption>Formuła: <code>=JEŻELI(J3=1;I3-100;I3)</code></figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+          <h3><i class="ti ti-arrows-down"></i> 6.5 — Krok 4: przeciągnij formuły</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ol>
+                <li>Zaznacz wiersz z trzema formułami.</li>
+                <li>Chwyć za uchwyt i przeciągnij do końca tabeli (wszystkie dni).</li>
+              </ol>
+              <p class="hint">Łańcuch zależności działa: najpierw liczy się stan dzienny, potem decyzja o locie, a na
+                końcu stan po transporcie.</p>
+            </div>
+            <figure>
+              <img class="fullimg js-pop" src="images/6.5_zestawienie.png" data-full="images/6.5_zestawienie.png"
+                alt="Kolumny wypełnione formułami po przeciągnięciu">
+              <figcaption>Formuły po przeciągnięciu</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
+          <h3><i class="ti ti-sum"></i> 6.5 — Ile razy stacja wysyłała ładunek?</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <p>Zsumuj kolumnę <em>czy_na_orbite</em>:</p>
+              <div class="codebox">=SUMA(J2:J2073)</div>
+              <p class="hint">Suma jedynek = liczba lotów.</p>
+              <div class="mini-pill">Użyte: <code>SUMA()</code> po zakresie kolumny J</div>
+            </div>
+            <figure>
+              <img class="fullimg js-pop" src="images/6.5_ile_razy.png" data-full="images/6.5_ile_razy.png"
+                alt="Formuła SUMA(J2:J2073) i wynik 30">
+              <figcaption>Przykładowy wynik: <strong>30</strong> lotów</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+          <h3><i class="ti ti-calendar-event"></i> 6.5 — Daty: pierwszy i ostatni lot</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ol>
+                <li>Zaznacz J2 → <strong>Ctrl+Shift+↓</strong> (cała kolumna J z danymi).</li>
+                <li><strong>Formatowanie warunkowe</strong> → <em>Równe…</em> → wpisz <code>1</code> → nadaj czerwone
+                  wypełnienie.</li>
+                <li>Odczytaj z kolumny <strong>A</strong> datę z pierwszego wyróżnionego wiersza (pierwszy lot) i z
+                  ostatniego (ostatni lot).</li>
+              </ol>
+              <p class="hint">Można też formułami (opcjonalnie): <span class="mini-pill">MIN.WARUNKÓW(A:A;J:J;1)</span>
+                i <span class="mini-pill">MAX.WARUNKÓW(A:A;J:J;1)</span>.</p>
+              <div class="mini-pill">Użyte: formatowanie warunkowe „Równe… 1”</div>
+            </div>
+            <figure>
+              <img class="fullimg js-pop" src="images/6.5_daty_lotow.png" data-full="images/6.5_daty_lotow.png"
+                alt="Wyróżnienie jedynek i odczyt dat pierwszego oraz ostatniego lotu">
+              <figcaption>Odczyt dat z pierwszego i ostatniego wyróżnienia</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#eef2ff 100%)">
+          <h3><i class="ti ti-confetti"></i> Podsumowanie (6.1–6.5)</h3>
+          <ul class="fit">
+            <li>6.1: <code>SUMA(C:C)</code>, <code>SUMA(E:E)</code> → <strong>41498,2 kg</strong> i <strong>3092,2943
+                kg</strong>.</li>
+            <li>6.2: Przestawna (Średnia z masy wg obszaru) → minimum: <strong>Thaumasia ≈ 17,8357 kg</strong>.</li>
+            <li>6.3: Ruchoma suma 7 dni → <code>=MAX(F:F)</code> → data początku z kolumny A.</li>
+            <li>6.4: Przestawna (rok×obszar, Suma z pomoc) → wykres <strong>skumulowany kolumnowy</strong>.</li>
+            <li>6.5: Trzy kolumny i warunek 100 kg → loty = <code>SUMA(J:J)</code>, daty z wyróżnionych wierszy.</li>
+          </ul>
+        </section>
+
       </section>
 
-      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
-        <h3><i class="ti ti-calculator"></i> 6.5 — Krok 1: stan magazynu na koniec dnia</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <p>W wierszu 3 (drugi dzień) w kolumnie <em>magazyn_koniec_dnia</em> wpisz:</p>
-            <div class="codebox">=K2 + E3</div>
-            <p class="hint">K2 to stan magazynu po ewentualnym transporcie poprzedniego dnia, E3 to dzisiejsza produkcja „ile wydobyto”.</p>
-            <div class="mini-pill">Użyte: proste dodawanie stanu + dzisiejszej produkcji</div>
+      <section>
+
+        <section id="sec-3-home" data-background-gradient="linear-gradient(180deg,#fef3c7 0%,#f0f9ff 60%,#f5f3ff 100%)">
+          <h2 style="margin-bottom:.15em;font-weight:800;letter-spacing:.8px;">ROZDZIAŁ 3</h2>
+          <h3 style="margin:.8em 0 .8em;font-weight:800;"><span class="tag">ADRESOWANIE I FORMUŁY (EXCEL)</span></h3>
+          <p class="fit">
+            Adresowanie: względne, bezwzględne, mieszane • Najważniejsze formuły: matematyczne, logiczne, tekstowe,
+            wyszukiwania, daty i czas.
+          </p>
+          <p>
+            <a class="pill" href="#/sec-3-addr-rel"><i class="ti ti-number-1"></i> 3.1</a>
+            <a class="pill" href="#/sec-3-addr-abs"><i class="ti ti-number-2"></i> 3.2</a>
+            <a class="pill" href="#/sec-3-addr-mix"><i class="ti ti-number-3"></i> 3.3</a>
+            <a class="pill" href="#/sec-3-addr-f4"><i class="ti ti-number-4"></i> 3.4</a>
+            <a class="pill" href="#/sec-3-math"><i class="ti ti-number-5"></i> 3.5</a>
+            <a class="pill" href="#/sec-3-logic"><i class="ti ti-number-6"></i> 3.6</a>
+            <a class="pill" href="#/sec-3-text"><i class="ti ti-number-7"></i> 3.7</a>
+            <a class="pill" href="#/sec-3-lookup"><i class="ti ti-number-8"></i> 3.8</a>
+            <a class="pill" href="#/sec-3-date"><i class="ti ti-number-9"></i> 3.9</a>
+            <a class="pill" href="#/sec-3-cheats"><i class="ti ti-number-0"></i> 3.10</a>
+          </p>
+        </section>
+
+        <section id="sec-3-addr-rel" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
+          <h3><i class="ti ti-cursor-text"></i> 3.1 — Adresowanie <strong>względne</strong></h3>
+          <div class="two-col fit">
+            <div class="card">
+              <h4>Jak działa?</h4>
+              <ul>
+                <li>Standardowe oznaczenia kolumn/wierszy (np. <code>A1</code>, <code>B2</code>).</li>
+                <li>Po skopiowaniu formuły adresy dostosowują się do nowej pozycji.</li>
+              </ul>
+              <h4>Kiedy używać?</h4>
+              <p>Gdy formuła ma „iść” razem z danymi.</p>
+            </div>
+            <div class="card">
+              <h4>Przykład</h4>
+              <div class="codebox">D1: =A1+B1 → w dół → D2: =A2+B2</div>
+            </div>
           </div>
-          <figure>
-            <img class="fullimg js-pop" src="images/6.5_formula_magazyn_na_koniec_dnia.png" data-full="images/6.5_formula_magazyn_na_koniec_dnia.png" alt="Formuła =K2+E3 tworząca magazyn_koniec_dnia">
-            <figcaption>Formuła: <code>=K2+E3</code></figcaption>
-          </figure>
-        </div>
+        </section>
+
+        <section id="sec-3-addr-abs" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+          <h3><i class="ti ti-lock"></i> 3.2 — Adresowanie <strong>bezwzględne</strong></h3>
+          <div class="two-col fit">
+            <div class="card">
+              <h4>Jak działa?</h4>
+              <ul>
+                <li>Używamy <strong>$</strong> przed kolumną/wierszem: <code>$A</code>, <code>$1</code>.</li>
+                <li>Odwołanie nie zmienia się po skopiowaniu.</li>
+              </ul>
+              <h4>Kiedy?</h4>
+              <p>Gdy odwołujesz się zawsze do tej samej komórki (np. stała).</p>
+            </div>
+            <div class="card">
+              <h4>Przykład</h4>
+              <div class="codebox">D1: =$A + B1 → w dół → D2: =$A + B2</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="sec-3-addr-mix" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
+          <h3><i class="ti ti-arrows-left-right"></i> 3.3 — Adresowanie <strong>mieszane</strong></h3>
+          <div class="two-col fit">
+            <div class="card">
+              <h4>Jak działa?</h4>
+              <ul>
+                <li><code>$A1</code> — kolumna stała, wiersz zmienny.</li>
+                <li><code>A</code> — wiersz stały, kolumna zmienna.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>Przykład</h4>
+              <div class="codebox">C2: =$A1 * B → kopiowanie w dół/prawo i obserwacja zmian</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="sec-3-addr-f4" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff1f2 100%)">
+          <h3><i class="ti ti-keyboard"></i> 3.4 — Błyskawiczne przełączanie: <code>F4</code></h3>
+          <div class="two-col fit">
+            <div class="card">
+              <p>W edycji adresu naciśnij <strong>F4</strong>, aby przełączać style odwołań:</p>
+              <div class="codebox">A1 → $A → A → $A1 → A1</div>
+            </div>
+            <div class="card">
+              <p>Tip: najpierw wpisz formułę względną, potem „zablokuj” potrzebne części F4.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="sec-3-math" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
+          <h3><i class="ti ti-math"></i> 3.5 — Formuły matematyczne</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ul>
+                <li><code>=SUMA(zakres)</code>, <code>=ŚREDNIA(zakres)</code>, <code>=MIN/ MAX(zakres)</code></li>
+                <li><code>=ZAOKR(liczba; n)</code>, <code>=POTĘGA(x; p)</code></li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>Przykłady</h4>
+              <div class="codebox">=SUMA(A1:A10) • =ŚREDNIA(B1:B20) • =ZAOKR(A1;2) • =POTĘGA(2;3)</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="sec-3-logic" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+          <h3><i class="ti ti-cpu"></i> 3.6 — Formuły logiczne</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ul>
+                <li><code>=JEŻELI(warunek; a; b)</code></li>
+                <li><code>=ORAZ(w1; w2; …)</code> — PRAWDA, gdy wszystkie spełnione.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>Przykład</h4>
+              <div class="codebox">=JEŻELI(A1&gt;10;"Wysoka";"Niska") • =ORAZ(A1&gt;0;A1&lt;=100)</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="sec-3-text" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
+          <h3><i class="ti ti-letters-case"></i> 3.7 — Formuły tekstowe</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ul>
+                <li><code>=ZŁĄCZ.TEKSTY(…)</code>, <code>=LEWY(tekst; n)</code>, <code>=PRAWY(tekst; n)</code></li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="codebox">=ZŁĄCZ.TEKSTY(A1;" ";B1) • =LEWY(A1;3) • =PRAWY(A1;3)</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="sec-3-lookup" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+          <h3><i class="ti ti-search"></i> 3.8 — Wyszukiwanie</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ul>
+                <li><code>=WYSZUKAJ.PIONOWO(…)</code>, <code>=INDEKS(…)</code>, <code>=PODAJ.POZYCJĘ(…)</code></li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="codebox">=WYSZUKAJ.PIONOWO(A1;B1:D10;2;FAŁSZ) • =INDEKS(A1:C10;2;3)</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="sec-3-date" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
+          <h3><i class="ti ti-calendar"></i> 3.9 — Daty i czas</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ul>
+                <li><code>=DZIŚ()</code>, <code>=TERAZ()</code>, <code>=ROK(data)</code></li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="codebox">=DZIŚ() • =TERAZ() • =ROK(A1)</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="sec-3-cheats" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#eef2ff 100%)">
+          <h3><i class="ti ti-stars"></i> 3.10 — Niezbędnik formuł</h3>
+          <ul class="fit">
+            <li><strong>SUMA</strong>, <strong>ŚREDNIA</strong>, <strong>MIN/MAX</strong>, <strong>ZAOKR</strong>,
+              <strong>POTĘGA</strong>
+            </li>
+            <li><strong>JEŻELI</strong>, <strong>ORAZ</strong></li>
+            <li><strong>ZŁĄCZ.TEKSTY</strong>, <strong>LEWY</strong>, <strong>PRAWY</strong></li>
+            <li><strong>WYSZUKAJ.PIONOWO</strong>, <strong>INDEKS</strong>, <strong>PODAJ.POZYCJĘ</strong></li>
+            <li><strong>DZIŚ</strong>, <strong>TERAZ</strong>, <strong>ROK</strong></li>
+          </ul>
+          <p class="hint">Adresowanie: A1 (względne) • $A (bezwzględne) • $A1 / A (mieszane) • skrót:
+            <strong>F4</strong>.
+          </p>
+        </section>
+
       </section>
 
-      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-checkbox"></i> 6.5 — Krok 2: czy leci na orbitę?</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <p>W kolumnie <em>czy_na_orbite</em> w tym samym wierszu:</p>
-            <div class="codebox">=JEŻELI(I3 >= 100; 1; 0)</div>
-            <p class="hint">Jeśli stan magazynu na koniec dnia ≥ 100 kg, mamy wysyłkę (1), w przeciwnym razie 0.</p>
-            <div class="mini-pill">Użyte: <code>JEŻELI(test; wartość_jeśli_prawda; wartość_jeśli_fałsz)</code></div>
-          </div>
-          <figure>
-            <img class="fullimg js-pop" src="images/6.5_formula_czy_na_orbite.png" data-full="images/6.5_formula_czy_na_orbite.png" alt="Formuła =JEŻELI(I3>=100;1;0)">
-            <figcaption>Formuła: <code>=JEŻELI(I3>=100;1;0)</code></figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
-        <h3><i class="ti ti-minus"></i> 6.5 — Krok 3: magazyn po transporcie</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <p>W kolumnie <em>magazyn_po_transporcie</em> w tym samym wierszu:</p>
-            <div class="codebox">=JEŻELI(J3 = 1; I3 - 100; I3)</div>
-            <p class="hint">Jeśli był lot, odejmujemy 100 kg; jeśli nie, stan pozostaje bez zmian.</p>
-            <div class="mini-pill">Użyte: <code>JEŻELI()</code> z odejmowaniem 100</div>
-          </div>
-          <figure>
-            <img class="fullimg js-pop" src="images/6.5_fomula_magazyn_po_transporcie.png" data-full="images/6.5_fomula_magazyn_po_transporcie.png" alt="Formuła =JEŻELI(J3=1;I3-100;I3)">
-            <figcaption>Formuła: <code>=JEŻELI(J3=1;I3-100;I3)</code></figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-arrows-down"></i> 6.5 — Krok 4: przeciągnij formuły</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ol>
-              <li>Zaznacz wiersz z trzema formułami.</li>
-              <li>Chwyć za uchwyt i przeciągnij do końca tabeli (wszystkie dni).</li>
-            </ol>
-            <p class="hint">Łańcuch zależności działa: najpierw liczy się stan dzienny, potem decyzja o locie, a na końcu stan po transporcie.</p>
-          </div>
-          <figure>
-            <img class="fullimg js-pop" src="images/6.5_zestawienie.png" data-full="images/6.5_zestawienie.png" alt="Kolumny wypełnione formułami po przeciągnięciu">
-            <figcaption>Formuły po przeciągnięciu</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
-        <h3><i class="ti ti-sum"></i> 6.5 — Ile razy stacja wysyłała ładunek?</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <p>Zsumuj kolumnę <em>czy_na_orbite</em>:</p>
-            <div class="codebox">=SUMA(J2:J2073)</div>
-            <p class="hint">Suma jedynek = liczba lotów.</p>
-            <div class="mini-pill">Użyte: <code>SUMA()</code> po zakresie kolumny J</div>
-          </div>
-          <figure>
-            <img class="fullimg js-pop" src="images/6.5_ile_razy.png" data-full="images/6.5_ile_razy.png" alt="Formuła SUMA(J2:J2073) i wynik 30">
-            <figcaption>Przykładowy wynik: <strong>30</strong> lotów</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-calendar-event"></i> 6.5 — Daty: pierwszy i ostatni lot</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ol>
-              <li>Zaznacz J2 → <strong>Ctrl+Shift+↓</strong> (cała kolumna J z danymi).</li>
-              <li><strong>Formatowanie warunkowe</strong> → <em>Równe…</em> → wpisz <code>1</code> → nadaj czerwone wypełnienie.</li>
-              <li>Odczytaj z kolumny <strong>A</strong> datę z pierwszego wyróżnionego wiersza (pierwszy lot) i z ostatniego (ostatni lot).</li>
-            </ol>
-            <p class="hint">Można też formułami (opcjonalnie): <span class="mini-pill">MIN.WARUNKÓW(A:A;J:J;1)</span> i <span class="mini-pill">MAX.WARUNKÓW(A:A;J:J;1)</span>.</p>
-            <div class="mini-pill">Użyte: formatowanie warunkowe „Równe… 1”</div>
-          </div>
-          <figure>
-            <img class="fullimg js-pop" src="images/6.5_daty_lotow.png" data-full="images/6.5_daty_lotow.png" alt="Wyróżnienie jedynek i odczyt dat pierwszego oraz ostatniego lotu">
-            <figcaption>Odczyt dat z pierwszego i ostatniego wyróżnienia</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#eef2ff 100%)">
-        <h3><i class="ti ti-confetti"></i> Podsumowanie (6.1–6.5)</h3>
-        <ul class="fit">
-          <li>6.1: <code>SUMA(C:C)</code>, <code>SUMA(E:E)</code> → <strong>41498,2 kg</strong> i <strong>3092,2943 kg</strong>.</li>
-          <li>6.2: Przestawna (Średnia z masy wg obszaru) → minimum: <strong>Thaumasia ≈ 17,8357 kg</strong>.</li>
-          <li>6.3: Ruchoma suma 7 dni → <code>=MAX(F:F)</code> → data początku z kolumny A.</li>
-          <li>6.4: Przestawna (rok×obszar, Suma z pomoc) → wykres <strong>skumulowany kolumnowy</strong>.</li>
-          <li>6.5: Trzy kolumny i warunek 100 kg → loty = <code>SUMA(J:J)</code>, daty z wyróżnionych wierszy.</li>
-        </ul>
-      </section>
-
-    </section>
-
-    <section>
-
-      <section id="sec-3-home" data-background-gradient="linear-gradient(180deg,#fef3c7 0%,#f0f9ff 60%,#f5f3ff 100%)">
-        <h2 style="margin-bottom:.15em;font-weight:800;letter-spacing:.8px;">ROZDZIAŁ 3</h2>
-        <h3 style="margin:.8em 0 .8em;font-weight:800;"><span class="tag">ADRESOWANIE I FORMUŁY (EXCEL)</span></h3>
-        <p class="fit">
-          Adresowanie: względne, bezwzględne, mieszane • Najważniejsze formuły: matematyczne, logiczne, tekstowe, wyszukiwania, daty i czas.
-        </p>
-        <p>
-          <a class="pill" href="#/sec-3-addr-rel"><i class="ti ti-number-1"></i> 3.1</a>
-          <a class="pill" href="#/sec-3-addr-abs"><i class="ti ti-number-2"></i> 3.2</a>
-          <a class="pill" href="#/sec-3-addr-mix"><i class="ti ti-number-3"></i> 3.3</a>
-          <a class="pill" href="#/sec-3-addr-f4"><i class="ti ti-number-4"></i> 3.4</a>
-          <a class="pill" href="#/sec-3-math"><i class="ti ti-number-5"></i> 3.5</a>
-          <a class="pill" href="#/sec-3-logic"><i class="ti ti-number-6"></i> 3.6</a>
-          <a class="pill" href="#/sec-3-text"><i class="ti ti-number-7"></i> 3.7</a>
-          <a class="pill" href="#/sec-3-lookup"><i class="ti ti-number-8"></i> 3.8</a>
-          <a class="pill" href="#/sec-3-date"><i class="ti ti-number-9"></i> 3.9</a>
-          <a class="pill" href="#/sec-3-cheats"><i class="ti ti-number-0"></i> 3.10</a>
-        </p>
-      </section>
-
-      <section id="sec-3-addr-rel" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
-        <h3><i class="ti ti-cursor-text"></i> 3.1 — Adresowanie <strong>względne</strong></h3>
-        <div class="two-col fit">
-          <div class="card">
-            <h4>Jak działa?</h4>
-            <ul>
-              <li>Standardowe oznaczenia kolumn/wierszy (np. <code>A1</code>, <code>B2</code>).</li>
-              <li>Po skopiowaniu formuły adresy dostosowują się do nowej pozycji.</li>
-            </ul>
-            <h4>Kiedy używać?</h4>
-            <p>Gdy formuła ma „iść” razem z danymi.</p>
-          </div>
-          <div class="card">
-            <h4>Przykład</h4>
-            <div class="codebox">D1: =A1+B1 → w dół → D2: =A2+B2</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="sec-3-addr-abs" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-lock"></i> 3.2 — Adresowanie <strong>bezwzględne</strong></h3>
-        <div class="two-col fit">
-          <div class="card">
-            <h4>Jak działa?</h4>
-            <ul>
-              <li>Używamy <strong>$</strong> przed kolumną/wierszem: <code>$A</code>, <code>$1</code>.</li>
-              <li>Odwołanie nie zmienia się po skopiowaniu.</li>
-            </ul>
-            <h4>Kiedy?</h4><p>Gdy odwołujesz się zawsze do tej samej komórki (np. stała).</p>
-          </div>
-          <div class="card">
-            <h4>Przykład</h4>
-            <div class="codebox">D1: =$A + B1 → w dół → D2: =$A + B2</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="sec-3-addr-mix" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
-        <h3><i class="ti ti-arrows-left-right"></i> 3.3 — Adresowanie <strong>mieszane</strong></h3>
-        <div class="two-col fit">
-          <div class="card">
-            <h4>Jak działa?</h4>
-            <ul>
-              <li><code>$A1</code> — kolumna stała, wiersz zmienny.</li>
-              <li><code>A</code> — wiersz stały, kolumna zmienna.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h4>Przykład</h4>
-            <div class="codebox">C2: =$A1 * B → kopiowanie w dół/prawo i obserwacja zmian</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="sec-3-addr-f4" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff1f2 100%)">
-        <h3><i class="ti ti-keyboard"></i> 3.4 — Błyskawiczne przełączanie: <code>F4</code></h3>
-        <div class="two-col fit">
-          <div class="card">
-            <p>W edycji adresu naciśnij <strong>F4</strong>, aby przełączać style odwołań:</p>
-            <div class="codebox">A1 → $A → A → $A1 → A1</div>
-          </div>
-          <div class="card"><p>Tip: najpierw wpisz formułę względną, potem „zablokuj” potrzebne części F4.</p></div>
-        </div>
-      </section>
-
-      <section id="sec-3-math" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
-        <h3><i class="ti ti-math"></i> 3.5 — Formuły matematyczne</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ul>
-              <li><code>=SUMA(zakres)</code>, <code>=ŚREDNIA(zakres)</code>, <code>=MIN/ MAX(zakres)</code></li>
-              <li><code>=ZAOKR(liczba; n)</code>, <code>=POTĘGA(x; p)</code></li>
-            </ul>
-          </div>
-          <div class="card">
-            <h4>Przykłady</h4>
-            <div class="codebox">=SUMA(A1:A10) • =ŚREDNIA(B1:B20) • =ZAOKR(A1;2) • =POTĘGA(2;3)</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="sec-3-logic" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-cpu"></i> 3.6 — Formuły logiczne</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ul>
-              <li><code>=JEŻELI(warunek; a; b)</code></li>
-              <li><code>=ORAZ(w1; w2; …)</code> — PRAWDA, gdy wszystkie spełnione.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h4>Przykład</h4>
-            <div class="codebox">=JEŻELI(A1&gt;10;"Wysoka";"Niska") • =ORAZ(A1&gt;0;A1&lt;=100)</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="sec-3-text" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
-        <h3><i class="ti ti-letters-case"></i> 3.7 — Formuły tekstowe</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ul>
-              <li><code>=ZŁĄCZ.TEKSTY(…)</code>, <code>=LEWY(tekst; n)</code>, <code>=PRAWY(tekst; n)</code></li>
-            </ul>
-          </div>
-          <div class="card"><div class="codebox">=ZŁĄCZ.TEKSTY(A1;" ";B1) • =LEWY(A1;3) • =PRAWY(A1;3)</div></div>
-        </div>
-      </section>
-
-      <section id="sec-3-lookup" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-        <h3><i class="ti ti-search"></i> 3.8 — Wyszukiwanie</h3>
-        <div class="two-col fit">
-          <div class="card">
-            <ul>
-              <li><code>=WYSZUKAJ.PIONOWO(…)</code>, <code>=INDEKS(…)</code>, <code>=PODAJ.POZYCJĘ(…)</code></li>
-            </ul>
-          </div>
-          <div class="card"><div class="codebox">=WYSZUKAJ.PIONOWO(A1;B1:D10;2;FAŁSZ) • =INDEKS(A1:C10;2;3)</div></div>
-        </div>
-      </section>
-
-      <section id="sec-3-date" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
-        <h3><i class="ti ti-calendar"></i> 3.9 — Daty i czas</h3>
-        <div class="two-col fit">
-          <div class="card"><ul><li><code>=DZIŚ()</code>, <code>=TERAZ()</code>, <code>=ROK(data)</code></li></ul></div>
-          <div class="card"><div class="codebox">=DZIŚ() • =TERAZ() • =ROK(A1)</div></div>
-        </div>
-      </section>
-
-      <section id="sec-3-cheats" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#eef2ff 100%)">
-        <h3><i class="ti ti-stars"></i> 3.10 — Niezbędnik formuł</h3>
-        <ul class="fit">
-          <li><strong>SUMA</strong>, <strong>ŚREDNIA</strong>, <strong>MIN/MAX</strong>, <strong>ZAOKR</strong>, <strong>POTĘGA</strong></li>
-          <li><strong>JEŻELI</strong>, <strong>ORAZ</strong></li>
-          <li><strong>ZŁĄCZ.TEKSTY</strong>, <strong>LEWY</strong>, <strong>PRAWY</strong></li>
-          <li><strong>WYSZUKAJ.PIONOWO</strong>, <strong>INDEKS</strong>, <strong>PODAJ.POZYCJĘ</strong></li>
-          <li><strong>DZIŚ</strong>, <strong>TERAZ</strong>, <strong>ROK</strong></li>
-        </ul>
-        <p class="hint">Adresowanie: A1 (względne) • $A (bezwzględne) • $A1 / A (mieszane) • skrót: <strong>F4</strong>.</p>
-      </section>
-
-    </section>
-
+    </div>
   </div>
-</div>
 
-<script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
-<script>
-  Reveal.initialize({
-    hash: true,
-    slideNumber: 'c/t',
-    controls: true,
-    progress: true,
-    transition: 'fade',
-    backgroundTransition: 'fade',
-    width: 1280,
-    height: 720,
-    margin: 0.04,
-    minScale: 0.2,
-    maxScale: 2.0,
-    center: true
-  });
+  <script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      controls: true,
+      progress: true,
+      transition: 'fade',
+      backgroundTransition: 'fade',
+      width: 1280,
+      height: 720,
+      margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2.0,
+      center: true
+    });
 
-  (function(){
-    const lb = document.createElement('div');
-    lb.className = 'lb';
-    lb.innerHTML = `
+    (function () {
+      const lb = document.createElement('div');
+      lb.className = 'lb';
+      lb.innerHTML = `
       <div class="lb__frame">
         <div class="lb__bar">
           <span class="lb__caption">Podgląd</span>
@@ -839,28 +1270,29 @@
         </div>
         <img class="lb__img" id="lb-img" alt="">
       </div>`;
-    document.body.appendChild(lb);
+      document.body.appendChild(lb);
 
-    const imgEl = lb.querySelector('#lb-img');
-    const capEl = lb.querySelector('.lb__caption');
-    const closeBtn = lb.querySelector('#lb-close');
+      const imgEl = lb.querySelector('#lb-img');
+      const capEl = lb.querySelector('.lb__caption');
+      const closeBtn = lb.querySelector('#lb-close');
 
-    const open = (src, cap) => { imgEl.src = src; capEl.textContent = cap || 'Podgląd'; lb.classList.add('open'); };
-    const close = () => lb.classList.remove('open');
+      const open = (src, cap) => { imgEl.src = src; capEl.textContent = cap || 'Podgląd'; lb.classList.add('open'); };
+      const close = () => lb.classList.remove('open');
 
-    document.addEventListener('click', (e) => {
-      const el = e.target.closest('.js-pop');
-      if(!el) return;
-      const src = el.getAttribute('data-full') || el.getAttribute('src');
-      const cap = el.getAttribute('alt') || '';
-      open(src, cap);
-    });
+      document.addEventListener('click', (e) => {
+        const el = e.target.closest('.js-pop');
+        if (!el) return;
+        const src = el.getAttribute('data-full') || el.getAttribute('src');
+        const cap = el.getAttribute('alt') || '';
+        open(src, cap);
+      });
 
-    closeBtn.addEventListener('click', close);
-    lb.addEventListener('click', (e) => { if(e.target === lb) close(); });
-    document.addEventListener('keydown', (e) => { if(e.key === 'Escape' && lb.classList.contains('open')) close(); });
-  })();
-</script>
+      closeBtn.addEventListener('click', close);
+      lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.classList.contains('open')) close(); });
+    })();
+  </script>
 
 </body>
+
 </html>
