@@ -581,34 +581,45 @@
             <figure>
               <img class="fullimg js-pop" src="images/0_folder_z_plikami.png" data-full="images/0_folder_z_plikami.png"
                 alt="Folder z plikami .txt: martianeum.txt zaznaczony">
+                <a href="images/martianeum.txt" download>Pobierz plik martianeum.txt</a>
+
               <figcaption>Folder z plikami — wybieramy <em>martianeum.txt</em></figcaption>
             </figure>
           </div>
         </section>
 
-        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
-          <h3><i class="ti ti-brand-excel"></i> Dane — jak otworzyć plik .txt w Excelu (krok 2)</h3>
-          <div class="two-col fit">
-            <div class="card">
-              <ol>
-                <li>Prawy klik na pliku → <em>Otwórz w aplikacji</em> → <strong>Microsoft Excel</strong>.</li>
-                <li>Jeśli trzeba: <em>Dane → Z tekstu/CSV</em> i właściwy separator (np. tabulator).</li>
-              </ol>
-              <p class="hint"><strong>Dlaczego tak?</strong> Excel od razu zrobi poprawne kolumny i typy danych —
-                gotowe do formuł i tabel przestawnych.</p>
-            </div>
-            <figure>
-              <img class="fullimg js-pop" src="images/0_wybor_excel.png" data-full="images/0_wybor_excel.png"
-                alt="Kontekstowe menu: Otwórz w aplikacji → Microsoft Excel">
-              <figcaption>Otwieramy .txt bezpośrednio w Excelu</figcaption>
-            </figure>
-          </div>
-        </section>
+<section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
+  <h3><i class="ti ti-brand-excel"></i> Dane — jak otworzyć plik .txt w Excelu (krok 2)</h3>
+  <div class="two-col fit">
+    <div class="card">
+      <ol>
+        <li>Prawy klik na pliku → <em>Otwórz w notatniku</em> → <em>Skopiuj(control+a,control+c)</em>.</li>
+        <li>Wklej do Excela(control+v)</li>
+      </ol>
+      <p class="hint">
+        <strong>Dlaczego tak?</strong> Excel od razu zrobi poprawne kolumny i typy danych —
+        gotowe do formuł i tabel przestawnych.
+      </p>
+    </div>
+<figure style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+  <div>
+    <img class="fullimg js-pop" src="images/kopiowanie1.png"
+     alt="Kopiowanie danych z notatnika">
+    <figcaption>Kopiowanie z notatnika</figcaption>
+  </div>
+  <div>
+    <img class="fullimg js-pop" src="images/kopiowanie2.png" alt="Dane w Excelu">
+    <figcaption>Wklejanie w Excelu</figcaption>
+  </div>
+</figure>
+
+  </div>
+</section>
+
 
         <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
           <h3><i class="ti ti-table"></i> Dane — plik .txt otwarty w Excelu</h3>
-          <p class="fit">Kolumny: <em>data</em>, <em>nazwa_obszaru</em>, <em>masa [kg]</em>, <em>zawartość [%]</em>,
-            <em>ile wydobyto</em>.
+          <p class="fit">Kolumny: <em>data</em>, <em>nazwa_obszaru</em>, <em>masa [kg]</em>, <em>zawartość [%]</em>.
           </p>
           <figure>
             <img class="fullimg js-pop" src="images/tabela.png" data-full="images/tabela.png"
@@ -645,43 +656,78 @@
             <figcaption>Co dokładnie liczymy w 6.1</figcaption>
           </figure>
         </section>
+        <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)"> 
+          <h3><i class="ti ti-calculator"></i> 6.1 — Dodanie kolumny „ile wydobyto”</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ol>
+                <li>W kolumnie <strong>E</strong> wpisz nagłówek: <code>ile wydobyto</code>.</li>
+                <li>W komórce <strong>E2</strong> wpisz formułę:
+                  <div class="codebox">
+                    =C2*D2/100
+                  </div>
+                </li>
+                <li>Skopiuj formułę w dół do wszystkich wierszy.</li>
+              </ol>
+              <p class="hint">
+                <strong>Dlaczego tak?</strong> „ile wydobyto” = masa próbki × zawartość (%) ÷ 100.
+              </p>
+        </section>
 
-        <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-          <h3><i class="ti ti-checklist"></i> 6.1 — Kroki i uwagi</h3>
+        <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)"> 
+          <h3><i class="ti ti-checklist"></i> 6.1 — Kroki i uwagi (część 1)</h3>
           <div class="two-col fit">
             <div class="card">
               <ol>
                 <li>Kliknij dowolną komórkę w tabeli.</li>
                 <li>Wpisz:
                   <div class="codebox">
-                    =SUMA(C2:C2073) &nbsp; ⟶ łączna masa ładunków (kolumna C)<br />
+                    =SUMA(C2:C2073) &nbsp; ⟶ łączna masa ładunków (kolumna C)
+                  </div>
+                </li>
+                <li>Zatwierdź <strong>Enter</strong> i odczytaj wartość.</li>
+              </ol>
+              <p class="hint"><strong>Dlaczego tak?</strong> Polecenie „łączna masa” wskazuje na funkcję <code>SUMA()</code>.</p>
+            </div>
+            <figure>
+              <img class="fullimg js-pop" src="images/formula_zad6.1.1.png" 
+                  data-full="images/formula_zad6.1.1.png" 
+                  alt="Formuła sumująca kolumnę masa [kg]">
+              <figcaption>Formuła dla masy ładunków</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)"> 
+          <h3><i class="ti ti-checklist"></i> 6.1 — Kroki i uwagi (część 2)</h3>
+          <div class="two-col fit">
+            <div class="card">
+              <ol>
+                <li>Kliknij pustą komórkę.</li>
+                <li>Wpisz:
+                  <div class="codebox">
                     =SUMA(E:E) &nbsp; ⟶ łączna masa martianeum (kolumna E)
                   </div>
                 </li>
-                <li>Zatwierdź <strong>Enter</strong> i odczytaj wartości.</li>
+                <li>Zatwierdź <strong>Enter</strong> i odczytaj wartość.</li>
               </ol>
-              <p class="hint"><strong>Dlaczego tak?</strong> Słowo „łączna” wymusza <code>SUMA()</code> (nie średnią
-                ani maksimum).</p>
+              <p class="hint"><strong>Dlaczego tak?</strong> Ta formuła sumuje całą kolumnę <em>ile wydobyto</em>.</p>
             </div>
-            <div>
-              <figure>
-                <img class="fullimg js-pop" src="images/formula_zad6.1.1.png" data-full="images/formula_zad6.1.1.png"
-                  alt="Formuła sumująca kolumnę masa [kg]">
-                <figcaption>Formuła dla masy ładunków</figcaption>
-              </figure>
-              <figure>
-                <img class="fullimg js-pop" src="images/formula_6.1.2.png" data-full="images/formula_6.1.2.png"
+            <figure>
+              <img class="fullimg js-pop" src="images/formula_6.1.2.png" 
+                  data-full="images/formula_6.1.2.png" 
                   alt="Formuła sumująca kolumnę ile wydobyto">
-                <figcaption>Formuła dla łącznej masy martianeum</figcaption>
-              </figure>
-            </div>
+              <figcaption>Formuła dla łącznej masy martianeum</figcaption>
+            </figure>
           </div>
           <figure>
             <img class="fullimg fullimg--sm js-pop" src="images/odpowiedz_zad6.1.png"
-              data-full="images/odpowiedz_zad6.1.png" alt="Wynik 6.1 w Excelu">
-            <figcaption>Wynik 6.1: ładunki 41498,2 kg; martianeum 3092,2943 kg</figcaption>
+                data-full="images/odpowiedz_zad6.1.png" 
+                alt="Wynik 6.1 w Excelu">
+            <figcaption>Wynik: ładunki 41498,2 kg; martianeum 3092,2943 kg</figcaption>
           </figure>
         </section>
+
 
         <section id="sec-6-2" data-backto="sec-2-home"
           data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
@@ -720,99 +766,167 @@
           </div>
         </section>
 
-        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
-          <h3><i class="ti ti-settings"></i> 6.2 — Wynik i weryfikacja</h3>
-          <div class="two-col fit">
-            <div class="card">
-              <p><strong>Wynik:</strong> najmniejsza średnia dla <strong>Thaumasia</strong> ≈ <strong>17,8357
-                  kg</strong>.</p>
-              <div class="codebox">=MIN(B:B) ⟶ szybka kontrola wartości minimalnej</div>
-            </div>
-            <figure>
-              <img class="fullimg js-pop" src="images/formula_min.png" data-full="images/formula_min.png"
-                alt="Formuła =MIN(B:B)">
-              <figcaption>Sprawdzenie najmniejszej średniej</figcaption>
-            </figure>
-          </div>
-        </section>
+              <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
+                <h3><i class="ti ti-settings"></i> 6.2 — Wynik i weryfikacja</h3>
+                <div class="two-col fit">
+                  <div class="card">
+                    <p><strong>Wynik:</strong> najmniejsza średnia dla <strong>Thaumasia</strong> ≈ <strong>17,8357
+                        kg</strong>.</p>
+                    <div class="codebox">=MIN(B:B) ⟶ szybka kontrola wartości minimalnej</div>
+                  </div>
+                  <figure>
+                    <img class="fullimg js-pop" src="images/formula_min.png" data-full="images/formula_min.png"
+                      alt="Formuła =MIN(B:B)">
+                    <figcaption>Sprawdzenie najmniejszej średniej</figcaption>
+                  </figure>
+                </div>
+              </section>
 
-        <section id="sec-6-3" data-backto="sec-2-home"
-          data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
-          <h3><i class="ti ti-calendar-week"></i> 6.3 — Treść podpunktu</h3>
-          <figure>
-            <img class="fullimg js-pop" src="images/zadanie6.3_tresc.png" data-full="images/zadanie6.3_tresc.png"
-              alt="Treść zadania 6.3">
-            <figcaption>Opis 6.3 (cykle 7-dniowe i maksimum)</figcaption>
-          </figure>
-        </section>
+            <section id="sec-6-3" data-backto="sec-2-home"
+              data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
+              <h3><i class="ti ti-calendar-week"></i> 6.3 — Co mamy policzyć?</h3>
+              <div class="two-col fit">
+                <div class="card">
+                  <p>Potrzebujemy znaleźć <strong>największą łączną masę</strong> za dowolny
+                    <strong>pełny 7-dniowy okres</strong> (kolejne 7 dni w danych), a następnie wskazać
+                    <strong>datę początku</strong> tego okresu.</p>
+                  <p>Policzymy to w pomocniczej kolumnie, w której każdy 7-dniowy blok ma własną
+                    sumę — dzięki temu łatwo wybrać maksimum.</p>
+                  <ul>
+                    <li>Kolumna <strong>A</strong> — daty (rosnąco, bez przerw).</li>
+                    <li>Kolumna <strong>C</strong> — <em>masa [kg]</em> (to właśnie będziemy sumować po 7 dniach).</li>
+                  </ul>
+                  <p class="hint"><strong>Wskazówka:</strong> jeśli dane nie są posortowane, użyj
+                    <em>Dane → Sortuj → Data rosnąco</em>.</p>
+                </div>
+                <figure>
+                  <img class="fullimg js-pop" src="images/zadanie6.3_tresc.png" data-full="images/zadanie6.3_tresc.png"
+                    alt="Treść zadania 6.3">
+                  <figcaption>Opis: sumy 7-dniowe i wskazanie maksimum</figcaption>
+                </figure>
+              </div>
+            </section>
 
-        <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-          <h3><i class="ti ti-plus-minus"></i> 6.3 — Kroki: suma w cyklach 7 dni</h3>
-          <div class="two-col fit">
-            <div class="card">
-              <ol>
-                <li>Kolumna <strong>F</strong> → nagłówek <em>suma_w_okresie</em>.</li>
-                <li>F2: <code>=C2</code> (pierwszy dzień); F3: <code>=F2+C3</code> i przeciągnij do 7. dnia.</li>
-                <li>Zaznacz blok 7 komórek i przeciągaj w dół — kolejne cykle 7-dniowe.</li>
-              </ol>
-              <div class="mini-pill">Użyte: <code>=C2</code>, <code>=F2+C3</code></div>
-            </div>
-            <div>
-              <figure>
-                <img class="fullimg js-pop" src="images/zadanie6.3_kolumna_suma_w_okresie.1.png"
-                  data-full="images/zadanie6.3_kolumna_suma_w_okresie.1.png"
-                  alt="Kolumna suma_w_okresie: start (F2= C2)">
-                <figcaption>Start kolumny: F2 = C2</figcaption>
-              </figure>
-              <figure>
-                <img class="fullimg js-pop" src="images/6.3_suma_w_okresie_7_dni.png"
-                  data-full="images/6.3_suma_w_okresie_7_dni.png" alt="Pierwszy pełny cykl 7 dni w kolumnie F">
-                <figcaption>Pierwszy pełny cykl 7 dni</figcaption>
-              </figure>
-            </div>
-          </div>
-          <div class="figure-row">
-            <figure>
-              <img class="halfimg js-pop" src="images/6.3_suma_w_okresie_wiele_razy_7_dni.png"
-                data-full="images/6.3_suma_w_okresie_wiele_razy_7_dni.png"
-                alt="Wielokrotność okresu 7 dni po przeciągnięciu bloku">
-              <figcaption>Przeciągnięte wielokrotności 7 dni</figcaption>
-            </figure>
-            <figure>
-              <img class="halfimg js-pop" src="images/zadanie6.3_kolumna_suma_w_okresie.2.png"
-                data-full="images/zadanie6.3_kolumna_suma_w_okresie.2.png"
-                alt="Powiększenie kolumny F z wieloma 7-dniowymi cyklami">
-              <figcaption>Kolumna F — widok z wieloma cyklami</figcaption>
-            </figure>
-          </div>
-        </section>
+            <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+              <h3><i class="ti ti-plus"></i> 6.3 — Kolumna pomocnicza: start liczenia</h3>
+              <div class="two-col fit">
+                <div class="card">
+                  <ol>
+                    <li>W kolumnie <strong>F</strong> wpisz nagłówek: <code>suma_w_okresie</code>.</li>
+                    <li>W komórce <strong>F2</strong> wpisz:
+                      <div class="codebox">=C2</div>
+                      To pierwszy dzień pierwszego okresu — suma startuje od masy z dnia 1.
+                    </li>
+                    <li>W komórce <strong>F3</strong> wpisz:
+                      <div class="codebox">=F2+C3</div>
+                      Teraz suma obejmuje już 2 kolejne dni (dzień 1 + dzień 2).
+                    </li>
+                  </ol>
+                  <p class="hint"><strong>Idea:</strong> w obrębie tygodnia „doklejamy” kolejne dni do sumy,
+                    aż do 7. wiersza (czyli końca tygodnia).</p>
+                </div>
+                <figure>
+                  <img class="fullimg js-pop" src="images/zadanie6.3_kolumna_suma_w_okresie.1.png"
+                    data-full="images/zadanie6.3_kolumna_suma_w_okresie.1.png"
+                    alt="Kolumna suma_w_okresie: start (F2= C2)">
+                  <figcaption>Start sumowania w kolumnie F</figcaption>
+                </figure>
+              </div>
+            </section>
 
-        <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
-          <h3><i class="ti ti-arrow-big-up-lines"></i> 6.3 — Maksimum i data początku</h3>
-          <div class="two-col fit">
-            <div class="card">
-              <ol>
-                <li>Zaznacz kolumnę F (F2 → <strong>Shift+Ctrl+↑</strong>).</li>
-                <li><code>=MAX(F:F)</code> — największa 7-dniowa suma.</li>
-                <li>Formatowanie warunkowe → „Równe…” → wpisz wynik (np. <code>174,5</code>) → odczytaj datę z kolumny
-                  A.</li>
-              </ol>
-              <div class="mini-pill">Użyte: <code>=MAX(F:F)</code>, formatowanie warunkowe</div>
-            </div>
-            <div class="figure-row">
-              <figure>
-                <img class="halfimg js-pop" src="images/6.3_formula_max.png" data-full="images/6.3_formula_max.png"
-                  alt="Formuła =MAX(F:F) w pasku formuł">
-                <figcaption>Maksimum z kolumny F</figcaption>
-              </figure>
-              <figure>
-                <img class="halfimg js-pop" src="images/6.3_wyroznianie_komorek.png"
-                  data-full="images/6.3_wyroznianie_komorek.png" alt="Formatowanie warunkowe: reguła Równe…">
-                <figcaption>Reguła „Równe…”</figcaption>
-              </figure>
-            </div>
+            <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+              <h3><i class="ti ti-reload"></i> 6.3 — Pierwszy tydzień i kolejne cykle</h3>
+              <div class="two-col fit">
+                <div class="card">
+                  <ol>
+                    <li>Skopiuj formułę z <strong>F3</strong> w dół <strong>do F8</strong>.
+                      W komórce <strong>F8</strong> masz sumę pierwszego pełnego 7-dniowego okresu (dni 1–7).
+                    </li>
+                    <li>Zaznacz <strong>blok F2:F8</strong> (dokładnie 7 komórek) i
+                      <strong>przeciągnij w dół</strong> — Excel powieli wzór na kolejne tygodnie:
+                      F9:F15 (dni 8–14), F16:F22 (dni 15–21), itd.
+                    </li>
+                    <li>W każdym 7-wierszowym bloku ostatnia komórka zawiera sumę danego tygodnia.</li>
+                  </ol>
+                  <p class="hint"><strong>Dlaczego blok 7 komórek?</strong> Dzięki temu wzór
+                    działa cyklicznie: w nowym tygodniu znów zaczynamy od pojedynczego dnia i
+                    dobudowujemy sumę do 7. wiersza.</p>
+                </div>
+                <div class="figure-row">
+                  <figure>
+                    <img class="halfimg js-pop" src="images/6.3_suma_w_okresie_7_dni.png"
+                      data-full="images/6.3_suma_w_okresie_7_dni.png" alt="Pierwszy pełny cykl 7 dni w kolumnie F">
+                    <figcaption>Pierwszy pełny tydzień (suma w F8)</figcaption>
+                  </figure>
+                  <figure>
+                    <img class="halfimg js-pop" src="images/6.3_suma_w_okresie_wiele_razy_7_dni.png"
+                      data-full="images/6.3_suma_w_okresie_wiele_razy_7_dni.png"
+                      alt="Wielokrotność okresu 7 dni po przeciągnięciu bloku">
+                    <figcaption>Powielone tygodnie (F2:F8 przeciągnięte w dół)</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </section>
+
+<section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)"> 
+  <h3><i class="ti ti-arrow-big-up-lines"></i> 6.3 — Maksimum i data początku</h3>
+  <div class="two-col fit">
+    <div class="card">
+      <ol>
+        <li>Oblicz największą tygodniową sumę:
+          <div class="codebox">=MAX(F:F)</div>
+        </li>
+        <li>Znajdź w kolumnie F komórkę równą tej wartości (np. formatowaniem warunkowym „Równe…”),
+          bo to <strong>ostatni dzień</strong> tygodnia z maksimum.</li>
+        <li>Datę początku tego tygodnia wyznaczysz odejmując 6 dni od odpowiadającej jej daty
+          w kolumnie A. Formuła (w polskim Excelu), jeśli chcesz mieć to automatycznie:
+          <div class="codebox">
+            =INDEKS(A:A; WIERSZ(INDEKS(F:F; PODAJ.POZYCJĘ(MAX(F:F); F:F; 0))) - 6)
           </div>
-        </section>
+          Wyjaśnienie: szukamy wiersza z maksymalną sumą (ostatni dzień tygodnia), a następnie
+          przesuwamy się o 6 wierszy w górę do daty początku okresu.
+        </li>
+      </ol>
+      <p class="hint"><strong>Uwaga:</strong> formuła zadziała poprawnie, gdy w kolumnie A są
+        kolejne dni bez luk, a kolumna F tworzona jest dokładnie w blokach po 7 wierszy.</p>
+    </div>
+
+    <!-- Prawa kolumna -->
+    <div>
+      <div class="figure-row">
+        <figure>
+          <img class="halfimg js-pop" src="images/6.3_formula_max.png" data-full="images/6.3_formula_max.png"
+            alt="Formuła =MAX(F:F) w pasku formuł">
+          <figcaption>Maksimum z kolumny F</figcaption>
+        </figure>
+        <figure>
+          <img class="halfimg js-pop" src="images/6.3_wyroznianie_komorek.png"
+            data-full="images/6.3_wyroznianie_komorek.png" alt="Formatowanie warunkowe: reguła Równe…">
+          <figcaption>Wyróżnienie komórki z maksimum</figcaption>
+        </figure>
+      </div>
+
+      <!-- NOWY blok wyjaśnienia formuły -->
+      <div class="card" style="margin-top:1rem; font-size:.95em;">
+        <h4 style="margin:0 0 .5rem 0;">Rozbicie formuły — co oznacza każdy fragment?</h4>
+        <ul style="margin:.25rem 0 .25rem 1.1rem;">
+          <li><code>MAX(F:F)</code> — największa 7-dniowa suma w kolumnie F.</li>
+          <li><code>PODAJ.POZYCJĘ(MAX(F:F); F:F; 0)</code> — pozycja (indeks w kolumnie) <em>pierwszego</em> wystąpienia maksimum; <code>0</code> = dopasowanie dokładne.</li>
+          <li><code>INDEKS(F:F; …)</code> — zwraca komórkę F z tą pozycją (ostatni dzień rekordu).</li>
+          <li><code>WIERSZ(…)</code> — zamienia komórkę na numer wiersza w arkuszu.</li>
+          <li><code>- 6</code> — cofamy się o 6 wierszy, czyli do <strong>początku</strong> tygodnia (1. z 7 dni).</li>
+          <li><code>INDEKS(A:A; …)</code> — pobiera z kolumny A datę początku tego tygodnia.</li>
+        </ul>
+        <p style="font-size:.9em; opacity:.8; margin:.25rem 0 0 0;">
+          Jeśli maksimum występuje kilka razy, zwrócona będzie pierwsza taka pozycja w kolumnie F.
+        </p>
+      </div>
+      <!-- /NOWY blok -->
+    </div>
+    <!-- /Prawa kolumna -->
+  </div>
+</section>
+
 
         <section id="sec-6-4" data-backto="sec-2-home"
           data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
@@ -824,32 +938,7 @@
           </figure>
         </section>
 
-        <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
-          <h3><i class="ti ti-tools"></i> 6.4 — Przygotowanie: kolumny <em>pomoc</em> i <em>rok</em></h3>
-          <div class="two-col fit">
-            <div class="card">
-              <ol>
-                <li>Dodaj <strong>pomoc</strong> = 1 w całej kolumnie.</li>
-                <li>Dodaj <strong>rok</strong> = <code>=ROK(A2)</code> i przeciągnij.</li>
-              </ol>
-              <p class="hint"><strong>Dlaczego tak?</strong> Suma jedynek daje liczbę przewozów, a „rok” porządkuje
-                wiersze w przestawnej.</p>
-              <div class="mini-pill">Użyte: <code>=1</code>, <code>=ROK(A2)</code></div>
-            </div>
-            <div>
-              <figure>
-                <img class="fullimg js-pop" src="images/6.4_rok.png" data-full="images/6.4_rok.png"
-                  alt="Formuła =ROK(A2) w kolumnie rok">
-                <figcaption>Wyciągnięcie roku z daty</figcaption>
-              </figure>
-              <figure>
-                <img class="fullimg js-pop" src="images/6.4_wyniki.png" data-full="images/6.4_wyniki.png"
-                  alt="Początek zestawienia 6.4 po obróbce">
-                <figcaption>Po dodaniu kolumn pomoc i rok</figcaption>
-              </figure>
-            </div>
-          </div>
-        </section>
+  <section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)"> <h3><i class="ti ti-tools"></i> 6.4 — Przygotowanie: kolumny <em>pomoc</em> i <em>rok</em></h3> <div class="two-col fit"> <div class="card"> <ol> <li>Dodaj <strong>pomoc</strong> = 1 w całej kolumnie.</li> <li>Dodaj <strong>rok</strong> = <code>=ROK(A2)</code> i przeciągnij.</li> </ol> <p class="hint"><strong>Dlaczego tak?</strong> Suma jedynek daje liczbę przewozów, a „rok” porządkuje wiersze w przestawnej.</p> <div class="mini-pill">Użyte: <code>=1</code>, <code>=ROK(A2)</code></div> </div> <div> <figure> <img class="fullimg js-pop" src="images/6.4_rok.png" data-full="images/6.4_rok.png" alt="Formuła =ROK(A2) w kolumnie rok"> <figcaption>Wyciągnięcie roku z daty</figcaption> </figure> <figure> <img class="fullimg js-pop" src="images/6.4_wyniki.png" data-full="images/6.4_wyniki.png" alt="Początek zestawienia 6.4 po obróbce"> <figcaption>Po dodaniu kolumn pomoc i rok</figcaption> </figure> </div> </div> </section>
 
         <section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
           <h3><i class="ti ti-chart-histogram"></i> 6.4 — WYKRES SKUMULOWANY KOLUMNOWY — <u>UTWORZENIE</u></h3>
@@ -897,6 +986,157 @@
             </div>
           </div>
         </section>
+
+<!-- 6.4 — Alternatywa: LICZ.WARUNKI (idea) -->
+<section data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
+  <h3><i class="ti ti-lightbulb"></i> 6.4 — Alternatywa: ręczna tabelka + <code>LICZ.WARUNKI</code></h3>
+  <div class="two-col fit">
+    <div class="card">
+      <p>Tworzymy <strong>ręczną tabelkę podsumowującą</strong> (wiersze = obszary, kolumny = lata).
+        W <em>każdej komórce</em> wstawiamy formułę <code>LICZ.WARUNKI</code> zliczającą wiersze
+        w głównej tabeli (A: data, B: nazwa_obszaru).</p>
+      <ul>
+        <li>Bez kolumny <em>pomoc</em> i bez tabeli przestawnej.</li>
+        <li>Wynik = liczba przewozów ładunku dla danego obszaru w danym roku.</li>
+      </ul>
+      <p class="hint"><strong>Cel:</strong> dokładnie to, o co prosi zadanie — zestawienie i później wykres skumulowany.</p>
+    </div>
+    <figure>
+      <img class="fullimg js-pop" src="images/zadanie6.4_tresc.png" alt="Treść zadania 6.4">
+      <figcaption>Najpierw zestawienie → potem wykres skumulowany</figcaption>
+    </figure>
+  </div>
+</section>
+<style>
+  /* Ułóż dwa obrazki obok siebie i ogranicz wysokość, aby mieściły się na slajdzie */
+  .figure-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: start;
+    margin-top: .5rem;
+  }
+  .figure-row figure{ margin: 0; }
+  .figure-row img{
+    width: 100%;
+    height: auto;
+    max-height: 40vh;      /* dopasuj w razie potrzeby */
+    object-fit: contain;
+    display: block;
+  }
+  .figure-row figcaption{
+    text-align: center;
+    font-size: .9em;
+    opacity: .85;
+    margin-top: .3rem;
+  }
+  @media (max-width: 1100px){
+    .figure-row{ grid-template-columns: 1fr; }
+  }
+</style>
+
+<style>
+  /* Układ dwóch obrazków w prawej kolumnie, tak żeby się mieściły */
+  .k64-fig-row{
+    display:flex; gap:1rem; align-items:flex-start; flex-wrap:wrap;
+  }
+  .k64-fig-row figure{ flex:1 1 260px; margin:0; }
+  .k64-fig-row img{
+    width:100%; height:auto; display:block;
+    max-height:40vh; object-fit:contain;   /* zmień np. na 36vh, jeśli za wysokie */
+  }
+  .k64-fig-row figcaption{ text-align:center; font-size:.9em; opacity:.85; margin-top:.3rem; }
+</style>
+
+<!-- 6.4 — Krok 1: automatyczne nagłówki (alfabetycznie) -->
+<section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#fff7ed 100%)">
+  <h3><i class="ti ti-table"></i> 6.4 — Krok 1: nagłówki z UNIKATY + SORTUJ</h3>
+  <div class="two-col fit">
+    <div class="card">
+      <ol>
+        <li>W komórce <strong>H3</strong> (start listy obszarów) wpisz:
+          <div class="codebox">=SORTUJ(UNIKATOWE($B$2:$B$9999))</div>
+          Mamy <strong>alfabetyczną</strong> listę obszarów rozlaną w dół.
+        </li>
+        <li>W komórce <strong>I2</strong> (nagłówki lat) wpisz:
+          <div class="codebox">=TRANSPORTUJ(SORTUJ(UNIKATOWE(ROK($A$2:$A$9999))))</div>
+          Lata rozleją się w prawo.
+        </li>
+        <li>Zostaw siatkę w prawo pustą — w następnym kroku
+          wypełnimy ją <code>LICZ.WARUNKI</code>.
+        </li>
+      </ol>
+      <p class="hint"><strong>Uwaga:</strong> to są formuły z „rozlewem” (365/2021). W starszym Excelu zrób
+        <em>Dane → Usuń duplikaty</em> na kolumnie B, potem <em>Sortuj A→Z</em>, i skopiuj wynik do H3 w dół; lata analogicznie z kolumny A.</p>
+      <div class="mini-pill">Użyte: <code>UNIKATY</code>, <code>SORTUJ</code>, <code>ROK</code></div>
+    </div>
+
+    <!-- PRAWA kolumna – dwa obrazki obok siebie -->
+    <div class="k64-fig-row">
+      <figure>
+        <img class="js-pop" src="images/tr1.png" alt="Lista obszarów – automatycznie">
+        <figcaption>Obszary tworzone automatycznie</figcaption>
+      </figure>
+      <figure>
+        <img class="js-pop" src="images/tr2.png" alt="Lata – automatycznie">
+        <figcaption>Lata tworzone automatycznie</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- 6.4 — Krok 2: pierwsza formuła LICZ.WARUNKI + kopiowanie -->
+<section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
+  <h3><i class="ti ti-calculator"></i> 6.4 — Krok 2: wypełnij komórki formułą</h3>
+  <div class="two-col fit">
+    <div class="card">
+      <ol>
+        <li>Stań w pierwszej komórce tabelki (np. <strong>I3</strong> — pierwszy obszar × pierwszy rok).</li>
+        <li>Wpisz formułę z zakresem dat (A: data, B: nazwa_obszaru):
+          <div class="codebox">
+            =LICZ.WARUNKI($B:$B; $F4;  $A:$A; "&gt;="&amp;DATA(H$3;1;1);  $A:$A; "&lt;="&amp;DATA(H$3;12;31))
+          </div>
+          <small>Jeżeli Excel wymaga cudzysłowów przy dacie, użyj <code>"2022-01-01"</code> zamiast <code>DATA(…)</code>.</small>
+        </li>
+
+        <li><strong>Skopiuj w prawo</strong> (dla kolejnych lat) i <strong>w dół</strong> (dla kolejnych obszarów).</li>
+      </ol>
+      <p class="hint"><strong>Dlaczego te dolary?</strong> <code>$B:$B</code> i <code>$A:$A</code> są stałe;
+        <code>$H3</code> blokuje kolumnę z nazwą przy przeciąganiu w prawo; <code>I$2</code> blokuje wiersz z rokiem
+        przy przeciąganiu w dół.</p>
+      <div class="mini-pill">Użyte: <code>LICZ.WARUNKI</code>, <code>DATA</code>, adresy mieszane</div>
+    </div>
+    <figure>
+      <img class="fullimg js-pop" src="images/liczwarunki_wypelnione.png" alt="Wypełniona tabelka LICZ.WARUNKI">
+      <figcaption>Tabelka z policzonymi przewozami</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 6.4 — Krok 4: wykres skumulowany z „niebieskiej tabelki” -->
+<section class="tight" data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%)">
+  <h3><i class="ti ti-chart-histogram"></i> 6.4 — Wykres skumulowany (z naszej tabelki)</h3>
+  <div class="two-col fit">
+    <div class="card">
+      <ol>
+        <li>Zaznacz w tabelce <strong>obszary + liczby lat</strong> (bez pustych kolumn/wierszy, bez „Sum końcowych”).</li>
+        <li><strong>Wstaw → Kolumnowy skumulowany</strong>.</li>
+        <li>Jeśli serie się odwróciły: <em>Przełącz wiersz/kolumnę</em>.</li>
+        <li>Dodaj: tytuł, opisy osi (X: „nazwy obszarów”, Y: „liczba przewozów ładunku”), legendę (lata).</li>
+      </ol>
+      <p class="hint">To dokładnie spełnia specyfikację zadania: zestawienie + wykres skumulowany kolumnowy.</p>
+    </div>
+    <figure>
+      <img class="fullimg js-pop" src="images/6.4_gotowy_wykres.png" alt="Gotowy wykres skumulowany">
+      <figcaption>Wykres z naszej tabelki</figcaption>
+    </figure>
+  </div>
+</section>
+
+
+
 
         <section id="sec-6-5" data-backto="sec-2-home"
           data-background-gradient="linear-gradient(180deg,#ffffff 0%,#f0f9ff 100%)">
